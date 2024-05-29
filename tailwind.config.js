@@ -2,12 +2,20 @@
 export default {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    'node_modules/flowbite-react/lib/esm/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primaryBlue':'#228be6',
+        'secondaryBlue': '#D7EAFB',
+        'primaryOrange': '#e67e22',
+        'ternaryBlue': '#0A3357'
+      }
+    },
   },
   plugins: [
-    require('daisyui'),
+    require('flowbite/plugin')
   ],
 }
 

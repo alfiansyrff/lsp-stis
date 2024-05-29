@@ -1,24 +1,56 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import CustomButton from '../../components/Button/PrimaryButton';
+import SkeletonCard from '../../components/Skeleton/Card';
+import TopLoader from '../../components/TopLoader';
+import Hero from '../../components/Hero';
+import Footer from '../../components/Footer/Footer';
+import FooterTitle from '../../components/Footer/FooterTittle';
+import StatisticCard from '../../components/StatisticCard/Index';
+import Heading from '../../components/Heading/Index';
+import VisiMisi from '../../components/VisiMisi/Index';
+// import Footer from '../../components/Footer'
 
-function Home() {
+const Home = () => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setProgress(20);
+      try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        setProgress(100);
+      } catch (error) {
+        setProgress(0);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className=''>
-      <h1 className='text-red-500 text-5xl'> Test Tailwind</h1>
+      <Hero />
+      <StatisticCard />
 
-        <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>open modal</button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">Press ESC key or click the button below to close</p>
-            <div className="modal-action">
-              <form method="dialog">
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
+      <VisiMisi />
+      
+      {/* <div className='my-[10em]'>
+
+      <Heading />
+      </div> */}
+
+      <TopLoader progress={progress} setProgress={setProgress} />
+
+      {/* <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard /> */}
+      <Footer/>
+        {/* <Footer /> */}
+
     </div>
-  )
+
+  );
 }
 
-export default Home
+export default Home;
