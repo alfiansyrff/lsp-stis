@@ -8,6 +8,7 @@ import FooterTitle from '../../components/Footer/FooterTittle';
 import StatisticCard from '../../components/StatisticCard/Index';
 import Heading from '../../components/Heading/Index';
 import VisiMisi from '../../components/VisiMisi/Index';
+import Lisensi from '../../components/Lisensi/Index';
 // import Footer from '../../components/Footer'
 
 const Home = () => {
@@ -33,6 +34,8 @@ const Home = () => {
       <StatisticCard />
 
       <VisiMisi />
+
+      <Lisensi />
       
       {/* <div className='my-[10em]'>
 

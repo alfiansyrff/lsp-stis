@@ -18,7 +18,7 @@ function VisiMisi() {
   const buttonWidth = `${longestTabTextWidth * 10}px`; // Adjust the factor 10 as needed
 
   return (
-    <div className='my-[15em]'>
+    <div className='mt-[15em]'>
       <Heading text={'Visi Misi dan Sasaran Mutu'} />
       <div className="z-50 mt-16 flex justify-center space-x-4 bg-ternaryBlue rounded-full w-1/4 mx-auto p-2">
         {tabs.map(tab => (
