@@ -31,7 +31,7 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0"></div>
 
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="absolute inset-0 flex items-center bg-gradient-hero opacity-80 justify-center">
         <div
@@ -46,7 +46,7 @@ const HeroSection = () => {
             <p className="text-lg md:text-[1.5em] w-3/4 mb-8 md:mb-10">
               Lembaga Sertifikasi Politeknik (LSP) Politeknik Statistika STIS adalah lembaga sertifikasi profesi pihak kesatu lembaga pendidikan dan pelatihan untuk melaksanakan sertifikasi kompetensi di bidang ilmu statistika dan sains data.
             </p>
-            <PrimaryButton text={'Selengkapnya'} cta={true} />
+            <PrimaryButton text={'Selengkapnya'} cta={true} link='/sertifikasi'/>
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-function FloatingInput({label, type, id}) {
+function FloatingInput({ label, type, id, showPassword, handleTogglePasswordVisibility }) {
   return (
     <div className="relative">
       <input
         type={type}
         id={id}
-        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-full border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:primaryBlue peer"
+        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-full border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primaryBlue peer"
         placeholder=" "
       />
       <label
@@ -15,9 +16,15 @@ function FloatingInput({label, type, id}) {
       >
         {label}
       </label>
+      {id === 'password' && (
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
+          <button type="button" onClick={handleTogglePasswordVisibility} className="focus:outline-none">
+            {showPassword ? <VisibilityOff className='text-ternaryBlue hover:bg-secondaryBlue rounded p-1' fontSize='medium'/> : <Visibility className='text-ternaryBlue hover:bg-secondaryBlue rounded p-1' fontSize='medium' />}
+          </button>
+        </div>
+      )}
     </div>
-
-  )
+  );
 }
 
-export default FloatingInput
+export default FloatingInput;

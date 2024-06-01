@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Home from './pages/guest/Home';
 import Login from './pages/guest/Login';
+import Berita from './pages/guest/Berita';
+import Sertifikasi from './pages/guest/Sertifikasi';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/berita" element={<Berita />} />
+          <Route path="/sertifikasi" element={<Sertifikasi />} />
         </Routes>
       </BrowserRouter>
   )

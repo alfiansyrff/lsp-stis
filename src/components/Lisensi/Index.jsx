@@ -41,7 +41,7 @@ function Lisensi() {
                 src="/image/Sertifikat Lisensi BNSP.jpg"
                 width={250}
                 alt="Sertifikat Lisensi BNSP"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ translateY: -10 }}
                 srcSet=""
               />
             </LightGallery>

@@ -39,7 +39,14 @@ function StatisticCard() {
         transition={{ duration: 0.5 }}
       >
         <div className='flex flex-col items-center justify-center space-y-3 '>
-          <img src="/image/skema_sertif.png" width={100} alt="skema sertif lsp stis" />
+          <motion.img
+                className='hover:cursor-pointer'
+                src="/image/skema_sertif.png"
+                alt="Skema Sertifikat LSP STIS"
+                whileHover={{ translateY: -5 }}
+                srcSet=""
+                width={100}
+          />
           {showCard && <h5 className='text-center text-4xl text-ternaryBlue font-bold'>
             <CountUp end={2} duration={2}/>
           </h5>}
@@ -47,7 +54,15 @@ function StatisticCard() {
         </div>
 
         <div className='flex flex-col items-center justify-center space-y-3 '>
-          <img src="/image/asesor.png" width={100} alt="asesor sertif lsp stis" />
+          <motion.img
+                  className='hover:cursor-pointer'
+                  src="/image/asesor.png"
+                  alt="asesor sertif lsp stis"
+                  whileHover={{ translateY: -5 }}
+                  srcSet=""
+                  width={100}
+            />
+          {/* <img src="/image/asesor.png" width={100} alt="asesor sertif lsp stis" /> */}
           {showCard && <h5 className='text-center text-4xl text-ternaryBlue font-bold'>
             <CountUp end={20} duration={2}/>
           </h5>}
@@ -55,7 +70,15 @@ function StatisticCard() {
         </div>
 
         <div className='flex flex-col items-center justify-center space-y-3 '>
-          <img src="/image/pemegang_sertif.png" width={100} alt="skema sertif lsp stis" />
+          <motion.img
+                  className='hover:cursor-pointer'
+                  src="/image/pemegang_sertif.png"
+                  alt="pemegang sertif lsp stis"
+                  whileHover={{ translateY: -5 }}
+                  srcSet=""
+                  width={100}
+            />
+          {/* <img src="/image/pemegang_sertif.png" width={100} alt="skema sertif lsp stis" /> */}
           {showCard && <h5 className='text-center text-4xl text-ternaryBlue font-bold'>
             <CountUp end={0} duration={2}/>
           </h5>}

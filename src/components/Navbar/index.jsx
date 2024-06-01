@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import PrimaryButton from '../Button/PrimaryButton';
-import { Link } from 'react-router-dom';
-
 
 function Navbar() {
-
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,22 +21,34 @@ function Navbar() {
     };
   }, []);
 
+  const isHomePage = location.pathname === '/';
+
+
+  const getLinkClass = (path) => {
+    if (location.pathname === path) {
+      if (isHomePage && !scrolled) {
+        return `block py-1 px-4 text-white rounded transition-colors duration-300 hover:bg-gray-100 md:hover:bg-white md:hover:text-blue-700`;
+      }
+      return `block py-1 px-4 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')} rounded transition-colors duration-300 bg-secondaryBlue`;
+    }
+    return `block py-1 px-4 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')} rounded transition-colors duration-300 hover:bg-secondaryBlue`;
+  };
+  
   return (
     <div>
-      <nav className={`bg-transparent z-50 fixed w-full top-0 start-0 ${scrolled ? 'backdrop-filter backdrop-blur-lg' : ''}  transition-colors duration-300`}>
+      <nav className={`bg-transparent z-50 fixed w-full top-0 start-0 ${scrolled || !isHomePage ? 'backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200' : ''}  transition-colors duration-300`}>
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src='image/logo.png' className="h-8" alt="Flowbite Logo" />
-            
             <span className="text-left font-semibold text-white">
               <div className="text-sm lg:text-base font-semibold text-white">
-                <p className={`mb-0 ${scrolled ? 'text-ternaryBlue' : 'text-white'}`}>Lembaga Sertifikasi Profesi <br className="lg:hidden"/> <span className='block'>Politeknik Statistika STIS</span></p>
+              <p className={`mb-0 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')}`}>Lembaga Sertifikasi Profesi <br className="lg:hidden" /> <span className='block'>Politeknik Statistika STIS</span></p>
               </div>
             </span>
           </a>
 
           <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-            <button className={`${scrolled ? 'text-ternaryBlue' : 'text-white'}`}>Daftar</button>
+            <button className={`${scrolled || !isHomePage ? 'text-ternaryBlue' : 'text-white'}`}>Daftar</button>
             <Link to="/login">
               <PrimaryButton text={'Masuk'} />
             </Link>
@@ -51,24 +62,24 @@ function Navbar() {
           <div className="items-center bg-transparent justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                <a href="#" className={`block py-2 px-3 ${scrolled ? 'text-ternaryBlue' : 'text-white'} rounded md:bg-transparent md:p-0 md:dark:text-blue-500`} aria-current="page">Home</a>
+                <Link to="/" className={getLinkClass('/')}>Home</Link>
               </li>
               <li>
-                <a href="#" className={`block py-2 px-3 ${scrolled ? 'text-ternaryBlue' : 'text-white'} rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}>About</a>
+                <Link to="/regulasi" className={getLinkClass('/regulasi')}>Regulasi</Link>
               </li>
               <li>
-                <a href="#" className={`block py-2 px-3 ${scrolled ? 'text-ternaryBlue' : 'text-white'} rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}>Services</a>
+                <Link to="/sertifikasi" className={getLinkClass('/sertifikasi')}>Sertifikasi</Link>
               </li>
               <li>
-                <a href="#" className={`block py-2 px-3 ${scrolled ? 'text-ternaryBlue' : 'text-white'} rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}>Contact</a>
+                <Link to="/berita" className={getLinkClass('/berita')}>Berita</Link>
               </li>
+              
             </ul>
           </div>
         </div>
       </nav>
-
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

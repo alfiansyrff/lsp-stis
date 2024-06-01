@@ -71,7 +71,7 @@ const CustomPrevArrow = (props) => {
     <div className={`${className} flex items-center`} // Make the arrow bigger and change its color
     style={{ ...style}}
     onClick={onClick}>
-      <ArrowBackIos className='text-primaryBlue hover:text-ternaryBlue' />
+      <ArrowBackIos className='text-primaryBlue hover:text-ternaryBlue'  fontSize='large' />
     </div>
   )
 }
@@ -83,7 +83,7 @@ const CustomNextArrow = (props) => {
     <div className={`${className} flex items-center`} // Make the arrow bigger and change its color
     style={{ ...style}}
     onClick={onClick}>
-      <ArrowForwardIos className='text-primaryBlue hover:text-ternaryBlue' />
+      <ArrowForwardIos className='text-primaryBlue hover:text-ternaryBlue' fontSize='large' />
     </div>
   );
 }
