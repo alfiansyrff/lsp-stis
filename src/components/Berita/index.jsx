@@ -29,9 +29,18 @@ const beritaData = [
 function BeritaResume() {
   return (
     <div className='my-[10em] max-w-5xl mx-auto'>
-      <Heading text={'Berita'}/>
 
-      <div className='flex md:flex-row justify-evenly mx-auto mt-16 space-x-8 md:space-y-0'>
+      <div data-aos="fade-up"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-easing="ease-in-out">
+        <Heading text={'Berita'}/>
+      </div>
+
+      <div data-aos="zoom-in"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-easing="ease-in-out" className='flex md:flex-row justify-evenly mx-auto mt-16 space-x-8 md:space-y-0'>
 
         {beritaData.map((berita, index) => (
           <BeritaCard

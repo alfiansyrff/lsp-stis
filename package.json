@@ -18,17 +18,20 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
+    "aos": "^3.0.0-beta.6",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.9.0",
     "framer-motion": "^11.2.9",
     "lightgallery": "^2.7.2",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "react-slick": "^0.30.2",
     "react-top-loading-bar": "^2.3.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

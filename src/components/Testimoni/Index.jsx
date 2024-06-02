@@ -45,21 +45,33 @@ function Testimoni() {
 
   return (
     <div className='my-[10em] max-w-5xl mx-auto'>
-      <Heading text={'Testimoni'}/>
-      <Slider {...settings} className="space-x-4 mt-16">
-        <div className="w-full px-4">
-          <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'} linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
-        </div>
-        <div className="w-full px-4">
-          <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'}  linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
-        </div>
-        <div className="w-full px-4">
-          <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'}  linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
-        </div>
-        <div className="w-full px-4">
-          <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'}  linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
-        </div>
-      </Slider>
+
+      <div data-aos="fade-up"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-easing="ease-in-out">
+        <Heading text={'Testimoni'}/>
+      </div >
+
+      <div data-aos="zoom-in"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-easing="ease-in-out">
+        <Slider {...settings} className="space-x-4 mt-16">
+          <div className="w-full px-4">
+            <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'} linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
+          </div>
+          <div className="w-full px-4">
+            <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'}  linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
+          </div>
+          <div className="w-full px-4">
+            <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'}  linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
+          </div>
+          <div className="w-full px-4">
+            <CardVideo name={'Prof. Dr. Chairy, SE, MM.'} jabatan={'Guru Besar dan Sekretaris Yayasan'}  linkVideo={'https://lsp.stis.ac.id/video/2.mp4'}/>
+          </div>
+        </Slider>
+      </div>
     </div>
   )
 }

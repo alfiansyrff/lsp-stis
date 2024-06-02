@@ -76,6 +76,36 @@ margin: 1px;
   color: red;
 }
 
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(180deg);
+  }
+  50% {
+    transform: rotateY(360deg);
+  }
+  75% {
+    transform: rotateY(540deg);
+  }
+  100% {
+    transform: rotateY(720deg);
+  }
+}
+
+.multiple-flip {
+  animation: flip 2s ease-in-out forwards;
+}
+
+.bg-gradient-cta {
+  background: rgb(34,139,230);
+  background: -moz-linear-gradient(114deg, rgba(34,139,230,1) 0%, rgba(230,126,34,1) 100%);
+  background: -webkit-linear-gradient(114deg, rgba(34,139,230,1) 0%, rgba(230,126,34,1) 100%);
+  background: linear-gradient(114deg, rgba(34,139,230,1) 0%, rgba(230,126,34,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#228be6",endColorstr="#e67e22",GradientType=1);
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

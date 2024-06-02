@@ -14,27 +14,24 @@ function Login() {
 
   return (
     <div className="flex h-screen relative">
-      {/* Left side: Blue background */}
+
+
       <div className="w-7/12 relative">
-        {/* Blue background forming a quarter circle */}
+ 
         <div className="bg-primaryBlue h-full w-full rounded-br-full absolute top-0 left-0 bottom-0 z-0" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}></div>
-        {/* Back button */}
+   
         <Link to={'/'}  className='bg-white w-fit rounded-md flex space-x-2 items-center px-4 py-2 relative left-20 top-10 z-10'>
            <ArrowBack className='text-primaryBlue' fontSize='medium'/>
           <p className='text-primaryBlue'>Kembali</p>
         </Link>
-        {/* <a href='/' className='bg-white w-fit rounded-md flex space-x-2 items-center px-4 py-2 relative left-20 top-10 z-10'>
-          <ArrowBack className='text-primaryBlue' fontSize='medium'/>
-          <p className='text-primaryBlue'>Kembali</p>
-        </a> */}
-        {/* Image container */}
+
         <div className="absolute top-1/2 left-20 transform -translate-y-1/2 w-full text-center">
           <img className="object-cover" width={500} height={500} src="image/login.png" alt="Background Login" />
         </div>
       </div>
-      {/* Right side: Login form */}
+
       <div className="w-5/12 flex items-center justify-center">
-        <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
+        <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg border-2 border-gray-200">
           <h2 className="text-3xl font-bold text-ternaryBlue text-center mb-10">Masuk</h2>
           <form>
             <div className="mb-4">
@@ -65,8 +62,7 @@ function Login() {
             <div className='flex items-center justify-end'>
               <PrimaryButton text={'Masuk'} type='submit'/>
             </div>
-            
-            <p className='text-primaryBlue text-sm text-center mt-2'>Belum punya akun? <span><a className='text-ternaryBlue hover:text-primaryBlue' href="/register">Daftar</a></span> </p>
+            <p className='text-ternaryBlue text-sm text-center mt-2'>Belum punya akun? <span><Link to={'register'} className='text-primaryBlue  hover:text-ternaryBlue'>Daftar</Link></span> </p>
           </form>
         </div>
       </div>

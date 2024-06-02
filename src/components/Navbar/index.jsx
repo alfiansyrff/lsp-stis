@@ -24,15 +24,26 @@ function Navbar() {
   const isHomePage = location.pathname === '/';
 
 
+  // const getLinkClass = (path) => {
+  //   if (location.pathname === path) {
+  //     if (isHomePage && !scrolled) {
+  //       return `block py-1 px-4 text-white rounded transition-colors duration-300 hover:bg-gray-100 md:hover:bg-white md:hover:text-blue-700`;
+  //     }
+  //     return `block py-1 px-4 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')} rounded transition-colors duration-300 bg-secondaryBlue`;
+  //   }
+  //   return `block py-1 px-4 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')} rounded transition-colors duration-300 hover:bg-secondaryBlue`;
+  // };
   const getLinkClass = (path) => {
+    const baseClass = 'block py-1 px-4 rounded transition-colors duration-300';
+    const activeClass = isHomePage && !scrolled ? 'bg-white text-ternaryBlue' : 'text-ternaryBlue bg-secondaryBlue';
+    const hoverClass = isHomePage && !scrolled ? 'hover:text-ternaryBlue hover:bg-white' : 'hover:bg-secondaryBlue';
+
     if (location.pathname === path) {
-      if (isHomePage && !scrolled) {
-        return `block py-1 px-4 text-white rounded transition-colors duration-300 hover:bg-gray-100 md:hover:bg-white md:hover:text-blue-700`;
-      }
-      return `block py-1 px-4 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')} rounded transition-colors duration-300 bg-secondaryBlue`;
+      return `${baseClass} ${activeClass}`;
     }
-    return `block py-1 px-4 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')} rounded transition-colors duration-300 hover:bg-secondaryBlue`;
+    return `${baseClass} ${hoverClass} ${isHomePage && !scrolled ? 'text-white' : 'text-ternaryBlue'}`;
   };
+
   
   return (
     <div>
@@ -62,7 +73,7 @@ function Navbar() {
           <div className="items-center bg-transparent justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                <Link to="/" className={getLinkClass('/')}>Home</Link>
+                <Link to="/" className={getLinkClass('/')}>Beranda</Link>
               </li>
               <li>
                 <Link to="/regulasi" className={getLinkClass('/regulasi')}>Regulasi</Link>

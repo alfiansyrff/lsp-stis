@@ -10,6 +10,8 @@ import Home from './pages/guest/Home';
 import Login from './pages/guest/Login';
 import Berita from './pages/guest/Berita';
 import Sertifikasi from './pages/guest/Sertifikasi';
+import Reguilasi from './pages/guest/Reguilasi';
+
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/berita" element={<Berita />} />
           <Route path="/sertifikasi" element={<Sertifikasi />} />
+          <Route path="/regulasi" element={<Reguilasi />} />
         </Routes>
       </BrowserRouter>
   )

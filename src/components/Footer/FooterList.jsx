@@ -6,7 +6,7 @@ const FooterList = ({ items }) => {
       {items.map((item, index) => (
         <li className="my-1" key={index}>
           <div className="flex flex-row items-center justify-center">
-            <div className="flex items-center justify-center w-1/12 bg-white md:p-2 p-1 md:m-2 m-1 text-ternaryBlue rounded-full mr-2 transition-transform duration-300 ease-in-out transform hover:scale-110">
+            <div className="flex items-center justify-center bg-white md:p-2 p-1 md:m-2 m-1 text-ternaryBlue rounded-full mr-2 transition-transform duration-300 ease-in-out transform hover:scale-110">
               <item.icon />
             </div>
             <div className="w-3/4">
