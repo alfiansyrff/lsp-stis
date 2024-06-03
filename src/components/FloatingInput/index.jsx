@@ -1,12 +1,14 @@
 import React from 'react';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-function FloatingInput({ label, type, id, showPassword, handleTogglePasswordVisibility }) {
+function FloatingInput({ label, type, id, value, onChange, showPassword, handleTogglePasswordVisibility }) {
   return (
     <div className="relative">
       <input
         type={type}
         id={id}
+        value={value} // Ensure value is passed
+        onChange={onChange} // Ensure onChange is passed
         className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-full border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primaryBlue peer"
         placeholder=" "
       />

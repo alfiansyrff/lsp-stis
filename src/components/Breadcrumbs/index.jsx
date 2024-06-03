@@ -12,20 +12,20 @@ function BreadCrumbs({ links }) {
                   {link.label}
                 </a>
               ) : (
-                <div className="flex items-center">
-                  <svg className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <>
+                  <svg key={`svg-${index}`} className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  {link.href ? (
-                    <a href={link.href} className="ms-1 text-md font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">
+                  {index === links.length - 1 ? (
+                    <a key={`link-${index}`} href={link.href} className="ms-1 text-md font-medium text-ternaryBlue md:ms-2">
                       {link.label}
                     </a>
                   ) : (
-                    <span className="ms-1 text-md font-medium text-gray-500 md:ms-2 dark:text-gray-400">
+                    <a key={`link-${index}`} href={link.href} className="ms-1 text-md font-medium text-primaryBlue hover:text-ternaryBlue md:ms-2 dark:text-gray-400 dark:hover:text-white">
                       {link.label}
-                    </span>
+                    </a>
                   )}
-                </div>
+                </>
               )}
             </li>
           ))}

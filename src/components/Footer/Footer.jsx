@@ -7,8 +7,8 @@ import FooterList from './FooterList';
 const medSos = [
   {
     icon: Twitter,
-    href: 'http://twitter.com/STISJKT',
-    text: '@STISJKT',
+    href: 'http://twitter.com/Lspstis',
+    text: '@Lspstis',
   },
   {
     icon: YouTube,
@@ -17,8 +17,8 @@ const medSos = [
   },
   {
     icon: Instagram,
-    href: 'https://www.instagram.com/polstatstis/',
-    text: '@polstatstis',
+    href: 'https://www.instagram.com/lspstis/',
+    text: '@lspstis',
   },
   {
     icon: Facebook,
@@ -49,7 +49,7 @@ export default function Footer() {
       <div className="flex flex-col justify-center items-center md:w-4/12 mb-5 md:my-0">
         <div className='flex items-center'>
           <img
-            alt="logo semnas"
+            alt="logo stis"
             src="/image/logo.png"
             width={100}
             height={100}
@@ -80,11 +80,11 @@ export default function Footer() {
       </div>
 
       <div className='hidden md:block absolute right-0 bottom-0'>
-        <img src="image/pattern1.png" width={180} height={180} alt="" srcSet="" />
+        <img src="/image/pattern1.png" width={180} height={180} alt="" srcSet="" />
       </div>
 
       <div className='hidden md:block absolute left-0 bottom-0'>
-        <img src="image/pattern1.png" width={180} height={180} alt="" srcSet=""  style={{ transform: 'scaleX(-1)' }} />
+        <img src="/image/pattern1.png" width={180} height={180} alt="" srcSet=""  style={{ transform: 'scaleX(-1)' }} />
       </div>
     </footer>
   );

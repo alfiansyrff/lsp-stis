@@ -11,6 +11,8 @@ import Login from './pages/guest/Login';
 import Berita from './pages/guest/Berita';
 import Sertifikasi from './pages/guest/Sertifikasi';
 import Reguilasi from './pages/guest/Reguilasi';
+import "@fontsource/poppins";
+import DetailBerita from './pages/guest/DetailBerita';
 
 
 
@@ -24,6 +26,7 @@ function App() {
           <Route path="/berita" element={<Berita />} />
           <Route path="/sertifikasi" element={<Sertifikasi />} />
           <Route path="/regulasi" element={<Reguilasi />} />
+          <Route path="/berita/detail/:title" element={<DetailBerita />} />
         </Routes>
       </BrowserRouter>
   )

@@ -27,7 +27,7 @@ function SkemaSertifikasi() {
 
       <Heading text={'Panduan Pengguna'}/>
 
-      <div className='my-16 flex items-center justify-evenly'>
+      <div className='my-16 flex flex-wrap items-center justify-evenly'>
         <BookletCard imageSrc={'/image/panduan_asesor.png'} title={'Buku Panduan Asesor'} fileLink={'panduan_asesor.pdf'} />
         <BookletCard imageSrc={'/image/panduan_admin.png'} title={'Buku Panduan Admin'} fileLink={'panduan_adnin.pdf'} />
         <BookletCard imageSrc={'/image/panduan_asesi.png'} title={'Buku Panduan Asesi'} fileLink={'panduan_asesi.pdf'} />

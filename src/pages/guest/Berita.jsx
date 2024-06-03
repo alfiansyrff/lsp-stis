@@ -4,6 +4,8 @@ import GuestLayout from '../layout/GuestLayout';
 import BreadCrumbs from '../../components/Breadcrumbs';
 import TitlePage from '../../components/TitlePage';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import beritaList from '../../utils/data/berita';
 
 function Berita() {
   const links = [
@@ -11,66 +13,66 @@ function Berita() {
     { label: 'Berita', href: null },
   ];
 
-  const beritaList = [
-    {
-      id: 1,
-      date: '12 Januari 2024',
-      title: 'Lorem Ipsum',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standar dummy text ever since the 1500s, when an unknown ...',
-      image: '/image/logo.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
-    {
-      id: 2,
-      date: '13 Januari 2024',
-      title: 'Kompetensi di Bidang Data Science',
-      description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
-      image: '/image/berita1.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
-    {
-      id: 3,
-      date: '13 Januari 2024',
-      title: 'Kompetensi di Bidang Data Science',
-      description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
-      image: '/image/berita1.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
-    {
-      id: 4,
-      date: '13 Januari 2024',
-      title: 'Kompetensi di Bidang Data Science',
-      description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
-      image: '/image/berita1.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
-    {
-      id: 5,
-      date: '13 Januari 2024',
-      title: 'Kompetensi di Bidang Data Science',
-      description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
-      image: '/image/berita1.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
-    {
-      id: 6,
-      date: '13 Januari 2022',
-      title: 'Kompetensi di Bidang Data Science',
-      description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
-      image: '/image/berita1.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
-    {
-      id: 7,
-      date: '13 Januari 2023',
-      title: 'Kompetensi di Bidang Data Science',
-      description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
-      image: '/image/berita1.png',
-      slug: 'noteworthy-technology-acquisitions-2021',
-    },
+  // const beritaList = [
+  //   {
+  //     id: 1,
+  //     date: '12 Januari 2024',
+  //     title: 'Lorem Ipsum',
+  //     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standar dummy text ever since the 1500s, when an unknown ...',
+  //     image: '/image/logo.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
+  //   {
+  //     id: 2,
+  //     date: '13 Januari 2024',
+  //     title: 'Kompetensi di Bidang Data Science',
+  //     description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
+  //     image: '/image/berita1.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
+  //   {
+  //     id: 3,
+  //     date: '13 Januari 2024',
+  //     title: 'Kompetensi di Bidang Data Science',
+  //     description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
+  //     image: '/image/berita1.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
+  //   {
+  //     id: 4,
+  //     date: '13 Januari 2024',
+  //     title: 'Kompetensi di Bidang Data Science',
+  //     description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
+  //     image: '/image/berita1.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
+  //   {
+  //     id: 5,
+  //     date: '13 Januari 2024',
+  //     title: 'Kompetensi di Bidang Data Science',
+  //     description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
+  //     image: '/image/berita1.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
+  //   {
+  //     id: 6,
+  //     date: '13 Januari 2022',
+  //     title: 'Kompetensi di Bidang Data Science',
+  //     description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
+  //     image: '/image/berita1.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
+  //   {
+  //     id: 7,
+  //     date: '13 Januari 2023',
+  //     title: 'Kompetensi di Bidang Data Science',
+  //     description: 'Sebelas dosen bersertifikasi data science dan 16 dosen bersertifikasi associate data science dari Politeknik Statistika STIS berhasil meraih sertifikasi kompetensi di bidang data science dari Badan Nasional Sertifikasi Profesi (BNSP). Selain itu 20 dosen juga ...',
+  //     image: '/image/berita1.png',
+  //     slug: 'noteworthy-technology-acquisitions-2021',
+  //   },
 
-    // Add more berita objects as needed
-  ];
+  //   // Add more berita objects as needed
+  // ];
 
   const years = [2024, 2023, 2022]; // Example years for the dropdown
 
@@ -206,9 +208,9 @@ function Berita() {
             ) : (
               // Render actual Berita items
               currentBeritaList.map((berita) => (
-                <a
+                <Link
                   key={berita.id}
-                  href={`/berita/${berita.slug}`}
+                  to={`/berita/detail/${encodeURIComponent(berita.title)}`}
                   className='flex flex-col items-center bg-white border-2 border-gray-200 rounded-lg shadow md:flex-row md:max-w-4xl hover:bg-gray-100 mb-5 h-[15em]'
                 >
                   <img
@@ -221,10 +223,10 @@ function Berita() {
                     <h5 className='my-2 text-2xl font-bold tracking-tight text-ternaryBlue'>{berita.title}</h5>
                     <p className='mb-3 font-normal text-ternaryBlue text-md'>{berita.description}</p>
                     <div className='flex items-center'>
-                      <a href={`/berita/${berita.slug}`} className='text-primaryBlue text-[12px] hover:text-ternaryBlue'>Selengkapnya</a>
+                      <Link to={`/berita/detail/${encodeURIComponent(berita.title)}`} className='text-primaryBlue text-[12px] hover:text-ternaryBlue'>Selengkapnya</Link>
                     </div>
                   </div>
-                </a>
+                </Link>
               ))
             )}
           </div>
@@ -246,7 +248,7 @@ function Berita() {
                   <li key={index}>
                     <button
                       onClick={() => handlePageChange(index + 1)}
-                      className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-[#D7EAFB]' : ''}`}
+                      className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-blue-600 bg-opacity-20' : ''}`}
                     >
                       {index + 1}
                     </button>

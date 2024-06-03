@@ -10,7 +10,7 @@ const FooterList = ({ items }) => {
               <item.icon />
             </div>
             <div className="w-3/4">
-              <a href={item.href} className="text-lg group relative w-max">
+              <a href={item.href} className="text-md group relative w-max">
               <span>{item.text}</span>
               <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-primaryBlue group-hover:w-full"></span>
               </a>
