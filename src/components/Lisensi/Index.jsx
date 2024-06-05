@@ -49,8 +49,8 @@ function Lisensi() {
           </p>
 
           <div className='absolute bottom-0 flex items-center space-x-5'>
-            <PrimaryButton text={'Unduh Sertifikat Linsensi BNSP'}/>
-            <PrimaryButton text={'Unduh SK Linsensi BNSP'}/>
+            <PrimaryButton text={'Unduh Sertifikat Linsensi'}/>
+            <PrimaryButton text={'Unduh SK Linsensi'}/>
           </div>
         </div>
         <div className='md:w-1/2 flex justify-end' data-aos="fade-left"

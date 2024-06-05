@@ -98,6 +98,7 @@ margin: 1px;
   }
 }
 
+
 .multiple-flip {
   animation: flip 2s ease-in-out forwards;
 }

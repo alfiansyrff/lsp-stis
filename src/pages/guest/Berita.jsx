@@ -248,7 +248,7 @@ function Berita() {
                   <li key={index}>
                     <button
                       onClick={() => handlePageChange(index + 1)}
-                      className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-blue-600 bg-opacity-20' : ''}`}
+                      className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-blue-500 bg-opacity-20' : ''}`}
                     >
                       {index + 1}
                     </button>

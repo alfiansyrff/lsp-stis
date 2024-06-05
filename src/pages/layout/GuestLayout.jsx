@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer/Footer';
 import TopLoader from '../../components/TopLoader';
 import KeyboardDoubleArrowUpTwoToneIcon from '@mui/icons-material/KeyboardDoubleArrowUpTwoTone';
+import { motion, useScroll } from "framer-motion";
 
 function GuestLayout({ children }) {
   const [progress, setProgress] = useState(0);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const { scrollYProgress } = useScroll();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +25,7 @@ function GuestLayout({ children }) {
     fetchData();
 
     const handleScroll = () => {
-      // Check if user has scrolled beyond 200 pixels
+   
       if (window.scrollY > 200) {
         setShowScrollToTop(true);
       } else {
@@ -31,10 +33,10 @@ function GuestLayout({ children }) {
       }
     };
 
-    // Add scroll event listener
+
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function to remove event listener
+   
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -49,6 +51,7 @@ function GuestLayout({ children }) {
 
   return (
     <div className='relative'>
+      
       <TopLoader progress={progress} setProgress={setProgress} />
       <Navbar />
       <div className="content">

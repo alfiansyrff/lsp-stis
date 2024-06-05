@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ['Lembaga Sertifikasi Profesi', 'LSP Politeknik Statistika STIS'],
+      strings: ['<span class="text-transparent bg-clip-text bg-gradient-to-r to-secondaryBlue from-white">Lembaga Sertifikasi Profesi</span>', '<span class="text-transparent bg-clip-text bg-gradient-to-r to-secondaryBlue from-white">LSP Politeknik Statistika STIS</span>'],
       typeSpeed: 80,
       backSpeed: 50,
       loop: true,
@@ -60,7 +60,7 @@ const HeroSection = () => {
             <div className='flex flex-col justify-between space-y-2 mb-10'>
               <h1 className="text-4xl md:text-[72px] font-bold">   <span ref={el} /></h1>
             </div>
-            <p className="text-lg md:text-[1.5em] w-3/4 mb-20">
+            <p className="text-lg md:text-[1.5em] w-3/4 mb-20 opacity-80">
               Lembaga Sertifikasi Politeknik (LSP) Politeknik Statistika STIS adalah lembaga sertifikasi profesi pihak kesatu lembaga pendidikan dan pelatihan untuk melaksanakan sertifikasi kompetensi di bidang ilmu statistika dan sains data.
             </p>
             <PrimaryButton text={'Selengkapnya'} cta={true} link='/sertifikasi'/>

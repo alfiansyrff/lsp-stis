@@ -128,7 +128,7 @@ function TableRegulasi() {
                 <tr>
                   <th scope="col" className="px-6 py-3 rounded-tl-lg" style={{width:200}}>No</th>
                   <th scope="col" className="px-6 py-3">Regulasi</th>
-                  <th scope="col" className="px-6 py-3 rounded-tr-lg" style={{width:200}}>Berkas</th>
+                <th scope="col" className="px-6 py-3 rounded-tr-lg" style={{width:200}}>Berkas</th>
                 </tr>
               </thead>
   
@@ -165,7 +165,7 @@ function TableRegulasi() {
                   <li key={index}>
                     <button
                       onClick={() => handlePageChange(index + 1)}
-                      className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-blue-500 bg-opacity-20 text-ternaryBlue' : ''}`}
+                      className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-ternaryBlue bg-opacity-20 text-ternaryBlue' : ''}`}
                     >
                       {index + 1}
                     </button>

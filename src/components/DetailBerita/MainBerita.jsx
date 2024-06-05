@@ -4,9 +4,13 @@ import { motion } from 'framer-motion';
 
 const MainBerita = ({ berita }) => {
   const [showFlashMessage, setShowFlashMessage] = useState(false);
+  const [link, setLink] = useState('');
+
 
   const handleShareClick = () => {
     setShowFlashMessage(true);
+    setLink(window.location.href);
+    navigator.clipboard.writeText(link);
     setTimeout(() => {
       setShowFlashMessage(false);
     }, 2000); 

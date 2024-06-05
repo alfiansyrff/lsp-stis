@@ -4,6 +4,7 @@ import AccordionSertif from '../Accordion/AccordionSertif';
 import TableSkemaDataScientist from './TableSkemaDataScientist';
 import TableSkemaAssociate from './TableSkemaAssociate';
 import BookletCard from './Card';
+import TabMenu from '../Accordion/AccordionSertif';
 
 function SkemaSertifikasi() {
 
@@ -23,7 +24,7 @@ function SkemaSertifikasi() {
     <div className='max-w-7xl px-5 mx-auto'>
       <Heading text={'Skema Sertifikasi'}/>
 
-      <AccordionSertif items={accordionItems}/>
+      <TabMenu items={accordionItems}/>
 
       <Heading text={'Panduan Pengguna'}/>
 

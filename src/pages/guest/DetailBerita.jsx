@@ -3,19 +3,18 @@ import GuestLayout from '../layout/GuestLayout';
 import BreadCrumbs from '../../components/Breadcrumbs';
 import MainBerita from '../../components/DetailBerita/MainBerita';
 import BeritaLainnya from '../../components/DetailBerita/BeritaLainnya';
-import { useParams } from 'react-router-dom';
+import { useParams, useRoutes } from 'react-router-dom';
 import beritaList from '../../utils/data/berita';
 
 function DetailBerita() {
-  const { title } = useParams();
-  const [loading, setLoading] = useState(true); // State for loading status
 
-  // Find the selected berita from beritaList
+  const { title } = useParams();
+  const [loading, setLoading] = useState(true);
+
   const selectedBerita = beritaList.find(berita => berita.title === decodeURIComponent(title));
   const beritaTerkait = beritaList.filter(berita => berita.title !== decodeURIComponent(title));
 
   useEffect(() => {
-    // Simulate loading delay
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
