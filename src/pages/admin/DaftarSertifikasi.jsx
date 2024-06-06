@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 function DaftarSertifikasi() {
 
   const breadcrumbs = [
-    { href: '/admin/sertifikasi', label: "Sertifikasi Saya" },
-    { href: '/admin/sertifikasi/register', label: "Daftar" },
+    { href: '/admin/sertifikasi', label: "Sertifikasi" },
+    { href: null, label: "Daftar" },
 
   ];
 

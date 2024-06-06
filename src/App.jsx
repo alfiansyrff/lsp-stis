@@ -19,6 +19,7 @@ import SertifikasiUser from './pages/admin/Sertifikasi';
 import DaftarSertifikasi from './pages/admin/DaftarSertifikasi';
 import DetailSertifikasi from './pages/admin/DetailSertifikasi';
 import Ujian from './pages/admin/Ujian';
+import Profile from './pages/admin/Profile';
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/admin/sertifikasi/register' element={<DaftarSertifikasi />} />
           <Route path='/admin/sertifikasi/detail' element={<DetailSertifikasi />} />
           <Route path='/admin/ujian' element={<Ujian />} />
+          <Route path='/admin/update-profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
   )

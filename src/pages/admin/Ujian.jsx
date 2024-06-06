@@ -18,14 +18,14 @@ function Ujian() {
         {/* <div className='w-1/3'>
           <HistorySertifikasi />
         </div> */}
-  
-      <div className="flex items-center mb-10">
-        <p className="text-3xl text-ternaryBlue font-bold">Ujian yang diikuti</p>
-        {/* <div className="flex-grow border-t border-gray-500 ml-4"></div> */}
+      <div className="flex items-center mb-5">
+        <p className="text-3xl text-ternaryBlue font-bold">Ujian yang Diikuti</p>
+        <div className="flex-grow border-t border-gray-500 ml-4"></div>
       </div>
-        <div className='flex flex-col items-center justify-center mx-auto space-y-5'>
+    
+      <div className='flex flex-col items-center justify-center h-[60vh] mx-auto space-y-5'>
         <img src="/image/not-found.svg" className='w-48' alt="" srcset="" />
-        <p className='text-ternaryBlue text-lg'>Belum ada ujian</p>
+        <p className='text-ternaryBlue text-lg'>Belum ada ujian. Pastikan Anda telah melalui prosedur sertifikasi dengan benar</p>
       </div>
 
       {/* <TableSkemaAssociate /> */}

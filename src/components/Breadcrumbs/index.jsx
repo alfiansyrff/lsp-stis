@@ -8,7 +8,7 @@ function BreadCrumbs({ links }) {
           {links.map((link, index) => (
             <li key={index} className="inline-flex items-center">
               {index === 0 ? (
-                <a href={link.href} className="inline-flex items-center text-md font-medium text-primaryBlue hover:text-ternaryBlue">  
+                <a href={link.href} className={`inline-flex items-center text-md font-medium ${link.href !== null ? 'text-primaryBlue hover:text-ternaryBlue' : 'text-ternaryBlue'}`}>  
                   {link.label}
                 </a>
               ) : (

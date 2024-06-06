@@ -192,7 +192,7 @@ function Login() {
     } else {
       setError({ email: '', password: '' });
       localStorage.setItem('loginSuccess', 'true');
-      navigate('/Admin');  // Redirect to admin route
+      navigate('/admin');  // Redirect to admin route
     }
   };
 

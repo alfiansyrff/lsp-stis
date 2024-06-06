@@ -4,6 +4,11 @@ import PrimaryButton from '../Button/PrimaryButton';
 const TableSkemaSertif = ({ data }) => {
   return (
     <div>
+       <div className="mb-4 flex justify-end space-x-3">
+        <PrimaryButton text={'Unduh Skema'} />
+        <PrimaryButton text={'Unduh SKKNI'} />
+      </div>
+
       <table className="w-full text-sm text-left text-ternaryBlue dark:text-gray-400">
         <thead className="text-xs text-center uppercase bg-ternaryBlue text-white">
           <tr>
@@ -22,10 +27,7 @@ const TableSkemaSertif = ({ data }) => {
           ))}
         </tbody>
       </table>
-      <div className="mt-4 flex justify-end space-x-3">
-        <PrimaryButton text={'Unduh Skema'} />
-        <PrimaryButton text={'Unduh SKKNI'} />
-      </div>
+     
     </div>
   );
 };

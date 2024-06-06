@@ -145,7 +145,7 @@ function TabMenu({ items }) {
       </div>
       <div className="p-5 mt-5">
         {items[activeIndex] && (
-          <p className="text-gray-500 shadow border-2 border-gray-200 p-5 rounded-lg dark:text-gray-400">{items[activeIndex].content}</p>
+          <p className="text-gray-500 shadow border-2 border-gray-200 px-10 py-5 rounded-lg dark:text-gray-400">{items[activeIndex].content}</p>
         )}
       </div>
     </div>
