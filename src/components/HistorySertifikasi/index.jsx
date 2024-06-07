@@ -21,14 +21,14 @@ function HistorySertifikasi() {
                 </div>
               </div>
               <div className="bg-green-500 col-start-4 col-end-12 p-4 rounded-xl my-4 mr-auto shadow-md w-full">
-                <p className="font-semibold text-sm mb-1">Package Booked</p>
+                <p className="font-semibold text-sm mb-1">Daftar Sertifikasi</p>
                 <p className="leading-tight text-justify w-full text-[12px]">
                   21 July 2021, 04:30 PM
                 </p>
               </div>
             </div>
 
-            <div className="flex md:contents">
+            {/* <div className="flex md:contents">
               <div className="col-start-2 col-end-4 mr-10 md:mx-auto relative">
                 <div className="h-full w-6 flex items-center justify-center">
                   <div className="h-full w-1 bg-green-500 pointer-events-none"></div>
@@ -64,7 +64,7 @@ function HistorySertifikasi() {
                   Customer cancelled the order
                 </p>
               </div>
-            </div>
+            </div> */}
 
             <div className="flex md:contents">
               <div className="col-start-2 col-end-4 mr-10 md:mx-auto relative">

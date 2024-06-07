@@ -17,6 +17,7 @@ function DetailBerita() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
+      // console.log(process.env.REACT_APP_PUBLIC_CLIENT);
     }, 1000);
 
     return () => clearTimeout(timer);

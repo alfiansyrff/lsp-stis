@@ -3,7 +3,7 @@ import Heading from '../Heading/Index'
 
 function Struktur() {
   return (
-    <div className='my-[10em] max-w-5xl mx-auto'>
+    <div className='my-[10em] max-w-5xl mx-auto px-5'>
 
       <div data-aos="fade-up"
     data-aos-delay="50"
