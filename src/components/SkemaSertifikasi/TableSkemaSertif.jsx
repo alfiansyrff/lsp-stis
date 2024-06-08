@@ -3,7 +3,7 @@ import PrimaryButton from '../Button/PrimaryButton';
 
 const TableSkemaSertif = ({ data }) => {
   return (
-    <div>
+    <div className='overflow-x-auto'>
        <div className="mb-4 flex justify-end space-x-3">
         <PrimaryButton text={'Unduh Skema'} />
         <PrimaryButton text={'Unduh SKKNI'} />
