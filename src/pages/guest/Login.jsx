@@ -199,13 +199,16 @@ function Login() {
   return (
     <div className="flex h-screen relative">
       <div className="w-7/12 relative">
-        <div className="bg-primaryBlue h-full w-full rounded-br-full absolute top-0 left-0 bottom-0 z-0" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}></div>
-        <Link to={'/'} className="bg-white w-fit rounded-md flex space-x-2 items-center px-4 py-2 relative left-20 top-10 z-10">
+        <div className="bg-primaryBlue h-full w-full rounded-br-full absolute top-0 left-0 z-0" style={{ height: '90%', width: '90%', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}></div>
+        <div className="bg-ternaryBlue h-full w-full rounded-bl-full rounded-br-full absolute top-0 z-0" style={{ height: '40%', width: '40%', clipPath: 'circle(40% at 40% 0)', left: '72%' }}></div>
+        <div className="h-full w-full rounded-br-full absolute bottom-0 z-0" style={{ height: '20%', width: '20%', backgroundColor: '#D7EAFB', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', left: '151.4%' , transform: 'rotate(180deg)' }}></div>
+
+        <Link to={'/'} className="bg-white w-fit rounded-md flex space-x-2 items-center px-4 py-2 relative left-5 top-5 z-10">
           <ArrowBack className="text-primaryBlue" fontSize="medium" />
           <p className="text-primaryBlue">Kembali</p>
         </Link>
         <div className="absolute top-1/2 left-20 transform -translate-y-1/2 w-full text-center">
-          <img className="object-cover" width={500} height={500} src="image/login.png" alt="Background Login" />
+          <img className="object-cover" width={400} height={400} src="image/login.png" alt="Background Login" />
         </div>
       </div>
 
@@ -251,7 +254,7 @@ function Login() {
             <div className="flex items-center justify-end">
               <PrimaryButton text={'Masuk'} type="submit" />
             </div>
-            <p className="text-ternaryBlue text-sm text-center mt-2">Belum punya akun? <span><Link to={'register'} className="text-primaryBlue hover:text-ternaryBlue">Daftar</Link></span> </p>
+            <p className="text-ternaryBlue text-sm text-center mt-2">Belum punya akun? <span><Link to={'/register'} className="text-primaryBlue hover:text-ternaryBlue">Daftar</Link></span> </p>
           </form>
         </div>
       </div>

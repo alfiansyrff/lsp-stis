@@ -20,6 +20,7 @@ import DaftarSertifikasi from './pages/admin/DaftarSertifikasi';
 import DetailSertifikasi from './pages/admin/DetailSertifikasi';
 import Ujian from './pages/admin/Ujian';
 import Profile from './pages/admin/Profile';
+import Register from './pages/guest/Register';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/register' element={<Register />}/>
           <Route path="/berita" element={<Berita />} />
           <Route path="/sertifikasi" element={<Sertifikasi />} />
           <Route path="/regulasi" element={<Reguilasi />} />

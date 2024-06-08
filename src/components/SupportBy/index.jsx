@@ -12,7 +12,7 @@ const support = [
     height: 100,
   },
   {
-    link: "https://bps.go.id/",
+    link: "https://bnsp.go.id/",
     title: "BNSP (Badan Nasional Sertifikat Profesi)",
     alt: "BPS",
     src: "/image/bnsp.png",
