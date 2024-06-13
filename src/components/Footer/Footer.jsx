@@ -70,7 +70,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <p className="whitespace-pre-wrap w-42 md:text-left ml-6 text-lg text-white mt-5">
+        <p className="whitespace-pre-wrap w-42 md:text-left ml-6 text-lg text-white mt-5 z-100">
           <span className="mr-2">&#169;</span>
           LSP Politeknik Statistika STIS 2024
         </p>
