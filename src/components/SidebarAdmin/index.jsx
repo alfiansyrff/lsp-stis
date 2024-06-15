@@ -298,7 +298,7 @@ const Sidebar = ({ children }) => {
           )}
         </ul>
 
-        <div className="border-t flex p-3">
+        <div className="border-t flex p-3 md:hidden">
           <img
             src="https://ui-avatars.com/api/?name=Alfian+Syarif&background=D7EAFB&color=228be6&bold=true"
             alt=""
@@ -320,11 +320,16 @@ const Sidebar = ({ children }) => {
   );
 };
 
-export function SidebarItem({ icon, text, alert, to, submenu, isSidebarOpen }) {
+export function SidebarItem({ icon, text, alert, to, submenu, isSidebarOpen, setShowLogoutModal }) {
   const location = useLocation();
   const isActive = location.pathname === to;
   const hasSubmenu = submenu && submenu.length > 0;
   const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  const handleLogoutClick = () => {
+    // Show the logout confirmation modal
+    setShowLogoutModal(true);
+  };
 
   const handleSubmenuToggle = () => {
     setSubmenuOpen(!submenuOpen);
@@ -332,10 +337,30 @@ export function SidebarItem({ icon, text, alert, to, submenu, isSidebarOpen }) {
 
   return (
     <>
+
+      {to === '/logout' ? (
+        <li
+          onClick={handleLogoutClick}
+          className={`
+            relative flex items-center py-2 px-3 my-2
+            font-medium rounded-md cursor-pointer
+            transition-colors group
+            hover:bg-secondaryBlue text-ternaryBlue
+            ${isSidebarOpen ? "ml-3" : "ml-0"}
+          `}
+        >
+          {icon}
+          <span className={`overflow-hidden transition-all duration-300 ${isSidebarOpen ? "ml-3" : "ml-1.5"}`}>
+            {text}
+          </span>
+        </li>
+      ) : (
+        
+      
       <Link to={to}>
         <li
           className={`
-            relative flex items-center py-2 px-3 my-1
+            relative flex items-center py-2 px-3 my-2
             font-medium rounded-md cursor-pointer
             transition-colors group
             ${isActive ? "bg-secondaryBlue text-primaryBlue" : "hover:bg-secondaryBlue text-ternaryBlue"}
@@ -367,6 +392,7 @@ export function SidebarItem({ icon, text, alert, to, submenu, isSidebarOpen }) {
           )}
         </li>
       </Link>
+      )}
 
       {hasSubmenu && submenuOpen && isSidebarOpen && (
         <ul className="ml-5">

@@ -17,7 +17,7 @@ function Reguilasi() {
     <GuestLayout>
       <BreadCrumbs links={links} />
 
-      <TitlePage title={'Pedoman dan Regulasi'} desc={'Daftar pedoman dan regulasi terkait dengan Badan Nasional Sertifikasi Profesi (BNSP) .'} />
+      <TitlePage title={'Pedoman dan Regulasi'} desc={'Daftar pedoman dan regulasi terkait dengan Badan Nasional Sertifikasi Profesi (BNSP)'} />
 
       <TableRegulasi />
     </GuestLayout>

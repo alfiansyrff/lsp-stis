@@ -94,9 +94,10 @@
 
 import React, { useEffect, useState } from 'react';
 import Sidebar, { SidebarItem } from '../../components/SidebarAdmin';
-import { Dashboard, WorkspacePremium, Assignment, Key, Person, CardMembership, Close } from '@mui/icons-material';
+import { Dashboard, WorkspacePremium, Assignment, Key, Person, CardMembership, Close, Logout } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import LogoutConfirmationModal from '../../components/Modal/LogoutModal';
 
 function AdminLayout({ children }) {
   const data = [
@@ -127,6 +128,12 @@ function AdminLayout({ children }) {
       to: "/admin/update-profile",
       submenu: []
     },
+    {
+      icon: <Logout />,
+      text: "Keluar",
+      to: "/logout",
+      submenu: []
+    },
     // {
     //   icon: <Key />,
     //   text: "Ubah Password",
@@ -136,6 +143,15 @@ function AdminLayout({ children }) {
   ];
 
   const [toast, setToast] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  // const history = useHistory();
+
+  const handleLogout = () => {
+    // Perform logout actions here, e.g., clear session, local storage, etc.
+    // Redirect to logout page or handle logout logic
+    // For example, redirect to '/logout'
+    window.location.href = '/';
+  };
 
   useEffect(() => {
     // Check if login success flag is in local storage
@@ -160,6 +176,7 @@ function AdminLayout({ children }) {
               icon={item.icon}
               to={item.to}
               submenu={item.submenu}
+              setShowLogoutModal={setShowLogoutModal}
             />
           ))}
         </Sidebar>
@@ -169,6 +186,12 @@ function AdminLayout({ children }) {
       <div className="flex-1 ml-[16.6667%] overflow-auto">
         {children}
       </div>
+
+      <LogoutConfirmationModal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={handleLogout}
+      />
 
       {/* Toast Notification */}
       <AnimatePresence>

@@ -5,8 +5,14 @@ const TableSkemaSertif = ({ data }) => {
   return (
     <div className='overflow-x-auto'>
        <div className="mb-4 flex justify-end space-x-3">
-        <PrimaryButton text={'Unduh Skema'} />
-        <PrimaryButton text={'Unduh SKKNI'} />
+        <button className='flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue'>
+          Unduh Skema
+        </button>
+        <button className='flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue'>
+          Unduh SKKNI
+        </button>
+        {/* <PrimaryButton text={'Unduh Skema'} /> */}
+        {/* <PrimaryButton text={'Unduh SKKNI'} /> */}
       </div>
 
       <table className="w-full text-sm text-left text-ternaryBlue dark:text-gray-400">

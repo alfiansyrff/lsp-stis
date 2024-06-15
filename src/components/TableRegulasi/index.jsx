@@ -8,6 +8,7 @@ function TableRegulasi() {
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true); 
+  const [totalRegulasi, setTotalRegulasi] = useState(0);
   const itemsPerPage = 10;
 
   const allData = [
@@ -67,6 +68,8 @@ function TableRegulasi() {
       );
       setFilteredData(filtered);
       setLoading(false);
+      setTotalRegulasi(filtered.length);
+      setCurrentPage(1);
     }, 300);
 
     debouncedSearch(searchTerm);
@@ -147,7 +150,11 @@ function TableRegulasi() {
           )}
   
           {currentItems.length !== 0 && (
-            <div className='flex justify-end'>
+            <div className='flex justify-between'>
+            
+            <div className='text-ternaryBlue text-sm'>
+              Menampilkan {firstIndex + 1}-{lastIndex > totalRegulasi ? totalRegulasi : lastIndex} dari {totalRegulasi} regulasi
+            </div>
 
             
             <nav aria-label="Page navigation example">

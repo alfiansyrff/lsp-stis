@@ -170,7 +170,7 @@ function Register() {
           style={{ left: "83%" }}
         >
           <ArrowBack className="text-primaryBlue" fontSize="medium" />
-          <p className="text-primaryBlue">Kembali</p>
+          <p className="text-primaryBlue">Beranda</p>
         </Link>
         <div className="absolute right-20 top-1/2 transform -translate-y-1/2 text-center ">
           <img

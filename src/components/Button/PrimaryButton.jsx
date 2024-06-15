@@ -5,7 +5,7 @@ function PrimaryButton({ text, cta = false, link = '#', type = 'button' }) {
   const buttonElement = (
     <button 
       type={type} 
-      className={`flex items-center text-white px-4 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out hover:-translate-y-1 ${cta ? 'bg-gradient-cta' : 'bg-primaryBlue hover:bg-ternaryBlue'}`}
+      className={`flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out hover:-translate-y-1 ${cta ? 'bg-gradient-cta' : 'bg-primaryBlue hover:bg-ternaryBlue'}`}
     >
       {text}
       {cta && <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

@@ -205,7 +205,7 @@ function Login() {
 
         <Link to={'/'} className="bg-white w-fit rounded-md flex space-x-2 items-center px-4 py-2 relative left-5 top-5 z-10">
           <ArrowBack className="text-primaryBlue" fontSize="medium" />
-          <p className="text-primaryBlue">Kembali</p>
+          <p className="text-primaryBlue">Beranda</p>
         </Link>
         <div className="absolute top-1/2 left-20 transform -translate-y-1/2 w-full text-center">
           <img className="object-cover" width={400} height={400} src="image/login.png" alt="Background Login" />

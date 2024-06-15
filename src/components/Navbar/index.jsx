@@ -47,12 +47,12 @@ function Navbar() {
   return (
     <div>
       <nav className={`bg-transparent z-50 fixed w-full top-0 start-0 ${scrolled || !isHomePage ? 'backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200' : ''} transition-colors duration-300`}>
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto py-4 px-7">
           <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={baseUrl + 'image/logo.png'} className="h-8" alt="STIS Logo" />
 
-            <span className="text-left font-semibold text-white">
-              <div className="text-sm lg:text-base font-semibold text-white">
+            <span className="text-left text-white">
+              <div className="text-sm lg:text-base text-white">
                 <p className={`mb-0 ${!isHomePage ? 'text-ternaryBlue' : (scrolled ? 'text-ternaryBlue' : 'text-white')}`}>
                   Lembaga Sertifikasi Profesi <br className="lg:hidden" /> <span className='block'>Politeknik Statistika STIS</span>
                 </p>
@@ -61,7 +61,9 @@ function Navbar() {
           </a>
 
           <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-            <button className={`hidden md:block ${scrolled || !isHomePage ? 'text-ternaryBlue' : 'text-white'}`}>Daftar</button>
+            <Link to={'/register'} className={`hidden md:flex items-center justify-center ${scrolled || !isHomePage ? 'text-ternaryBlue' : 'text-white'}`}>
+              Daftar
+            </Link>
             <Link className='hidden md:block' to="/login">
               <PrimaryButton text={'Masuk'} />
             </Link>
