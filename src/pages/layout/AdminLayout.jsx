@@ -94,37 +94,45 @@
 
 import React, { useEffect, useState } from 'react';
 import Sidebar, { SidebarItem } from '../../components/SidebarAdmin';
-import { Dashboard, WorkspacePremium, Assignment, Password, Key, Person } from '@mui/icons-material';
+import { Dashboard, WorkspacePremium, Assignment, Key, Person, CardMembership, Close } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
 function AdminLayout({ children }) {
   const data = [
     {
-      icon: Dashboard,
+      icon: <Dashboard />,
       text: "Dashboard",
-      to: "/admin"
+      to: "/admin",
+      submenu: []
     },
     {
-      icon: WorkspacePremium,
+      icon: <WorkspacePremium />,
       text: "Sertifikasi",
-      to: "/admin/sertifikasi"
+      to: "",
+      submenu: [
+        { text: "Skema", to: "/admin/sertifikasi", icon: <CardMembership/>},
+        { text: "Ujian", to: "/admin/ujian",  icon: <Assignment />  }
+      ]
     },
+    // {
+    //   icon: <Assignment />,
+    //   text: "Ujian",
+    //   to: "/admin/ujian",
+    //   submenu: []
+    // },
     {
-      icon: Assignment,
-      text: "Ujian",
-      to: "/admin/ujian"
-    },
-    {
-      icon: Person,
+      icon: <Person />,
       text: "Ubah Profil",
-      to: "/admin/update-profile"
+      to: "/admin/update-profile",
+      submenu: []
     },
-    {
-      icon: Key,
-      text: "Ubah Password",
-      to: "/admin/update-password"
-    }
+    // {
+    //   icon: <Key />,
+    //   text: "Ubah Password",
+    //   to: "/admin/update-password",
+    //   submenu: []
+    // }
   ];
 
   const [toast, setToast] = useState(false);
@@ -135,7 +143,6 @@ function AdminLayout({ children }) {
     if (loginSuccess) {
       // If login success flag exists, display the toast
       setToast(true);
-      console.log('heyyy');
       // Remove the login success flag from local storage
       localStorage.removeItem('loginSuccess');
     }
@@ -143,25 +150,27 @@ function AdminLayout({ children }) {
 
   return (
     <div className="flex h-screen overflow-hidden">
+      {/* Sidebar Section */}
       <div className="fixed w-1/6 h-full">
         <Sidebar>
           {data.map((item, key) => (
             <SidebarItem
               key={key}
               text={item.text}
-              icon={<item.icon />}
-              alert={true}
-              active={true}
+              icon={item.icon}
               to={item.to}
+              submenu={item.submenu}
             />
           ))}
         </Sidebar>
       </div>
 
+      {/* Main Content Section */}
       <div className="flex-1 ml-[16.6667%] overflow-auto">
         {children}
       </div>
 
+      {/* Toast Notification */}
       <AnimatePresence>
         {toast && (
           <motion.div
@@ -185,10 +194,7 @@ function AdminLayout({ children }) {
                 aria-label="Close"
                 onClick={() => setToast(false)}
               >
-                <span className="sr-only">Close</span>
-                <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                </svg>
+                <Close />
               </button>
             </div>
           </motion.div>
@@ -200,4 +206,3 @@ function AdminLayout({ children }) {
 }
 
 export default AdminLayout;
-

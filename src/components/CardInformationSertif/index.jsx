@@ -1,83 +1,3 @@
-// import React from 'react';
-
-// function CardInformationSertif() {
-//   return (
-//     <div className="bg-white shadow border-2 border-gray-200 rounded-lg p-6 max-w-3xl">
-//       <h2 className="text-xl font-semibold mb-4 text-primaryOrange">Informasi Detail Sertifikasi</h2>
-//       <div className="space-y-5">
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Tanggal Ujian:</span>
-//           <span className="text-ternaryBlue">-</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Skema Sertifikasi:</span>
-//           <span className="text-gray-900">Ilmuwan Data</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Tempat Ujian:</span>
-//           <span className="text-gray-900">Website LSP Polstat STIS</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Nomor Pendaftaran:</span>
-//           <span className="text-gray-900">LSP240004</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Nomor Skema:</span>
-//           <span className="text-gray-900">010607</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Asesor:</span>
-//           <span className="text-gray-900">-</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Biaya:</span>
-//           <span className="text-gray-900">Rp.1.700.000,00</span>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Status Pembayaran:</span>
-//           <span className="bg-red-500 text-red-500 bg-opacity-10 p-2 rounded-full text-[12px] text-center">Belum Dibayar</span>
-//           {/* <span className="bg-ternaryBlue text-ternaryBlue bg-opacity-10 p-2 rounded-full text-sm text-center">Menunggu Konfirmasi</span> */}
-//         </div>
-
-//         <div className='flex justify-end'>
-//           <button className='text-white bg-primaryBlue rounded hover:bg-ternaryBlue px-4 py-2'>Bayar</button>
-//         </div>
-      
-//         {/* <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Status:</span>
-//           <button className="bg-gray-500 p-1 rounded text-white text-sm w-24 h-12" disabled>N/A</button>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Formulir Pembayaran:</span>
-//           <a href="https://lsp.stis.ac.id/pembayaran/LSP240004">
-//             <button className="bg-blue-500 p-1 rounded text-white text-sm w-24 h-12">Upload Bukti Pembayaran</button>
-//           </a>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Formulir APL.01:</span>
-//           <a href="https://lsp.stis.ac.id/frapl01/LSP240004">
-//             <button className="bg-gray-500 p-1 rounded text-white text-sm w-24 h-12" disabled>FR.APL.01</button>
-//           </a>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Formulir APL.02:</span>
-//           <a href="https://lsp.stis.ac.id/frapl02/LSP240004">
-//             <button className="bg-gray-500 p-1 rounded text-white text-sm w-24 h-12" disabled>FR.APL.02</button>
-//           </a>
-//         </div>
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium text-gray-700">Formulir AK.01:</span>
-//           <a href="https://lsp.stis.ac.id/frak01/LSP240004/edit">
-//             <button className="bg-gray-500 p-1 rounded text-white text-sm w-24 h-12" disabled>FR.AK.01</button>
-//           </a>
-//         </div> */}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default CardInformationSertif;
-
 import React, { useState } from 'react';
 import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
@@ -85,14 +5,16 @@ import 'lightgallery/css/lg-thumbnail.css';
 import LightGallery from 'lightgallery/react';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Close } from '@mui/icons-material';
 
 function CardInformationSertif() {
   const [activeTab, setActiveTab] = useState('detail');
   const [paymentOption, setPaymentOption] = useState('');
   const [proofOfPayment, setProofOfPayment] = useState(null);
   const [proofOfPaymentUrl, setProofOfPaymentUrl] = useState(null);
-  
+  const [errors, setErrors] = useState({});
+  const [toast, setToast] = useState(false);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -100,12 +22,51 @@ function CardInformationSertif() {
 
   const handlePaymentOptionClick = (option) => {
     setPaymentOption(option);
+    setErrors((prevErrors) => ({ ...prevErrors, paymentOption: '' }));
   };
 
   const handleProofOfPaymentChange = (event) => {
     const file = event.target.files[0];
-    setProofOfPayment(file);
-    setProofOfPaymentUrl(URL.createObjectURL(file));
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: 'File must be an image' }));
+        return;
+      }
+      if (file.size > 2 * 1024 * 1024) {
+        setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: 'File size must be less than 2MB' }));
+        return;
+      }
+      setProofOfPayment(file);
+      setProofOfPaymentUrl(URL.createObjectURL(file));
+      setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: '' }));
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let formErrors = {};
+
+    if (!paymentOption) {
+      formErrors.paymentOption = 'Harap memilih metode pembayaran';
+    }
+
+    if (!proofOfPayment) {
+      formErrors.proofOfPayment = 'Harap mengunggah bukti pembayaran';
+    }
+
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+
+    // If no errors, show toast
+    setToast(true);
+
+    // Hide toast after 3 seconds
+    setTimeout(() => setToast(false), 3000);
+
+    // Submit form logic here
+    console.log('Form submitted');
   };
 
   return (
@@ -113,13 +74,13 @@ function CardInformationSertif() {
       <div className="bg-white shadow border-2 border-gray-200 rounded-lg">
         <div className="flex border-b-2 border-gray-200">
           <button
-            className={`flex-1 px-4 py-2 ${activeTab === 'detail' ? 'text-primaryOrange border-b-4 border-primaryOrange' : 'text-gray-700'}`}
+            className={`flex-1 px-4 py-2 ${activeTab === 'detail' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'}`}
             onClick={() => handleTabClick('detail')}
           >
             Detail Sertifikasi
           </button>
           <button
-            className={`flex-1 px-4 py-2 ${activeTab === 'konfirmasi' ? 'text-primaryOrange border-b-4 border-primaryOrange' : 'text-gray-700'}`}
+            className={`flex-1 px-4 py-2 ${activeTab === 'konfirmasi' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'}`}
             onClick={() => handleTabClick('konfirmasi')}
           >
             Konfirmasi Pembayaran
@@ -129,7 +90,6 @@ function CardInformationSertif() {
         <div className="p-6">
           {activeTab === 'detail' && (
             <div>
-              {/* <h2 className="text-xl font-semibold mb-4 text-primaryOrange">Informasi Detail Sertifikasi</h2> */}
               <div className="space-y-5">
                 <div className="flex justify-between items-center">
                   <span className="font-medium text-gray-700">Tanggal Ujian:</span>
@@ -172,10 +132,9 @@ function CardInformationSertif() {
 
           {activeTab === 'konfirmasi' && (
             <div>
-              {/* <h2 className="text-xl font-semibold mb-4 text-primaryOrange">Konfirmasi Pembayaran</h2> */}
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="space-y-3">
-                  <label className="block text-gray-700 font-medium">Pilih Metode Pembayaran:</label>
+                  <label className="block text-gray-700 font-medium required">Metode Pembayaran</label>
                   <div className="flex items-center space-x-5">
                     <div
                       onClick={() => handlePaymentOptionClick('Bank BNI')}
@@ -196,22 +155,23 @@ function CardInformationSertif() {
                       <img src="/image/bri.png" alt="Bank BRI" className="w-full h-full object-contain" />
                     </div>
                   </div>
+                  {errors.paymentOption && <p className="text-red-500 text-sm mt-1">{errors.paymentOption}</p>}
                 </div>
 
                 <div className="space-y-3">
-                  <label className="block text-gray-700 font-medium">Upload Bukti Pembayaran:</label>
+                  <label className="block text-gray-700 font-medium required">Bukti Pembayaran</label>
                   <input
                     type="file"
                     onChange={handleProofOfPaymentChange}
                     className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primaryBlue file:text-white hover:file:bg-ternaryBlue"
                   />
+                  {errors.proofOfPayment && <p className="text-red-500 text-sm mt-1">{errors.proofOfPayment}</p>}
                   {proofOfPayment && (
                     <div>
                       <p className="text-sm text-gray-600">File: {proofOfPayment.name}</p>
                       <LightGallery
-           
-                          speed={500}
-                          plugins={[lgThumbnail, lgZoom]}
+                        speed={500}
+                        plugins={[lgThumbnail, lgZoom]}
                       >
                         <motion.img
                           className='shadow hover:cursor-pointer'
@@ -219,10 +179,8 @@ function CardInformationSertif() {
                           width={250}
                           alt="Bukti pembayaran"
                           whileHover={{ translateY: 10 }}
-                          srcSet=""
                         />
                       </LightGallery>
-                      {/* <img src={proofOfPaymentUrl} alt="Proof of Payment" className="mt-2 w-48 h-auto rounded" /> */}
                     </div>
                   )}
                 </div>
@@ -237,6 +195,37 @@ function CardInformationSertif() {
           )}
         </div>
       </div>
+
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute bottom-5 right-5"
+          >
+            <div id="toast-success" className="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow border-2 border-gray-200" role="alert">
+              <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                </svg>
+                <span className="sr-only">Check icon</span>
+              </div>
+              <div className="ms-3 text-sm font-normal">Konfirmasi pembayaran berhasil.</div>
+              <button
+                type="button"
+                className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                data-dismiss-target="#toast-success"
+                aria-label="Close"
+                onClick={() => setToast(false)}
+              >
+                <Close />
+
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

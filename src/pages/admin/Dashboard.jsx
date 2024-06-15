@@ -88,10 +88,11 @@ function DashboardUser() {
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
 
-      <div className="p-10 mt-[5em] mx-auto">
+      <div className="p-10 mt-0 md:mt-[5em] mx-auto">
         <h1 className="text-3xl text-ternaryBlue font-bold">Selamat Datang, Alfian Syarif!</h1>
 
-        <div className="mt-10 flex justify-between">
+        <div className="mt-10 flex flex-col md:flex-row justify-between space-y-5 md:space-y-0">
+          {/* Nama */}
           <div className="flex items-center space-x-5">
             <Person className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
             <div className="flex flex-col text-sm">
@@ -100,7 +101,7 @@ function DashboardUser() {
             </div>
           </div>
 
-
+          {/* Email */}
           <div className="flex items-center space-x-5">
             <Email className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
             <div className="flex flex-col text-sm">
@@ -109,6 +110,7 @@ function DashboardUser() {
             </div>
           </div>
 
+          {/* Asal Institusi */}
           <div className="flex items-center space-x-5">
             <Apartment className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
             <div className="flex flex-col text-sm">
@@ -116,10 +118,9 @@ function DashboardUser() {
               <p className="text-gray-500 text-[12px]">Politeknik Statistika STIS</p>
             </div>
           </div>
-
         </div>
 
-        <div className='mt-10'>
+        <div className='mt-10 hidden md:block'>
 
           <div className="flex items-center mb-5">
             <p className="text-xl text-ternaryBlue font-bold">Prosedur Sertifikasi</p>
@@ -230,110 +231,178 @@ function DashboardUser() {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 grid gap-10 md:hidden">
+          {/* Statistic Title */}
           <div className="flex items-center mb-5">
             <p className="text-xl text-ternaryBlue font-bold">Statistik dan Kemajuan</p>
             <div className="flex-grow border-t border-gray-500 ml-4"></div>
           </div>
 
-          <div className='flex space-x-10'>
-
-          {/* Apex chart line chart */}
-          <div className='w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow'>
-
-            <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
+          {/* Line Chart */}
+          <div className="w-full md:w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+            <div className="flex justify-between gap-x-3 items-center pb-4 mb-4 border-b border-gray-200">
               <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
-              <select 
-                className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue"
-                value={selectedPeriod}
-                onChange={(e) => setSelectedPeriod(e.target.value)}
-              >
+              <select className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
                 <option value="months">Tahun ini</option>
                 <option value="weeks">Bulan ini</option>
                 <option value="days">Minggu ini</option>
               </select>
             </div>
 
-            <div className='flex items-center text-sm space-x-3'>
-              <span class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
-                  <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
-                  </svg>
-                  42.5%
+            <div className="flex items-center text-sm space-x-3 mb-4">
+              <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                <svg className="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                </svg>
+                42.5%
               </span>
-              <p className='text-ternaryBlue'>Naik dibandingkan bulan Mei</p>
+              <p className="text-ternaryBlue">Naik dibandingkan bulan Mei</p>
             </div>
-            
+
             <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
           </div>
 
-          {/* Progres bar chart */}
-          <div className='w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow'>
-            
+          {/* Progress Bar Chart */}
+          <div className="w-full md:w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
             <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
               <h2 className="text-xl font-bold text-primaryOrange">Kemajuan Proses Administrasi</h2>
-            
             </div>
-            
-            <div className='flex flex-col h-96 justify-between'>
-              <div>
+
+            <div className="space-y-4">
+              {/* Progress Item 1 */}
+              <div className="flex justify-between mb-1">
+                <span className="text-base font-medium text-ternaryBlue dark:text-white">Pembayaran Sertifikasi</span>
+                <span className="text-sm font-medium text-ternaryBlue dark:text-white">50% <span className="text-[12px] text-gray-500">(Menunggu Konfirmasi)</span></span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '50%' }}></div>
+              </div>
+
+              {/* Progress Item 2 */}
+              <div className="flex justify-between mb-1">
+                <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.01</span>
+                <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+              </div>
+
+              {/* Progress Item 3 */}
+              <div className="flex justify-between mb-1">
+                <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.02</span>
+                <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+              </div>
+
+              {/* Progress Item 4 */}
+              <div className="flex justify-between mb-1">
+                <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.01</span>
+                <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+              </div>
+
+              {/* Progress Item 5 */}
+              <div className="flex justify-between mb-1">
+                <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.02</span>
+                <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 hidden md:block">
+          {/* Statistic Title */}
+          <div className="flex items-center mb-5">
+            <p className="text-xl text-ternaryBlue font-bold">Statistik dan Kemajuan</p>
+            <div className="flex-grow border-t border-gray-500 ml-4"></div>
+          </div>
+
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            {/* Left Column (Line Chart) */}
+            <div className="p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+              <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
+                <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
+                <select className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
+                  <option value="months">Tahun ini</option>
+                  <option value="weeks">Bulan ini</option>
+                  <option value="days">Minggu ini</option>
+                </select>
+              </div>
+
+              <div className="flex items-center text-sm space-x-3 mb-4">
+                <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                  <svg className="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                  </svg>
+                  42.5%
+                </span>
+                <p className="text-ternaryBlue">Naik dibandingkan bulan Mei</p>
+              </div>
+
+              <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
+            </div>
+
+            {/* Right Column (Progress Bar Chart) */}
+            <div className="p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+              <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
+                <h2 className="text-xl font-bold text-primaryOrange">Kemajuan Proses Administrasi</h2>
+              </div>
+
+              <div className="space-y-4">
+                {/* Progress Item 1 */}
                 <div className="flex justify-between mb-1">
                   <span className="text-base font-medium text-ternaryBlue dark:text-white">Pembayaran Sertifikasi</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">50%  <span className='text-[12px] text-gray-500'>(Menunggu Konfirmasi)</span> </span>
+                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">50% <span className="text-[12px] text-gray-500">(Menunggu Konfirmasi)</span></span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{width: '50%'}}></div>
+                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '50%' }}></div>
                 </div>
-              </div>
 
-              <div>
+                {/* Progress Item 2 */}
                 <div className="flex justify-between mb-1">
                   <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.01</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0%  <span className='text-[12px] text-gray-500'>(Belum diunggah)</span> </span>
+                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{width: '0%'}}></div>
+                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
                 </div>
-              </div>
 
-              <div>
+                {/* Progress Item 3 */}
                 <div className="flex justify-between mb-1">
                   <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.02</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0%  <span className='text-[12px] text-gray-500'>(Belum diunggah)</span> </span>
+                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{width: '0%'}}></div>
+                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
                 </div>
-              </div>
 
-              <div>
+                {/* Progress Item 4 */}
                 <div className="flex justify-between mb-1">
                   <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.01</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0%  <span className='text-[12px] text-gray-500'>(Belum diunggah)</span> </span>
+                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{width: '0%'}}></div>
+                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
                 </div>
-              </div>
 
-              <div>
+                {/* Progress Item 5 */}
                 <div className="flex justify-between mb-1">
                   <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.02</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0%  <span className='text-[12px] text-gray-500'>(Belum diunggah)</span> </span>
+                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{width: '0%'}}></div>
+                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
                 </div>
               </div>
-
-
-
-
             </div>
-            
-
-          </div>
-          
           </div>
         </div>
 {/* 

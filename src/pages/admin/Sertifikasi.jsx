@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function SertifikasiUser() {
 
   const breadcrumbs = [
-    { href: null, label: "Sertifikasi" }
+    { href: null, label: "Skema Sertifikasi" }
   ];
 
 
@@ -18,9 +18,9 @@ function SertifikasiUser() {
     <AdminLayout>
      <FloatingNavbar breadcrumbs={breadcrumbs}/>
 
-     <div className="p-10 mt-[5em] mx-auto">
+     <div className="p-10 md:mt-[5em] mx-auto">
         <div className="flex items-center mb-5">
-          <p className="text-3xl text-ternaryBlue font-bold">Sertifikasi yang Diikuti</p>
+          <p className="text-3xl text-ternaryBlue font-bold">Skema Sertifikasi yang Diikuti</p>
           <div className="flex-grow border-t border-gray-500 ml-4"></div>
         </div>
 
@@ -40,8 +40,8 @@ function SertifikasiUser() {
               <p className="mb-3 font-normal text-red-500 dark:text-gray-400">
                 Harap segera melakukan pembayaran
               </p>
-              <a
-                href="#"
+              <Link
+                to={'/admin/sertifikasi/detail'}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Detail
@@ -60,7 +60,7 @@ function SertifikasiUser() {
                     d="M1 5h12m0 0L9 1m4 4L9 9"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

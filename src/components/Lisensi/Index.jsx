@@ -48,7 +48,7 @@ function Lisensi() {
             Lisensi BNSP ini memberikan jaminan bahwa sertifikasi yang dilakukan oleh lembaga tersebut dilakukan sesuai dengan standar yang telah ditetapkan oleh BNSP dan diakui secara luas oleh masyarakat serta dunia kerja.
           </p>
 
-          <div className='absolute sm:bottom-full left-0 right-0 mx-auto md:mx-0 my-5 md:my-0 md:bottom-0 flex flex-col sm:flex-row items-center justify-center space-y-5 sm:space-y-0 sm:space-x-5'>
+          <div className='absolute sm:bottom-full left-0 right-0 mx-auto md:mx-0 my-5 md:my-0 md:bottom-0 flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-5 sm:space-y-0 sm:space-x-5'>
             <PrimaryButton text={'Unduh Sertifikat Linsensi'}/>
             <PrimaryButton text={'Unduh SK Linsensi'}/>
           </div>

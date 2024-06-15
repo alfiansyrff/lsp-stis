@@ -17,7 +17,7 @@ function Profile() {
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
 
-      <div className="p-10 mt-[5em]">
+      <div className="p-10 mt-0 md:mt-[5em]">
         <div className="flex items-center mb-5">
           <p className="text-3xl text-ternaryBlue font-bold">Profil Saya</p>
           <div className="flex-grow border-t border-gray-500 ml-4"></div>
@@ -26,13 +26,13 @@ function Profile() {
         <div className="mb-8">
           <div className="flex border-b border-gray-300">
             <button
-              className={`px-4 py-2 text-lg font-medium ${activeTab === 'updateProfile' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
+              className={`px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updateProfile' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
               onClick={() => setActiveTab('updateProfile')}
             >
               Ubah Profil
             </button>
             <button
-              className={`ml-4 px-4 py-2 text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
+              className={`ml-4 px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
               onClick={() => setActiveTab('updatePassword')}
             >
               Ubah Password
@@ -100,14 +100,14 @@ function Profile() {
                         type={showPasswordLama ? "text" : "password"}
                         id="password-lama"
                         className="bg-gray-50 border text-sm text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="Masukkan password lama"
+                       
                       />
                       <button
                         type="button"
                         className="absolute right-3 top-2/3 transform -translate-y-1/2"
                         onClick={() => setShowPasswordLama(!showPasswordLama)}
                       >
-                        {showPasswordLama ? <VisibilityOff fontSize='medium' className='p-1 bg-secondaryBlue text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md bg-secondaryBlue text-primaryBlue' />}
+                        {showPasswordLama ? <VisibilityOff fontSize='medium' className='p-1 hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' />}
                       </button>
                     </div>
 
@@ -119,14 +119,14 @@ function Profile() {
                         type={showPasswordBaru ? "text" : "password"}
                         id="password-baru"
                         className="bg-gray-50 border text-sm text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="Masukkan password baru"
+                       
                       />
                       <button
                         type="button"
                         className="absolute right-3 top-2/3 transform -translate-y-1/2"
                         onClick={() => setShowPasswordBaru(!showPasswordBaru)}
                       >
-                        {showPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md bg-secondaryBlue text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md bg-secondaryBlue text-primaryBlue' />}
+                        {showPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' />}
                       </button>
                     </div>
 
@@ -138,14 +138,14 @@ function Profile() {
                         type={showKonfirmasiPasswordBaru ? "text" : "password"}
                         id="konfirmasi-password-baru"
                         className="bg-gray-50 border text-sm text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="Konfirmasi password baru"
+                     
                       />
                       <button
                         type="button"
                         className="absolute right-3 top-2/3 transform -translate-y-1/2"
                         onClick={() => setShowKonfirmasiPasswordBaru(!showKonfirmasiPasswordBaru)}
                       >
-                        {showKonfirmasiPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md bg-secondaryBlue text-primaryBlue' /> : <Visibility  fontSize='medium' className='p-1 rounded-md bg-secondaryBlue text-primaryBlue' />}
+                        {showKonfirmasiPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility  fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue'/>}
                       </button>
                     </div>
 
