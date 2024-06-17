@@ -1,7 +1,7 @@
 import { Error } from '@mui/icons-material';
 import React, { useEffect, useRef } from 'react';
 
-const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
+const ConfirmUpdate = ({ isOpen, onClose, onConfirm, text }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
           <div
             ref={modalRef}
             tabIndex="-1"
-            className="relative mx-auto max-w-lg bg-white p-8 rounded-lg shadow-lg focus:outline-none"
+            className="relative mx-auto w-96 bg-white p-8 rounded-lg shadow-lg focus:outline-none"
           >
             <div className="text-center">
               <div className='mb-8 text-yellow-300 flex flex-col items-center'>
@@ -30,7 +30,7 @@ const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
                 </svg>
 
-                <h2 className="text-2xl font-bold text-black">Keluar dari LSP Polstat STIS?</h2>
+                <h2 className="text-2xl font-bold text-black">{text}</h2>
                 {/* <Error className='text-primaryOrange text-2xl' fontSize='large' /> */}
               </div>
         
@@ -47,7 +47,7 @@ const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
                   onClick={onConfirm}
                   className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 ml-4 rounded"
                 >
-                  Keluar
+                  Ya
                 </button>
               </div>
             </div>
@@ -58,4 +58,4 @@ const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   );
 };
 
-export default LogoutConfirmationModal;
+export default ConfirmUpdate;

@@ -99,7 +99,7 @@ function BeritaResume() {
         <Heading text={'Berita'} />
       </div>
 
-      <div className='grid gap-8 md:grid-cols-3 justify-items-center mt-16'>
+      <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out" className='grid gap-8 md:grid-cols-3 justify-items-center mt-16'>
         {beritaData.map((berita, index) => (
           <BeritaCard
             key={index}

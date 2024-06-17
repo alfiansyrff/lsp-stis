@@ -5,6 +5,7 @@ import {
   Link,
   Route,
   Routes,
+  HashRouter
 } from "react-router-dom";
 import Home from './pages/guest/Home';
 import Login from './pages/guest/Login';
@@ -21,6 +22,7 @@ import DetailSertifikasi from './pages/admin/DetailSertifikasi';
 import Ujian from './pages/admin/Ujian';
 import Profile from './pages/admin/Profile';
 import Register from './pages/guest/Register';
+
 
 
 

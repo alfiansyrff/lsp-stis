@@ -8,7 +8,6 @@ import PrimaryButton from '../../components/Button/PrimaryButton';
 function DashboardUser() {
   const breadcrumbs = [{ href: null, label: 'Dashboard' }];
 
-  // Example data for user activity hours
   const activityData = {
     months: [
       { month: 'Jan', hours: 160 },
@@ -37,9 +36,19 @@ function DashboardUser() {
 
   const [selectedPeriod, setSelectedPeriod] = useState('months');
 
+  const handlePeriodChange = (event) => {
+    setSelectedPeriod(event.target.value);
+  };
+
   const currentData = activityData[selectedPeriod];
   const labels = currentData.map(item => selectedPeriod === 'months' ? item.month : (selectedPeriod === 'weeks' ? item.week : item.day));
   const hours = currentData.map(item => item.hours);
+
+  const lastValue = hours[hours.length - 1];
+  const secondLastValue = hours[hours.length - 2];
+  const difference = lastValue - secondLastValue;
+  const isIncrease = difference >= 0;
+  const percentageChange = ((Math.abs(difference) / secondLastValue) * 100).toFixed(1);
 
   const chartOptions = {
     chart: {
@@ -48,13 +57,6 @@ function DashboardUser() {
         show: false,
       },
     },
-    // title: {
-    //   text: 'Aktivitas Penggunaan Website',
-    //   align: 'left',
-    //   style: {
-    //     color: '#e67e22',
-    //   },
-    // },
     xaxis: {
       categories: labels,
       title: {
@@ -242,7 +244,8 @@ function DashboardUser() {
           <div className="w-full md:w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
             <div className="flex justify-between gap-x-3 items-center pb-4 mb-4 border-b border-gray-200">
               <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
-              <select className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
+              <select   value={selectedPeriod}
+                onChange={handlePeriodChange} className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
                 <option value="months">Tahun ini</option>
                 <option value="weeks">Bulan ini</option>
                 <option value="days">Minggu ini</option>
@@ -250,13 +253,15 @@ function DashboardUser() {
             </div>
 
             <div className="flex items-center text-sm space-x-3 mb-4">
-              <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+              <span className={`text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md ${isIncrease ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'}`}>
                 <svg className="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isIncrease ? "M5 13V1m0 0L1 5m4-4 4 4" : "M5 1v12m0 0 4-4M5 13 1 9"} />
                 </svg>
-                42.5%
+                {isIncrease ? '+' : '-'}{percentageChange}%
               </span>
-              <p className="text-ternaryBlue">Naik dibandingkan bulan Mei</p>
+              <p className="text-ternaryBlue">
+                {isIncrease ? 'Naik' : 'Turun'} dibandingkan {selectedPeriod === 'months' ? 'bulan sebelumnya' : (selectedPeriod === 'weeks' ? 'minggu sebelumnya' : 'hari sebelumnya')}
+              </p>
             </div>
 
             <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
@@ -330,7 +335,8 @@ function DashboardUser() {
             <div className="p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
               <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
                 <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
-                <select className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
+                <select value={selectedPeriod}
+                onChange={handlePeriodChange} className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
                   <option value="months">Tahun ini</option>
                   <option value="weeks">Bulan ini</option>
                   <option value="days">Minggu ini</option>
@@ -338,13 +344,15 @@ function DashboardUser() {
               </div>
 
               <div className="flex items-center text-sm space-x-3 mb-4">
-                <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                <span className={`text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md ${isIncrease ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'}`}>
                   <svg className="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isIncrease ? "M5 13V1m0 0L1 5m4-4 4 4" : "M5 1v12m0 0 4-4M5 13 1 9"} />
                   </svg>
-                  42.5%
+                  {isIncrease ? '+' : '-'}{percentageChange}%
                 </span>
-                <p className="text-ternaryBlue">Naik dibandingkan bulan Mei</p>
+                <p className="text-ternaryBlue">
+                  {isIncrease ? 'Naik' : 'Turun'} dibandingkan {selectedPeriod === 'months' ? 'bulan sebelumnya' : (selectedPeriod === 'weeks' ? 'minggu sebelumnya' : 'hari sebelumnya')}
+                </p>
               </div>
 
               <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
@@ -405,18 +413,6 @@ function DashboardUser() {
             </div>
           </div>
         </div>
-{/* 
-        <div className="mt-10">
-          <div className="flex items-center mb-10">
-            <p className="text-xl text-ternaryBlue font-bold">Sertifikasi yang diikuti</p>
-            <div className="flex-grow border-t border-gray-500 ml-4"></div>
-          </div>
-          <div className="flex flex-col items-center justify-center mx-auto space-y-5">
-            <img src="/image/not-found.svg" className="w-48" alt="" />
-            <p className="text-ternaryBlue text-lg">Anda belum terdaftar di skema sertifikasi manapun</p>
-            <PrimaryButton text={'Daftar Sekarang'} cta={true} link={'/admin/sertifikasi/register'} />
-          </div>
-        </div> */}
 
       </div>
     </AdminLayout>

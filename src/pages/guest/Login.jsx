@@ -171,6 +171,10 @@ function Login() {
     {
       email: 'user@gmail.com',
       password: '12345678'
+    },
+    {
+      email: 'user2@gmail.com',
+      password: '12345678'
     }
   ];
 
@@ -192,13 +196,14 @@ function Login() {
     } else {
       setError({ email: '', password: '' });
       localStorage.setItem('loginSuccess', 'true');
-      navigate('/admin');  // Redirect to admin route
+      localStorage.setItem('email', user.email);
+      navigate('/admin');
     }
   };
 
   return (
     <div className="flex h-screen relative">
-      <div className="w-7/12 relative">
+      <div className="w-7/12 hidden md:block relative">
         <div className="bg-primaryBlue h-full w-full rounded-br-full absolute top-0 left-0 z-0" style={{ height: '90%', width: '90%', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}></div>
         <div className="bg-ternaryBlue h-full w-full rounded-bl-full rounded-br-full absolute top-0 z-0" style={{ height: '40%', width: '40%', clipPath: 'circle(40% at 40% 0)', left: '72%' }}></div>
         <div className="h-full w-full rounded-br-full absolute bottom-0 z-0" style={{ height: '20%', width: '20%', backgroundColor: '#D7EAFB', clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', left: '151.4%' , transform: 'rotate(180deg)' }}></div>
@@ -212,7 +217,7 @@ function Login() {
         </div>
       </div>
 
-      <div className="w-5/12 flex items-center justify-center">
+      <div className=" w-full md:w-5/12 z-10 px-5 md:px-0 flex items-center justify-center">
         <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg border-2 border-gray-200">
           <h2 className="text-3xl font-bold text-ternaryBlue text-center mb-10">Masuk</h2>
           <form onSubmit={handleSubmit}>
@@ -258,6 +263,15 @@ function Login() {
           </form>
         </div>
       </div>
+
+      <div
+        className="md:hidden bg-ternaryBlue h-full rounded-bl-full rounded-br-full absolute top-0 z-0"
+        style={{
+          height: "100%",
+          width: "100%",
+          clipPath: "circle(40% at 50% 0)",
+        }}
+      ></div>
     </div>
   );
 }

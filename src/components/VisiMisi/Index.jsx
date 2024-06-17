@@ -104,7 +104,7 @@ function VisiMisi() {
   const buttonWidth = `${longestTabTextWidth * 10}px`; // Adjust the factor 10 as needed
 
   return (
-    <div className="mt-20 md:mt-40 px-4">
+    <div className="mt-20 md:mt-[18em] px-4">
       <div
         data-aos="fade-up"
         data-aos-delay="50"
@@ -144,7 +144,7 @@ function VisiMisi() {
           activeTab === tab.id && (
             <motion.div
               key={tab.id}
-              className="bg-secondaryBlue p-6 md:p-10 rounded-lg shadow-md"
+              className="bg-secondaryBlue p-6 md:p-10 rounded-lg shadow-md text-center"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}

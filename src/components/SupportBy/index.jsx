@@ -26,16 +26,14 @@ function SupportBy() {
     <div className='my-[10em] max-w-5xl mx-auto'>
 
       <div data-aos="fade-up"
-    data-aos-delay="50"
-    data-aos-duration="500"
-    data-aos-easing="ease-in-out">
+        data-aos-delay="50"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out">
         <Heading text="Diselenggarakan Oleh" />
       </div>
-      <div data-aos="zoom-in"
-    data-aos-delay="50"
-    data-aos-duration="500"
-    data-aos-easing="ease-in-out" className="mt-16 bg-white bg-opacity-[35%]">
-        <div className="flex items-center justify-center flex-col md:flex-row m-5 bg-white border-accent border-2 shadow-xl mx-auto rounded-3xl w-max h-max px-4 py-3 gap-[2.5em]">
+      
+      <div className="mt-16 bg-white bg-opacity-[35%] max-w-md mx-auto">
+        <div className="flex flex-wrap justify-center items-center gap-5 m-5 p-4 bg-white border-accent border-2 shadow-xl rounded-3xl">
           {support.map((item) => (
             <SupportLogo
               key={item.title}

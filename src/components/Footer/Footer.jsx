@@ -55,7 +55,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative bg-ternaryBlue text-white md:h-60 flex md:flex-around flex-col md:flex-row overflow-hidden md:items-center p-5 md:p-0 border-t-2 border-accent"
+      className="relative bg-ternaryBlue text-white md:h-72 flex md:flex-around flex-col md:flex-row overflow-hidden md:items-center p-5 md:p-0 border-t-2 border-accent"
     >
       <div className="flex flex-col justify-center items-center md:w-4/12 mb-5 md:my-0">
         <div className="flex items-center">
@@ -70,7 +70,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <p className="whitespace-pre-wrap w-42 md:text-left ml-6 text-lg text-white mt-5">
+        <p className="whitespace-pre-wrap w-42 text-center md:text-left ml-6 text-lg text-white mt-5">
           <span className="mr-2">&#169;</span>
           LSP Politeknik Statistika STIS 2024
         </p>

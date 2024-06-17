@@ -66,16 +66,9 @@ export default function FloatingNavbar({ breadcrumbs }) {
             <img
               src="https://ui-avatars.com/api/?name=Alfian+Syarif&background=D7EAFB&color=228be6&bold=true"
               alt=""
-              className="w-10 h-10 rounded-full hover:cursor-pointer"
-              onClick={toggleDropdown}
+              className="w-10 h-10 rounded-full hover:cursor-pointer"         
             />
-            {dropdownVisible && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg p-2.5">
-                <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200" onClick={toggleModal}>
-                  Keluar
-                </button>
-              </div>
-            )}
+
           </div>
 
           {modalVisible && (

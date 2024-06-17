@@ -3,11 +3,10 @@ import GuestLayout from '../layout/GuestLayout';
 import BreadCrumbs from '../../components/Breadcrumbs';
 import MainBerita from '../../components/DetailBerita/MainBerita';
 import BeritaLainnya from '../../components/DetailBerita/BeritaLainnya';
-import { useParams, useRoutes } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import beritaList from '../../utils/data/berita';
 
 function DetailBerita() {
-
   const { title } = useParams();
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +16,6 @@ function DetailBerita() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-      // console.log(process.env.REACT_APP_PUBLIC_CLIENT);
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -26,19 +24,19 @@ function DetailBerita() {
   const links = [
     { label: 'Beranda', href: '/' },
     { label: 'Berita', href: '/berita' },
-    { label: 'Judul Berita', href: null },
+    { label: title, href: null },
   ];
 
   return (
     <GuestLayout>
       <BreadCrumbs links={links} />
-      {loading ? ( // Render loading skeleton if loading is true
-        <div className="animate-pulse grid grid-cols-1 gap-6 md:grid-cols-4 max-w-7xl mx-auto px-5 my-10">
+      {loading ? (
+        <div className="animate-pulse grid grid-cols-1 gap-6 md:grid-cols-4 max-w-7xl mx-auto px-4 my-10">
           <div className="md:col-span-3 bg-gray-200 rounded-lg p-5"></div>
           <div className="md:col-span-1 bg-gray-200 rounded-lg p-5"></div>
         </div>
-      ) : ( // Render actual content when loading is false
-        <div className='max-w-7xl mx-auto px-5 my-10'>
+      ) : (
+        <div className="max-w-7xl mx-auto px-4 my-10">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div className="md:col-span-3">
               <MainBerita berita={selectedBerita} />

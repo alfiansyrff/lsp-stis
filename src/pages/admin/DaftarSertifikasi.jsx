@@ -295,7 +295,7 @@ function DaftarSertifikasi() {
 
               <button
                 type="submit"
-                className="flex mt-5 items-center text-white px-4 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out  bg-primaryBlue hover:bg-ternaryBlue"
+                className="flex mt-5 items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out  bg-primaryBlue hover:bg-ternaryBlue"
               >
                 Daftar
               </button>

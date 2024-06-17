@@ -18,7 +18,7 @@ function FloatingInput({ label, type, id, value, onChange, showPassword, handleT
       >
         {label}
       </label>
-      {id === 'password' && (
+      {(id === 'password' || id === 'confirmPassword') && (
         <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
           <button type="button" onClick={handleTogglePasswordVisibility} className="focus:outline-none">
             {showPassword ? <VisibilityOff className='text-ternaryBlue hover:bg-secondaryBlue rounded p-1' fontSize='medium'/> : <Visibility className='text-ternaryBlue hover:bg-secondaryBlue rounded p-1' fontSize='medium' />}
