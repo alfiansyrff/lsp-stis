@@ -68,7 +68,7 @@ function DashboardUser() {
     },
     yaxis: {
       title: {
-        text: 'Jam',
+        text: 'Menit',
         style: {
           color: '#228be6',
         },
@@ -77,11 +77,19 @@ function DashboardUser() {
     stroke: {
       curve: 'smooth',
     },
+    fill: {
+      gradient: {
+        enabled: true,
+        opacityFrom: 0.55,
+        opacityTo: 0
+      }
+    },
+    
   };
 
   const chartSeries = [
     {
-      name: 'Lama Penggunaan (jam)',
+      name: 'Lama Penggunaan (menit)',
       data: hours,
     },
   ];
@@ -152,7 +160,7 @@ function DashboardUser() {
                   <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Pembayaran Sertifikasi</h3>
+                  <h3 className="text-lg text-gray-500">Pembayaran Sertifikasi</h3>
                  
                 </div>
               </li>
@@ -164,7 +172,7 @@ function DashboardUser() {
                   <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Dokumen FR.APL.01</h3>
+                  <h3 className="text-lg text-gray-500">Dokumen FR.APL.01</h3>
                 
                 </div>
               </li>
@@ -176,7 +184,7 @@ function DashboardUser() {
                   <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Dokumen FR.APL.02</h3>
+                  <h3 className="text-lg text-gray-500">Dokumen FR.APL.02</h3>
                 
                 </div>
               </li>
@@ -188,7 +196,7 @@ function DashboardUser() {
                   <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Dokumen FR.AK.01</h3>
+                  <h3 className="text-lg text-gray-500">Dokumen FR.AK.01</h3>
                 
                 </div>
               </li>
@@ -200,7 +208,7 @@ function DashboardUser() {
                   <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Ujian Kompetensi</h3>
+                  <h3 className="text-lg text-gray-500">Ujian Kompetensi</h3>
                 
                 </div>
               </li>
@@ -212,7 +220,7 @@ function DashboardUser() {
                   <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Dokumen FR.AK.02</h3>
+                  <h3 className="text-lg text-gray-500">Dokumen FR.AK.02</h3>
                 
                 </div>
               </li>
@@ -224,7 +232,7 @@ function DashboardUser() {
                  
                 </div>
                 <div className="mt-3 sm:pe-8">
-                  <h3 className="text-lg font-semibold text-gray-500">Keputusan Sertifikasi</h3>
+                  <h3 className="text-lg text-gray-500">Keputusan Sertifikasi</h3>
                 
                 </div>
               </li>
@@ -264,7 +272,7 @@ function DashboardUser() {
               </p>
             </div>
 
-            <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
+            <Chart options={chartOptions} series={chartSeries} type="area" height={350} />
           </div>
 
           {/* Progress Bar Chart */}
@@ -337,9 +345,9 @@ function DashboardUser() {
                 <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
                 <select value={selectedPeriod}
                 onChange={handlePeriodChange} className="p-2 rounded bg-white border border-gray-300 text-ternaryBlue">
-                  <option value="months">Tahun ini</option>
-                  <option value="weeks">Bulan ini</option>
-                  <option value="days">Minggu ini</option>
+                  <option value="months">Bulanan</option>
+                  <option value="weeks">Mingguan</option>
+                  <option value="days">Harian</option>
                 </select>
               </div>
 
@@ -355,7 +363,7 @@ function DashboardUser() {
                 </p>
               </div>
 
-              <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
+              <Chart options={chartOptions} series={chartSeries} type="area" height={350} />
             </div>
 
             {/* Right Column (Progress Bar Chart) */}

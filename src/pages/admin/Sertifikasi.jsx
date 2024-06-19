@@ -34,7 +34,7 @@ function SertifikasiUser() {
           <div className="flex flex-col items-center justify-center mx-auto h-[60vh] space-y-5">
             <img src="/image/not-found.svg" className="w-48" alt="" />
             <p className="text-ternaryBlue text-lg">Anda belum terdaftar di skema sertifikasi manapun</p>
-            <PrimaryButton text={'Daftar Sekarang'} cta={true} link={'/admin/sertifikasi/register'} />
+            <PrimaryButton text={'Daftar Sekarang'} cta={true} link={'/user/sertifikasi/register'} />
           </div>
         ) : (
           <>
@@ -55,7 +55,7 @@ function SertifikasiUser() {
                     Harap segera melakukan pembayaran
                   </p>
                   <Link
-                    to={'/admin/sertifikasi/detail'}
+                    to={'/user/sertifikasi/detail'}
                     className="inline-flex z-10 items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform hover:bg-ternaryBlue duration-300 ease-in-out bg-primaryBlue"
                   >
                     Detail

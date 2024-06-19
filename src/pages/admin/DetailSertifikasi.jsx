@@ -6,7 +6,7 @@ import CardInformationSertif from '../../components/CardInformationSertif';
 
 function DetailSertifikasi() {
   const breadcrumbs = [
-    { href: '/admin/sertifikasi', label: "Skema Sertifikasi" },
+    { href: '/user/sertifikasi', label: "Skema Sertifikasi" },
     { href: null, label: "Detail Sertifikasi" },
   ];
 

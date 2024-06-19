@@ -11,7 +11,7 @@ function AdminLayout({ children }) {
     {
       icon: <Dashboard />,
       text: "Dashboard",
-      to: "/admin",
+      to: "/user",
       submenu: []
     },
     {
@@ -19,8 +19,8 @@ function AdminLayout({ children }) {
       text: "Sertifikasi",
       to: "",
       submenu: [
-        { text: "Skema", to: "/admin/sertifikasi", icon: <CardMembership/>},
-        { text: "Ujian", to: "/admin/ujian",  icon: <Assignment />  }
+        { text: "Skema", to: "/user/sertifikasi", icon: <CardMembership/>},
+        { text: "Ujian", to: "/user/ujian",  icon: <Assignment />  }
       ]
     },
     // {
@@ -32,7 +32,7 @@ function AdminLayout({ children }) {
     {
       icon: <Person />,
       text: "Profil",
-      to: "/admin/update-profile",
+      to: "/user/update-profile",
       submenu: []
     },
     {
@@ -75,7 +75,7 @@ function AdminLayout({ children }) {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar Section */}
-      <div className="fixed w-1/6 h-full">
+      <div className="fixed w-1/6 h-full z-40">
         <Sidebar>
           {data.map((item, key) => (
             <SidebarItem
@@ -117,7 +117,7 @@ function AdminLayout({ children }) {
                 </svg>
                 <span className="sr-only">Check icon</span>
               </div>
-              <div className="ms-3 text-sm font-normal">Berhasil masuk.</div>
+              <div className="ms-3 text-sm font-normal">Berhasil masuk</div>
               <button
                 type="button"
                 className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"

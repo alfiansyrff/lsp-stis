@@ -36,7 +36,7 @@ export default function FloatingNavbar({ breadcrumbs }) {
         {/* User Icon and Notification Icon */}
         <div className="relative flex items-center space-x-4">
           <div className="relative">
-            <Notifications className="text-gray-600 cursor-pointer" onClick={toggleNotif} />
+            <Notifications className="text-primaryBlue cursor-pointer" onClick={toggleNotif} />
             {notifVisible && (
               <div className="absolute right-0 mt-2 w-80 bg-white border rounded shadow-lg">
                 <div className="flex justify-between items-center px-4 py-2 bg-gray-100 border-b">
@@ -49,12 +49,12 @@ export default function FloatingNavbar({ breadcrumbs }) {
                 <div className="p-4 space-y-4">
                   {/* Notification items */}
                   <div className="border-b pb-4">
-                    <p className="text-gray-800"><strong>Elek</strong> has completed the certification process.</p>
-                    <p className="text-gray-600 text-sm">5 minutes ago</p>
+                    <p className="text-gray-800"><strong>Rudi</strong> mengunggah dokumen FR.APL.01</p>
+                    <p className="text-gray-600 text-sm">21 Juli 2024, 13.00</p>
                   </div>
                   <div className="border-b pb-4">
-                    <p className="text-gray-800"><strong>Another User</strong> uploaded a payment proof.</p>
-                    <p className="text-gray-600 text-sm">10 minutes ago</p>
+                    <p className="text-gray-800"><strong>User</strong> mengunggah bukti pembayaran</p>
+                    <p className="text-gray-600 text-sm">21 Juli 2024, 14.00</p>
                   </div>
                   {/* Add more notifications here as needed */}
                 </div>

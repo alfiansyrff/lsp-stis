@@ -6,7 +6,6 @@ const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // Focus on the modal when it opens
       modalRef.current.focus();
     }
   }, [isOpen]);

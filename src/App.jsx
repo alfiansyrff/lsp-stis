@@ -37,12 +37,12 @@ function App() {
           <Route path="/sertifikasi" element={<Sertifikasi />} />
           <Route path="/regulasi" element={<Reguilasi />} />
           <Route path="/berita/detail/:title" element={<DetailBerita />} />
-          <Route path='/admin' element={<DashboardUser />} />
-          <Route path='/admin/sertifikasi' element={<SertifikasiUser />} />
-          <Route path='/admin/sertifikasi/register' element={<DaftarSertifikasi />} />
-          <Route path='/admin/sertifikasi/detail' element={<DetailSertifikasi />} />
-          <Route path='/admin/ujian' element={<Ujian />} />
-          <Route path='/admin/update-profile' element={<Profile />} />
+          <Route path='/user' element={<DashboardUser />} />
+          <Route path='/user/sertifikasi' element={<SertifikasiUser />} />
+          <Route path='/user/sertifikasi/register' element={<DaftarSertifikasi />} />
+          <Route path='/user/sertifikasi/detail' element={<DetailSertifikasi />} />
+          <Route path='/user/ujian' element={<Ujian />} />
+          <Route path='/user/update-profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
   )

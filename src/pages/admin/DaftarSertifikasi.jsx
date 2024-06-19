@@ -7,7 +7,7 @@ import { Close } from '@mui/icons-material';
 
 function DaftarSertifikasi() {
   const breadcrumbs = [
-    { href: '/admin/sertifikasi', label: "Sertifikasi" },
+    { href: '/user/sertifikasi', label: "Sertifikasi" },
     { href: null, label: "Daftar" },
   ];
 

@@ -137,7 +137,7 @@ const HeroSection = () => {
             <p className="text-lg sm:text-lg md:text-2xl w-full sm:w-3/4 md:max-w-10xl mb-20 opacity-80">
               Lembaga Sertifikasi Politeknik (LSP) Politeknik Statistika STIS adalah lembaga sertifikasi profesi pihak kesatu lembaga pendidikan dan pelatihan untuk melaksanakan sertifikasi kompetensi di bidang ilmu statistika dan sains data.
             </p>
-            <PrimaryButton text={'Selengkapnya'} cta={true} link='/sertifikasi' />
+            <PrimaryButton text={'Lihat Panduan'} cta={true} link='/sertifikasi' />
           </div>
         </div>
       </div>

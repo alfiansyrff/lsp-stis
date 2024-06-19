@@ -148,7 +148,7 @@ function Berita() {
             <div>
               <label className='text-ternaryBlue' id='tahunContainer' htmlFor="tahun">Tahun</label>
               <select id='tahun' value={selectedYear} onChange={handleYearChange} className='block w-full border-gray-300 rounded-md shadow-sm p-2'>
-                <option value=''>Pilih Tahun</option>
+                <option value=''>Semua</option>
                 {years.map((year) => (
                   <option key={year} value={year}>
                     {year}
