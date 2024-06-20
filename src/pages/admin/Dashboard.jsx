@@ -98,10 +98,10 @@ function DashboardUser() {
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
 
-      <div className="p-10 mt-0 md:mt-[5em] mx-auto">
+      <div className="p-10 mt-0 mx-auto">
         <h1 className="text-3xl text-ternaryBlue font-bold">Selamat Datang, Alfian Syarif!</h1>
 
-        <div className="mt-10 flex flex-col md:flex-row justify-between space-y-5 md:space-y-0">
+        <div className="mt-5 flex flex-col md:flex-row bg-white rounded-2xl p-5 justify-between space-y-5 md:space-y-0">
           {/* Nama */}
           <div className="flex items-center space-x-5">
             <Person className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
@@ -130,14 +130,14 @@ function DashboardUser() {
           </div>
         </div>
 
-        <div className='mt-10 hidden md:block'>
+        <div className='mt-10 hidden xl:block'>
 
           <div className="flex items-center mb-5">
             <p className="text-xl text-ternaryBlue font-bold">Prosedur Sertifikasi</p>
             <div className="flex-grow border-t border-gray-500 ml-4"></div>
           </div>
 
-          <div className='bg-white shadow border-2 border-gray-200 p-5 rounded-lg'>
+          <div className='bg-white shadow p-5 rounded-2xl'>
             <ol className="items-center sm:flex justify-center">
               <li className="relative mb-6 sm:mb-0">
                 <div className="flex items-center">
@@ -249,7 +249,7 @@ function DashboardUser() {
           </div>
 
           {/* Line Chart */}
-          <div className="w-full md:w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+          <div className="w-full md:w-1/2 p-4 bg-white glassmorphism rounded-2xl shadow">
             <div className="flex justify-between gap-x-3 items-center pb-4 mb-4 border-b border-gray-200">
               <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
               <select   value={selectedPeriod}
@@ -276,7 +276,7 @@ function DashboardUser() {
           </div>
 
           {/* Progress Bar Chart */}
-          <div className="w-full md:w-1/2 p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+          <div className="w-full md:w-1/2 p-4 bg-white glassmorphism rounded-2xl shadow">
             <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
               <h2 className="text-xl font-bold text-primaryOrange">Kemajuan Proses Administrasi</h2>
             </div>
@@ -340,7 +340,7 @@ function DashboardUser() {
           {/* Content Grid */}
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {/* Left Column (Line Chart) */}
-            <div className="p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+            <div className="p-4 bg-white rounded-2xl shadow">
               <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
                 <h2 className="text-xl font-bold text-primaryOrange">Lama Penggunaan Website</h2>
                 <select value={selectedPeriod}
@@ -367,7 +367,7 @@ function DashboardUser() {
             </div>
 
             {/* Right Column (Progress Bar Chart) */}
-            <div className="p-4 border-2 border-gray-200 glassmorphism rounded-lg shadow">
+            <div className="p-4 bg-white rounded-2xl shadow">
               <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
                 <h2 className="text-xl font-bold text-primaryOrange">Kemajuan Proses Administrasi</h2>
               </div>

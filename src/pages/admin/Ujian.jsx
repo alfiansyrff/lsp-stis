@@ -13,7 +13,7 @@ function Ujian() {
     <AdminLayout>
      <FloatingNavbar breadcrumbs={breadcrumbs}/>
 
-     <div className="p-10 md:mt-[5em] mx-auto">
+     <div className="p-10 mx-auto">
         
         {/* <div className='w-1/3'>
           <HistorySertifikasi />

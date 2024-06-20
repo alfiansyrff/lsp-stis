@@ -32,7 +32,7 @@ function BookletCard({ imageSrc, title, fileLink }) {
   }, []);
 
   return (
-    <div className="max-w-sm w-full mb-5 bg-white p-5 border border-gray-200 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:shadow-2xl hover:-translate-y-2 flex flex-col">
+    <div className="max-w-sm w-full mb-5 bg-white p-5 rounded-2xl shadow-lg transition-transform duration-300 ease-in-out transform hover:shadow-2xl hover:-translate-y-2 flex flex-col">
       {isLoading ? (
         <div className="animate-pulse">
           <div className="h-96 bg-gray-300 rounded-t-lg"></div>

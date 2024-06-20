@@ -86,7 +86,7 @@ function Login() {
       </div>
 
       <div className="w-full md:w-5/12 z-10 px-5 md:px-0 flex items-center justify-center">
-        <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg border-2 border-gray-200">
+        <div className="max-w-md w-full p-8 bg-white rounded-2xl shadow-lg border-2 border-gray-200">
           <h2 className="text-3xl font-bold text-ternaryBlue text-center mb-10">Masuk</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">

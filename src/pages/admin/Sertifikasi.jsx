@@ -10,7 +10,7 @@ function SertifikasiUser() {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    // Fetch email from localStorage on component mount
+
     const storedEmail = localStorage.getItem('email');
     setEmail(storedEmail);
   }, []);
@@ -23,7 +23,7 @@ function SertifikasiUser() {
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs}/>
 
-      <div className="p-10 md:mt-[5em] mx-auto z-10">
+      <div className="p-10 mx-auto z-10">
         <div className="flex items-center mb-5">
           <p className="text-3xl text-ternaryBlue font-bold">Skema Sertifikasi yang Diikuti</p>
           <div className="flex-grow border-t border-gray-500 ml-4"></div>
@@ -39,24 +39,26 @@ function SertifikasiUser() {
         ) : (
           <>
             <div>
-              <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div className="max-w-sm bg-white rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                  <div className="relative w-full h-48">
-                    <img className="absolute inset-0 w-full h-full object-cover rounded-t-lg" src="/image/data-scientist.jpg" alt=""  />
+                  <div className="relative w-full h-36">
+                    <img className="absolute inset-0 w-full h-full object-cover rounded-t-2xl" src="/image/data-scientist.jpg" alt=""  />
                   </div>
                 </a>
-                <div className="p-5">
-                  <a href="#">
+                <div className="p-5 flex flex-col justify-between gap-5">
+
+                  <div>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-ternaryBlue">
                       Ilmuwan Data 
                     </h5>
-                  </a>
-                  <p className="mb-3 font-normal text-red-500 dark:text-gray-400">
-                    Harap segera melakukan pembayaran
-                  </p>
+                  
+                    <p className="mb-3 font-normal text-red-500 dark:text-gray-400">
+                      Harap segera melakukan pembayaran
+                    </p>
+                  </div>
                   <Link
                     to={'/user/sertifikasi/detail'}
-                    className="inline-flex z-10 items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform hover:bg-ternaryBlue duration-300 ease-in-out bg-primaryBlue"
+                    className="inline-flex w-min z-10 items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform hover:bg-ternaryBlue duration-300 ease-in-out bg-primaryBlue"
                   >
                     Detail
                     <svg

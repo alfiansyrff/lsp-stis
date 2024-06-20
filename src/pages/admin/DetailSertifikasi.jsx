@@ -13,7 +13,7 @@ function DetailSertifikasi() {
   return (
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
-      <div className="p-6 md:p-10 md:mt-[5em] mx-auto flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 overflow-auto">
+      <div className="p-6 md:p-10 mx-auto flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 overflow-auto">
         <div className='w-full md:w-2/3'>
           <CardInformationSertif />
         </div>

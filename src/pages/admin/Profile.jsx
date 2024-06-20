@@ -87,7 +87,7 @@ function Profile() {
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
 
-      <div className="p-10 mt-0 md:mt-[5em]">
+      <div className="p-10 mt-0">
         <div className="flex items-center mb-5">
           <p className="text-3xl text-ternaryBlue font-bold">Profil Saya</p>
           <div className="flex-grow border-t border-gray-500 ml-4"></div>
@@ -112,7 +112,7 @@ function Profile() {
 
         <div>
           {activeTab === 'updateProfile' && (
-            <div className='bg-white rounded-lg shadow max-w-lg border-2 border-gray-200 p-5'>
+            <div className='bg-white rounded-2xl shadow max-w-lg p-5'>
               <h2 className="text-2xl font-semibold mb-4 text-primaryOrange">Ubah Profil</h2>
               <form className="max-w-lg">
                 <div className="mb-5">
@@ -167,7 +167,7 @@ function Profile() {
             </div>
           )}
           {activeTab === 'updatePassword' && (
-            <div className='bg-white rounded-lg shadow max-w-lg border-2 border-gray-200 p-5'>
+            <div className='bg-white rounded-2xl shadow max-w-lg p-5'>
               <h2 className="text-2xl font-semibold mb-4 text-primaryOrange">Ubah Password</h2>
               <form id='ubahPassword' className="max-w-lg mx-auto">
                 <div className="relative">

@@ -55,6 +55,7 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem('loginSuccess');
+    localStorage.removeItem('email');
     setIsLoggedIn(false);
   };
 
@@ -117,7 +118,7 @@ function Navbar() {
             </div>
           ) : (
             <>
-              <Link to="/register" className={`text-ternaryBlue hover:text-secondaryBlue focus:outline-none ${isHomePage && !scrolled ? 'text-white' : 'text-ternaryBlue'}`}>
+              <Link to="/register" className={`text-ternaryBlue  focus:outline-none ${isHomePage && !scrolled ? 'text-white' : ''}`}>
                 Daftar
               </Link>
               <Link to="/login">

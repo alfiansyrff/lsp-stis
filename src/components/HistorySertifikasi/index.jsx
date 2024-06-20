@@ -3,8 +3,8 @@ import React from 'react';
 
 function HistorySertifikasi() {
   return (
-    <body className="bg-white rounded-lg border-2 border-gray-200 shadow">
-      <div className="p-4 mt-4">
+    <body className="bg-white rounded-2xl shadow">
+      <div className="p-4">
         <h1 className="text-xl text-center font-semibold mb-6 text-primaryOrange">Status Sertifikasi</h1>
         <div className="container">
           <div className="flex flex-col md:grid grid-cols-12 text-gray-50">

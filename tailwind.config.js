@@ -10,7 +10,8 @@ export default {
         'primaryBlue':'#228be6',
         'secondaryBlue': '#D7EAFB',
         'primaryOrange': '#e67e22',
-        'ternaryBlue': '#0A3357'
+        'ternaryBlue': '#0A3357',
+        'grayCustom': '#eef0f2'
       }
     },
   },

@@ -23,12 +23,7 @@ function AdminLayout({ children }) {
         { text: "Ujian", to: "/user/ujian",  icon: <Assignment />  }
       ]
     },
-    // {
-    //   icon: <Assignment />,
-    //   text: "Ujian",
-    //   to: "/admin/ujian",
-    //   submenu: []
-    // },
+
     {
       icon: <Person />,
       text: "Profil",
@@ -41,12 +36,7 @@ function AdminLayout({ children }) {
       to: "/logout",
       submenu: []
     },
-    // {
-    //   icon: <Key />,
-    //   text: "Ubah Password",
-    //   to: "/admin/update-password",
-    //   submenu: []
-    // }
+
   ];
 
   const [toast, setToast] = useState(false);
@@ -91,7 +81,7 @@ function AdminLayout({ children }) {
       </div>
 
     
-      <div className="flex-1 ml-[16.6667%] overflow-auto">
+      <div className="flex-1 ml-[16.6667%] w-5/6 overflow-auto">
         {children}
       </div>
 

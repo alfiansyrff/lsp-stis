@@ -118,8 +118,8 @@ function DaftarSertifikasi() {
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
 
-      <div className="p-10 md:mt-[5em] mx-auto">
-        <section className="bg-white dark:bg-gray-900">
+      <div className="p-10 mx-auto">
+        <section className="dark:bg-gray-900">
           <div className="">
 
             <div className="flex items-center mb-5">
@@ -133,7 +133,7 @@ function DaftarSertifikasi() {
               </span> dengan detail sebelum mendaftar.
             </p>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='bg-white rounded-2xl p-5'>
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div className="sm:col-span-2">
                   <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white required">Nama Lengkap</label>

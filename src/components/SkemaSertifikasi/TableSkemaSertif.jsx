@@ -11,8 +11,6 @@ const TableSkemaSertif = ({ data }) => {
         <button className='flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue'>
           Unduh SKKNI
         </button>
-        {/* <PrimaryButton text={'Unduh Skema'} /> */}
-        {/* <PrimaryButton text={'Unduh SKKNI'} /> */}
       </div>
 
       <table className="w-full text-sm text-left text-ternaryBlue dark:text-gray-400">

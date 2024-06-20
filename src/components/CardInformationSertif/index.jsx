@@ -71,7 +71,7 @@ function CardInformationSertif() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="bg-white shadow border-2 border-gray-200 rounded-lg">
+      <div className="bg-white shadow rounded-2xl">
         <div className="flex border-b-2 border-gray-200">
           <button
             className={`flex-1 px-4 py-2 ${activeTab === 'detail' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'}`}

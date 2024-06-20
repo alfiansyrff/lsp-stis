@@ -94,7 +94,7 @@ function TableRegulasi() {
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   return (
-    <div className='my-5 max-w-7xl px-5 mx-auto overflow-x-auto'>
+    <div className='my-5 max-w-7xl px-5 mx-auto overflow-x-auto bg-white rounded-2xl p-5'>
       <div className='mb-5 flex justify-end'>
         <form className="max-w-md">
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -153,7 +153,7 @@ function TableRegulasi() {
             <div className='flex justify-between'>
             
             <div className='text-ternaryBlue text-sm'>
-              Menampilkan {firstIndex + 1}-{lastIndex > totalRegulasi ? totalRegulasi : lastIndex} dari {totalRegulasi} regulasi
+              Menampilkan <span className='font-bold'>{firstIndex + 1}</span>- <span className='font-bold'> {lastIndex > totalRegulasi ? totalRegulasi : lastIndex}</span> dari <span className='font-bold'>{totalRegulasi}</span> regulasi
             </div>
 
             

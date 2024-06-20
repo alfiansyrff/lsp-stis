@@ -9,7 +9,7 @@ function TabMenu({ items }) {
   };
 
   return (
-    <div className="mt-16 mb-10">
+    <div className="mt-16 mb-32 bg-white rounded-2xl p-5">
       <div className="flex border-b border-gray-200 dark:border-gray-700">
         {items.map((item, index) => (
           <button
@@ -28,7 +28,7 @@ function TabMenu({ items }) {
       </div>
       <div className="p-5 mt-5">
         {items[activeIndex] && (
-          <p className="text-gray-500 shadow border-2 border-gray-200 px-10 py-5 rounded-lg dark:text-gray-400">{items[activeIndex].content}</p>
+          <div className="rounded-lg dark:text-gray-400">{items[activeIndex].content}</div>
         )}
       </div>
     </div>

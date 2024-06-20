@@ -137,7 +137,7 @@ function Berita() {
         {/* Left Side (Filter + Chart) */}
         <div className='w-full md:w-1/4 md:pr-5'>
           {/* Filter */}
-          <div className='bg-white h-min text-ternaryBlue font-normal border-2 border-gray-200 rounded-lg shadow-sm p-5 mb-5 flex flex-col space-y-3'>
+          <div className='bg-white h-min text-ternaryBlue font-normal border-2 border-gray-200 rounded-2xl shadow-sm p-5 mb-5 flex flex-col space-y-3'>
             <h2 className='text-xl font-bold text-primaryOrange text-center mb-2'>Filter Berita</h2>
 
             <div id='keywordContainer' className=''>
@@ -175,7 +175,7 @@ function Berita() {
           </div>
 
           {/* Chart Card */}
-          <div className='bg-white text-ternaryBlue font-normal border-2 border-gray-200 rounded-lg shadow-sm p-5 mb-5'>
+          <div className='bg-white text-ternaryBlue font-normal border-2 border-gray-200 rounded-2xl shadow-sm p-5 mb-5'>
             <h2 className='text-xl font-bold text-primaryOrange text-center mb-2'>Kategori Berita</h2>
             {/* Placeholder for chart */}
             <div className='flex items-center justify-center'>
@@ -195,7 +195,7 @@ function Berita() {
               // Skeleton loading
               <>
                 {[...Array(5)].map((_, index) => (
-                  <div key={index} className='animate-pulse flex flex-col items-center bg-white border-2 border-gray-200 rounded-lg shadow md:flex-row md:max-w-4xl mb-5 h-[15em]'>
+                  <div key={index} className='animate-pulse flex flex-col items-center bg-white border-2 border-gray-200 rounded-2xl shadow md:flex-row md:max-w-4xl mb-5 h-[15em]'>
                     <div className='object-cover w-full rounded-t-lg h-48 md:w-48 md:rounded-none md:rounded-s-lg p-6 bg-gray-200' />
                     <div className='flex flex-col justify-between p-4 leading-normal w-full'>
                       <div className='h-3 w-1/2 bg-gray-200 rounded mb-2' />
@@ -216,7 +216,7 @@ function Berita() {
             ) : (
               // Render actual Berita items
               currentBeritaList.map((berita) => (
-                <div key={berita.id} className='hidden md:flex flex-col items-center bg-white border-2 border-gray-200 rounded-lg shadow md:flex-row md:max-w-4xl hover:bg-gray-100 mb-5 h-[15em]'>
+                <div key={berita.id} className='hidden md:flex flex-col items-center bg-white border-2 border-gray-200 rounded-2xl shadow md:flex-row md:max-w-4xl hover:bg-gray-100 mb-5 h-[15em]'>
                   <img
                     src={berita.image}
                     alt={berita.title}
@@ -243,7 +243,7 @@ function Berita() {
 
           {/* Mobile Card View */}
           {currentBeritaList.map((berita) => (
-            <div key={berita.id} className='flex md:hidden flex-col bg-white border-2 border-gray-200 rounded-lg shadow mb-5'>
+            <div key={berita.id} className='flex md:hidden flex-col bg-white border-2 border-gray-200 rounded-2xl shadow mb-5'>
               <img
                 src={berita.image}
                 alt={berita.title}
@@ -265,7 +265,7 @@ function Berita() {
             <div className='flex justify-between items-center mt-5'>
               {/* Display Info */}
               <div className='text-ternaryBlue text-sm'>
-                Menampilkan {indexOfFirstItem + 1} - {indexOfLastItem > filteredBeritaList.length ? filteredBeritaList.length : indexOfLastItem} dari {filteredBeritaList.length} berita
+                Menampilkan <span className='font-bold'>{indexOfFirstItem + 1}</span> - <span className='font-bold'>{indexOfLastItem > filteredBeritaList.length ? filteredBeritaList.length : indexOfLastItem}</span> dari <span className='font-bold'>{filteredBeritaList.length}</span> berita
               </div>
               {/* Pagination */}
               <nav aria-label="Page navigation example">
@@ -283,7 +283,7 @@ function Berita() {
                     <li key={index}>
                       <button
                         onClick={() => handlePageChange(index + 1)}
-                        className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-blue-500 bg-opacity-20' : ''}`}
+                        className={`flex items-center justify-center px-3 h-8 leading-tight text-ternaryBlue border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ${currentPage === index + 1 ? 'bg-blue-500 bg-opacity-20' : 'bg-white'}`}
                       >
                         {index + 1}
                       </button>

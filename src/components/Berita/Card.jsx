@@ -2,7 +2,7 @@ import React from 'react';
 
 function BeritaCard({ image, title, description, link }) {
   return (
-    <div className="max-w-sm w-full bg-white p-5 border border-gray-200 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:shadow-2xl hover:-translate-y-2 flex flex-col">
+    <div className="max-w-sm w-full bg-white p-5 border border-gray-200 rounded-2xl shadow-lg transition-transform duration-300 ease-in-out transform hover:shadow-2xl hover:-translate-y-2 flex flex-col">
       <a href={link} className="flex-shrink-0">
         <img className="w-full h-72 object-cover rounded-t-lg" src={image} alt={title} />
       </a>

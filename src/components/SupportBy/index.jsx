@@ -32,8 +32,8 @@ function SupportBy() {
         <Heading text="Diselenggarakan Oleh" />
       </div>
       
-      <div className="mt-16 bg-white bg-opacity-[35%] max-w-md mx-auto">
-        <div className="flex flex-wrap justify-center items-center gap-5 m-5 p-4 bg-white border-accent border-2 shadow-xl rounded-3xl">
+      <div className="mt-16 max-w-md md:max-w-sm mx-auto">
+        <div className="flex flex-wrap justify-center items-center gap-5 m-5 p-4 bg-white shadow-xl rounded-2xl">
           {support.map((item) => (
             <SupportLogo
               key={item.title}
