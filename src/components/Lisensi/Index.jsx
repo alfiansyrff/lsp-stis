@@ -42,7 +42,7 @@ function Lisensi() {
             <PrimaryButton text={'Unduh SK Lisensi'}/>
           </div>
         </div>
-        <div className='flex justify-center mx-auto items-center' data-aos="fade-left"
+        <div className='flex hidden md:block justify-center mx-auto items-center' data-aos="fade-left"
           data-aos-delay="50"
           data-aos-duration="500"
           data-aos-easing="ease-in-out">
