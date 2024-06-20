@@ -2,7 +2,6 @@ import React, { useState, useEffect, Suspense } from 'react';
 import GuestLayout from '../layout/GuestLayout';
 import TopLoader from '../../components/TopLoader';
 
-// Lazy-loaded components
 const Hero = React.lazy(() => import('../../components/Hero'));
 const StatisticCard = React.lazy(() => import('../../components/StatisticCard/Index'));
 const VisiMisi = React.lazy(() => import('../../components/VisiMisi/Index'));
