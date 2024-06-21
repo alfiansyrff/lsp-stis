@@ -15,15 +15,14 @@ function CardInformationSertif() {
   const [proofOfPaymentUrl, setProofOfPaymentUrl] = useState(null);
   const [errors, setErrors] = useState({});
   const [toast, setToast] = useState(false);
-  const [invoiceOpened, setInvoiceOpened] = useState(false); // New state to track if invoice tab has been opened
-
+  const [invoiceOpened, setInvoiceOpened] = useState(false); 
+  
   const handleTabClick = (tab) => {
-    if (tab === 'konfirmasi' && !invoiceOpened) return; // Prevent opening Konfirmasi Pembayaran before Faktur Pembayaran
-
+    if (tab === 'konfirmasi' && !invoiceOpened) return; 
     setActiveTab(tab);
 
     if (tab === 'faktur') {
-      setInvoiceOpened(true); // Set the invoice opened state when the Faktur Pembayaran tab is clicked
+      setInvoiceOpened(true); 
     }
   };
 

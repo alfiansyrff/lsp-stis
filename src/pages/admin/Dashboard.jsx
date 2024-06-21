@@ -107,7 +107,7 @@ function DashboardUser() {
             <Person className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
             <div className="flex flex-col text-sm">
               <p className="mb-0 font-semibold text-ternaryBlue">Nama</p>
-              <p className="text-gray-500 text-[12px]">Muhammad Nur Alfian Syarif</p>
+              <p className="text-gray-500 text-[12px]">Alfian Syarif</p>
             </div>
           </div>
 

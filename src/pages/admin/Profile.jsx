@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AdminLayout from '../layout/AdminLayout';
 import FloatingNavbar from '../../components/FloatingNavbar/Index';
 import PrimaryButton from '../../components/Button/PrimaryButton';
-import { Close, Visibility, VisibilityOff } from '@mui/icons-material';
+import { Apartment, Close, Email, Person, Visibility, VisibilityOff } from '@mui/icons-material';
 import ConfirmUpdate from '../../components/Modal/ConfirmUpdate';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -86,6 +86,7 @@ function Profile() {
   return (
     <AdminLayout>
       <FloatingNavbar breadcrumbs={breadcrumbs} />
+    
 
       <div className="p-10 mt-0">
         <div className="flex items-center mb-5">
@@ -93,159 +94,207 @@ function Profile() {
           <div className="flex-grow border-t border-gray-500 ml-4"></div>
         </div>
 
-        <div className="mb-8">
-          <div className="flex border-b border-gray-300">
-            <button
-              className={`px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updateProfile' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
-              onClick={() => setActiveTab('updateProfile')}
-            >
-              Ubah Profil
-            </button>
-            <button
-              className={`ml-4 px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
-              onClick={() => setActiveTab('updatePassword')}
-            >
-              Ubah Password
-            </button>
-          </div>
-        </div>
-
-        <div>
-          {activeTab === 'updateProfile' && (
-            <div className='bg-white rounded-2xl shadow max-w-lg p-5'>
-              <h2 className="text-2xl font-semibold mb-4 text-primaryOrange">Ubah Profil</h2>
-              <form className="max-w-lg">
-                <div className="mb-5">
-                  <label htmlFor="nama" className="block mb-2 text-sm font-medium text-gray-900">
-                    Nama
-                  </label>
-                  <input
-                    type="text"
-                    id="nama"
-                    className={`bg-gray-50 border ${errors.nama ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
-                    value={nama}
-                    onChange={handleInputChange(setNama, 'nama')}
-                  />
-                  {errors.nama && <p className="text-red-500 text-sm">{errors.nama}</p>}
-                </div>
-                <div className="mb-5">
-                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className={`bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
-                    value={email}
-                    onChange={handleInputChange(setEmail, 'email')}
-                  />
-                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-                </div>
-                <div className="mb-5">
-                  <label htmlFor="asal-instansi" className="block mb-2 text-sm font-medium text-gray-900">
-                    Asal Instansi
-                  </label>
-                  <input
-                    type="text"
-                    id="asal-instansi"
-                    className={`bg-gray-50 border ${errors.asalInstansi ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
-                    value={asalInstansi}
-                    onChange={handleInputChange(setAsalInstansi, 'asalInstansi')}
-                  />
-                  {errors.asalInstansi && <p className="text-red-500 text-sm">{errors.asalInstansi}</p>}
-                </div>
-
-                <button type='button' className='flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue' onClick={handleSubmitProfile}>Simpan</button>
-              </form>
-
-              <ConfirmUpdate
-                isOpen={showProfileModal}
-                onClose={toggleProfileModal}
-                onConfirm={displayToast}
-                text={'Ubah profil Anda?'}
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'> 
+          <div className='bg-white rounded-2xl flex flex-col gap-10 p-5'>
+            {/* <h2 className="text-2xl font-semibold mb-4 text-primaryOrange text-center">Profil</h2> */}
+            <div className='flex items-center mx-auto'>
+              <img
+                src="https://ui-avatars.com/api/?name=Alfian+Syarif&background=D7EAFB&color=228be6&bold=true"
+                alt=""
+                className="w-32 h-32 rounded-full hover:cursor-pointer"         
               />
             </div>
-          )}
-          {activeTab === 'updatePassword' && (
-            <div className='bg-white rounded-2xl shadow max-w-lg p-5'>
-              <h2 className="text-2xl font-semibold mb-4 text-primaryOrange">Ubah Password</h2>
-              <form id='ubahPassword' className="max-w-lg mx-auto">
-                <div className="relative">
-                  <label htmlFor="password-lama" className="block mb-2 text-sm font-medium text-gray-900">
-                    Password Lama
-                  </label>
-                  <input
-                    type={showPasswordLama ? "text" : "password"}
-                    id="password-lama"
-                    className={`bg-gray-50 border ${errors.passwordLama ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
-                    value={passwordLama}
-                    onChange={handleInputChange(setPasswordLama, 'passwordLama')}
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-2/3 transform -translate-y-1/2"
-                    onClick={() => setShowPasswordLama(!showPasswordLama)}
-                  >
-                    {showPasswordLama ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md  hover:bg-secondaryBlue hover:text-primaryBlue' />}
-                  </button>
-                </div>
-                {errors.passwordLama && <p className="text-red-500 text-sm">{errors.passwordLama}</p>}
 
-                <div className="mt-5 relative">
-                  <label htmlFor="password-baru" className="block mb-2 text-sm font-medium text-gray-900">
-                    Password Baru
-                  </label>
-                  <input
-                    type={showPasswordBaru ? "text" : "password"}
-                    id="password-baru"
-                    className={`bg-gray-50 border ${errors.passwordBaru ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
-                    value={passwordBaru}
-                    onChange={handleInputChange(setPasswordBaru, 'passwordBaru')}
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-2/3 transform -translate-y-1/2"
-                    onClick={() => setShowPasswordBaru(!showPasswordBaru)}
-                  >
-                    {showPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' />}
-                  </button>
-                </div>
-                {errors.passwordBaru && <p className="text-red-500 text-sm">{errors.passwordBaru}</p>}
+            <div className='flex flex-col gap-4'>
+              <div className="flex items-center gap-2">
+                <Person className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
+                <p className="text-gray-500 text-center text-large">Alfian Syarif</p>               
+              </div>
 
-                <div className="mt-5 relative">
-                  <label htmlFor="konfirmasi-password-baru" className="block mb-2 text-sm font-medium text-gray-900">
-                    Konfirmasi Password Baru
-                  </label>
-                  <input
-                    type={showKonfirmasiPasswordBaru ? "text" : "password"}
-                    id="konfirmasi-password-baru"
-                    className={`bg-gray-50 border ${errors.konfirmasiPasswordBaru ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
-                    value={konfirmasiPasswordBaru}
-                    onChange={handleInputChange(setKonfirmasiPasswordBaru, 'konfirmasiPasswordBaru')}
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-2/3 transform -translate-y-1/2"
-                    onClick={() => setShowKonfirmasiPasswordBaru(!showKonfirmasiPasswordBaru)}
-                  >
-                    {showKonfirmasiPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' />}
-                  </button>
-                </div>
-                {errors.konfirmasiPasswordBaru && <p className="text-red-500 text-sm">{errors.konfirmasiPasswordBaru}</p>}
+              <div className="flex items-center gap-2">
+                <Email className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
+                <p className="text-gray-500 text-center text-large">222112218@stis.ac.id</p>               
+              </div>
 
-                <button type='button' className='mt-5 flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue' onClick={handleSubmitPassword}>Simpan</button>
-              </form>
-
-              <ConfirmUpdate
-                isOpen={showPasswordModal}
-                onClose={togglePasswordModal}
-                onConfirm={displayToast}
-                text={'Ubah password Anda?'}
-              />
+              <div className="flex items-center gap-2">
+                <Apartment className="text-primaryBlue bg-secondaryBlue p-1 rounded-lg" fontSize="large" />
+                <p className="text-gray-500 text-center text-large">Politeknik Statistika STIS</p>               
+              </div>
             </div>
-          )}
+
+            <div className='flex flex-col items-center justify-center gap-2'>
+              <button
+                  className={`px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updateProfile' ? 'text-primaryBlue bg-secondaryBlue rounded-full' : 'text-gray-500'}`}
+                  onClick={() => setActiveTab('updateProfile')}
+                >
+                  Ubah Profil
+                </button>
+                <button
+                  className={`ml-4 px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue bg-secondaryBlue rounded-full' : 'text-gray-500'}`}
+                  onClick={() => setActiveTab('updatePassword')}
+                >
+                  Ubah Password
+                </button>
+            </div>
+          </div>   
+          
+          <div className='col-span-2'>  
+            {/* <div className="mb-8">
+              <div className="flex border-b border-gray-300">
+                <button
+                  className={`px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updateProfile' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
+                  onClick={() => setActiveTab('updateProfile')}
+                >
+                  Ubah Profil
+                </button>
+                <button
+                  className={`ml-4 px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue border-b-2 border-primaryBlue' : 'text-gray-500'}`}
+                  onClick={() => setActiveTab('updatePassword')}
+                >
+                  Ubah Password
+                </button>
+              </div>
+            </div> */}
+
+            <div>
+              {activeTab === 'updateProfile' && (
+                <div className='bg-white rounded-2xl shadow p-5'>
+                  <h2 className="text-2xl font-semibold mb-4 text-primaryOrange">Ubah Profil</h2>
+                  <form className="">
+                    <div className="mb-5">
+                      <label htmlFor="nama" className="block mb-2 text-sm font-medium text-gray-900">
+                        Nama
+                      </label>
+                      <input
+                        type="text"
+                        id="nama"
+                        className={`bg-gray-50 border ${errors.nama ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
+                        value={nama}
+                        onChange={handleInputChange(setNama, 'nama')}
+                      />
+                      {errors.nama && <p className="text-red-500 text-sm">{errors.nama}</p>}
+                    </div>
+                    <div className="mb-5">
+                      <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        className={`bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
+                        value={email}
+                        onChange={handleInputChange(setEmail, 'email')}
+                      />
+                      {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                    </div>
+                    <div className="mb-5">
+                      <label htmlFor="asal-instansi" className="block mb-2 text-sm font-medium text-gray-900">
+                        Asal Instansi
+                      </label>
+                      <input
+                        type="text"
+                        id="asal-instansi"
+                        className={`bg-gray-50 border ${errors.asalInstansi ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
+                        value={asalInstansi}
+                        onChange={handleInputChange(setAsalInstansi, 'asalInstansi')}
+                      />
+                      {errors.asalInstansi && <p className="text-red-500 text-sm">{errors.asalInstansi}</p>}
+                    </div>
+
+                    <button type='button' className='flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue' onClick={handleSubmitProfile}>Simpan</button>
+                  </form>
+
+                  <ConfirmUpdate
+                    isOpen={showProfileModal}
+                    onClose={toggleProfileModal}
+                    onConfirm={displayToast}
+                    text={'Ubah profil Anda?'}
+                  />
+                </div>
+              )}
+              {activeTab === 'updatePassword' && (
+                <div className='bg-white rounded-2xl shadow p-5'>
+                  <h2 className="text-2xl font-semibold mb-4 text-primaryOrange">Ubah Password</h2>
+                  <form id='ubahPassword' className="mx-auto">
+                    <div className="relative">
+                      <label htmlFor="password-lama" className="block mb-2 text-sm font-medium text-gray-900">
+                        Password Lama
+                      </label>
+                      <input
+                        type={showPasswordLama ? "text" : "password"}
+                        id="password-lama"
+                        className={`bg-gray-50 border ${errors.passwordLama ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
+                        value={passwordLama}
+                        onChange={handleInputChange(setPasswordLama, 'passwordLama')}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-2/3 transform -translate-y-1/2"
+                        onClick={() => setShowPasswordLama(!showPasswordLama)}
+                      >
+                        {showPasswordLama ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md  hover:bg-secondaryBlue hover:text-primaryBlue' />}
+                      </button>
+                    </div>
+                    {errors.passwordLama && <p className="text-red-500 text-sm">{errors.passwordLama}</p>}
+
+                    <div className="mt-5 relative">
+                      <label htmlFor="password-baru" className="block mb-2 text-sm font-medium text-gray-900">
+                        Password Baru
+                      </label>
+                      <input
+                        type={showPasswordBaru ? "text" : "password"}
+                        id="password-baru"
+                        className={`bg-gray-50 border ${errors.passwordBaru ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
+                        value={passwordBaru}
+                        onChange={handleInputChange(setPasswordBaru, 'passwordBaru')}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-2/3 transform -translate-y-1/2"
+                        onClick={() => setShowPasswordBaru(!showPasswordBaru)}
+                      >
+                        {showPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' />}
+                      </button>
+                    </div>
+                    {errors.passwordBaru && <p className="text-red-500 text-sm">{errors.passwordBaru}</p>}
+
+                    <div className="mt-5 relative">
+                      <label htmlFor="konfirmasi-password-baru" className="block mb-2 text-sm font-medium text-gray-900">
+                        Konfirmasi Password Baru
+                      </label>
+                      <input
+                        type={showKonfirmasiPasswordBaru ? "text" : "password"}
+                        id="konfirmasi-password-baru"
+                        className={`bg-gray-50 border ${errors.konfirmasiPasswordBaru ? 'border-red-500' : 'border-gray-300'} text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5`}
+                        value={konfirmasiPasswordBaru}
+                        onChange={handleInputChange(setKonfirmasiPasswordBaru, 'konfirmasiPasswordBaru')}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-2/3 transform -translate-y-1/2"
+                        onClick={() => setShowKonfirmasiPasswordBaru(!showKonfirmasiPasswordBaru)}
+                      >
+                        {showKonfirmasiPasswordBaru ? <VisibilityOff fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' /> : <Visibility fontSize='medium' className='p-1 rounded-md hover:bg-secondaryBlue hover:text-primaryBlue' />}
+                      </button>
+                    </div>
+                    {errors.konfirmasiPasswordBaru && <p className="text-red-500 text-sm">{errors.konfirmasiPasswordBaru}</p>}
+
+                    <button type='button' className='mt-5 flex items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out bg-primaryBlue hover:bg-ternaryBlue' onClick={handleSubmitPassword}>Simpan</button>
+                  </form>
+
+                  <ConfirmUpdate
+                    isOpen={showPasswordModal}
+                    onClose={togglePasswordModal}
+                    onConfirm={displayToast}
+                    text={'Ubah password Anda?'}
+                  />
+                </div>
+              )}
+            </div>
+          </div> 
         </div>
       </div>
+
 
       <AnimatePresence>
         {toast && (
