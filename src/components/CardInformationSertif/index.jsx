@@ -35,11 +35,11 @@ function CardInformationSertif() {
     const file = event.target.files[0];
     if (file) {
       if (!file.type.startsWith('image/')) {
-        setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: 'File must be an image' }));
+        setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: 'Bukti pembayaran harus bertipe gambar' }));
         return;
       }
       if (file.size > 2 * 1024 * 1024) {
-        setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: 'File size must be less than 2MB' }));
+        setErrors((prevErrors) => ({ ...prevErrors, proofOfPayment: 'Ukuran gambar maksimal 2MB' }));
         return;
       }
       setProofOfPayment(file);
