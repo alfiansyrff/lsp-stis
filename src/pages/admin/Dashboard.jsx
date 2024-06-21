@@ -372,26 +372,32 @@ function DashboardUser() {
                 <h2 className="text-xl font-bold text-primaryOrange">Kemajuan Proses Administrasi</h2>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-8">
                 {/* Progress Item 1 */}
-                <div className="flex justify-between mb-1">
-                  <span className="text-base font-medium text-ternaryBlue dark:text-white">Pembayaran Sertifikasi</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">50% <span className="text-[12px] text-gray-500">(Menunggu Konfirmasi)</span></span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '50%' }}></div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-base font-medium text-ternaryBlue dark:text-white">Pembayaran Sertifikasi</span>
+                    <span className="text-sm font-medium text-ternaryBlue dark:text-white">50% <span className="text-[12px] text-gray-500">(Menunggu Konfirmasi)</span></span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                    <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '50%' }}></div>
+                  </div>
                 </div>
 
                 {/* Progress Item 2 */}
-                <div className="flex justify-between mb-1">
-                  <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.01</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.01</span>
+                    <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                  </div>
                 </div>
 
                 {/* Progress Item 3 */}
+                <div>
+
                 <div className="flex justify-between mb-1">
                   <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.APL.02</span>
                   <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
@@ -399,23 +405,30 @@ function DashboardUser() {
                 <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
                 </div>
+                </div>
 
                 {/* Progress Item 4 */}
-                <div className="flex justify-between mb-1">
-                  <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.01</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                <div>
+
+                  <div className="flex justify-between mb-1">
+                    <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.01</span>
+                    <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                  </div>
                 </div>
 
                 {/* Progress Item 5 */}
-                <div className="flex justify-between mb-1">
-                  <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.02</span>
-                  <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                <div>
+
+                  <div className="flex justify-between mb-1">
+                    <span className="text-base font-medium text-ternaryBlue dark:text-white">Dokumen FR.AK.02</span>
+                    <span className="text-sm font-medium text-ternaryBlue dark:text-white">0% <span className="text-[12px] text-gray-500">(Belum diunggah)</span></span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '0%' }}></div>
+                  </div>
                 </div>
               </div>
             </div>
