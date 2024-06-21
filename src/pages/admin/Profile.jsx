@@ -130,7 +130,7 @@ function Profile() {
                   Ubah Profil
                 </button>
                 <button
-                  className={`ml-4 px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue bg-secondaryBlue rounded-full' : 'text-gray-500'}`}
+                  className={`px-4 py-2 text-sm md:text-lg font-medium ${activeTab === 'updatePassword' ? 'text-primaryBlue bg-secondaryBlue rounded-full' : 'text-gray-500'}`}
                   onClick={() => setActiveTab('updatePassword')}
                 >
                   Ubah Password
