@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BeritaLainnya = ({ beritaTerkait }) => {
   return (
-    <div className="border-2 border-gray-200 shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-white shadow overflow-hidden sm:rounded-2xl">
       <div className="text-white px-6 py-5 border-b-2
       ">
         <h3 className="text-xl text-primaryOrange text-center font-medium">Berita Terkait</h3>

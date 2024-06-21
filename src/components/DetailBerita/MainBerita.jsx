@@ -16,7 +16,7 @@ const MainBerita = ({ berita }) => {
   };
 
   return (
-    <div className="bg-white shadow border-2 border-gray-200 rounded-lg overflow-hidden sm:rounded-lg">
+    <div className="bg-white shadow rounded-2xl overflow-hidden">
       <div className="px-4 py-5 sm:px-6">
         <h3 className="text-2xl font-bold text-ternaryBlue text-center">{berita.title}</h3>
       </div>

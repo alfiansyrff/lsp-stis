@@ -32,8 +32,16 @@ function DetailBerita() {
       <BreadCrumbs links={links} />
       {loading ? (
         <div className="animate-pulse grid grid-cols-1 gap-6 md:grid-cols-4 max-w-7xl mx-auto px-4 my-10">
-          <div className="md:col-span-3 bg-gray-200 rounded-lg p-5"></div>
-          <div className="md:col-span-1 bg-gray-200 rounded-lg p-5"></div>
+          <div className="md:col-span-3 bg-white h-48 rounded-2xl p-5">
+            <div className='p-5 bg-gray-200 h-full'>
+             
+            </div>
+          </div>
+          <div className="md:col-span-1 bg-white h-48 rounded-2xl p-5">
+          <div className='p-5 bg-gray-200 h-full'>
+             
+             </div>
+          </div>
         </div>
       ) : (
         <div className="max-w-7xl mx-auto px-4 my-10">
