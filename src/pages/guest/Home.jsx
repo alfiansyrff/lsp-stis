@@ -57,7 +57,7 @@ const SkeletonHero = () => {
   return (
     <div className="p-6 mt-10 bg-gray-100 min-h-screen rounded-lg flex items-center justify-center flex-col animate-pulse">
       <div className="h-10 bg-gray-300 mx-auto rounded w-1/2 mb-2"></div>
-      <div className="h-48 bg-gray-300 mx-auto rounded w-full mb-4"></div>
+      <div className="h-48 bg-gray-300 mx-auto rounded w-1/2 mb-4"></div>
       <div className="h-8 bg-gray-300 mx-auto rounded w-1/5"></div>
     </div>
   );
