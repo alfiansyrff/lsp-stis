@@ -12,9 +12,9 @@ function VisiMisi() {
   const [activeTab, setActiveTab] = useState(1);
 
   const tabs = [
-    { id: 1, label: 'Visi', content: 'Menjadi lembaga sertifikasi profesi (LSP) yang profesional dan unggul untuk memastikan kompetensi mahasiswa agar diakui di tingkat nasional dan internasional' },
-    { id: 2, label: 'Misi', content: "1. Menerapkan sistem sertifikasi yang objektif, independen dan profesional.\n2. Mengembangkan asesor kompetensi yang profesional dan kompeten di bidang keahlian yang relevan di lingkungan Politeknik Statistika STIS.\n3. Mengembangkan tempat uji kompetensi yang memenuhi persyaratan untuk digunakan sebagai tempat pelaksanaan assesmen sesuai persyaratan yang ditetapkan Badan Nasional Sertifikasi Profesi (BNSP).\n4. Mengembangkan materi uji kompetensi keahlian." },
-    { id: 3, label: 'Sasaran Mutu', content: '1. Penyelenggaraan sertifikasi kompetensi dengan personal dan asesor kompetensi yang berkualitas dan independen. \n2. Memastikan pengembangan SDM yang tersertifikasi BNSP, unggul dan adaptif, dan berkontribusi secara nyata dalam rangka mendukung sistem statistik nasional maupun internasional. \n3. Melaksanakan dan menjaga proses sertifikasi sesuai standar yang berlaku demi penjaminan mutu. \n4. Memastikan kerja sama Badan Pusat Statistik dan Perguruan Tinggi.' }
+    { id: 1, label: 'Visi', content: ['Menjadi lembaga sertifikasi profesi (LSP) yang profesional dan unggul untuk memastikan kompetensi mahasiswa agar diakui di tingkat nasional dan internasional'] },
+    { id: 2, label: 'Misi', content: ["Menerapkan sistem sertifikasi yang objektif, independen dan profesional", "Mengembangkan asesor kompetensi yang profesional dan kompeten di bidang keahlian yang relevan di lingkungan Politeknik Statistika STIS", "Mengembangkan tempat uji kompetensi yang memenuhi persyaratan untuk digunakan sebagai tempat pelaksanaan assesmen sesuai persyaratan yang ditetapkan Badan Nasional Sertifikasi Profesi (BNSP)",  "Mengembangkan materi uji kompetensi keahlian"] },
+    { id: 3, label: 'Sasaran Mutu', content: ['Penyelenggaraan sertifikasi kompetensi dengan personal dan asesor kompetensi yang berkualitas dan independen', 'Memastikan pengembangan SDM yang tersertifikasi BNSP, unggul dan adaptif, dan berkontribusi secara nyata dalam rangka mendukung sistem statistik nasional maupun internasional', 'Melaksanakan dan menjaga proses sertifikasi sesuai standar yang berlaku demi penjaminan mutu.' ,'Memastikan kerja sama Badan Pusat Statistik dan Perguruan Tinggi'] }
   ];
 
   const handleTabClick = (tabIndex) => {
@@ -65,15 +65,21 @@ function VisiMisi() {
           activeTab === tab.id && (
             <motion.div
               key={tab.id}
-              className="bg-white p-6 md:p-10 rounded-2xl shadow-md text-center"
+              className={`bg-white p-6 md:p-10 rounded-2xl shadow-md ${tab.content.length > 1 ? 'text-left' : 'text-center'}`}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              {tab.content.split('\n').map((line, index) => (
-                <p className="text-ternaryBlue font-bold text-base md:text-xl" key={index}>{line}</p>
-              ))}
+              {tab.content.length > 1 ? (
+                <ol className='list-decimal'>
+                  {tab.content.map((line, index) => (
+                    <li className='text-xl font-semibold text-ternaryBlue my-2' key={index}>{line}</li>
+                  ))}
+                </ol>
+              ) : (
+                <p className='text-xl font-semibold text-ternaryBlue'>{tab.content[0]}</p>
+              )}
             </motion.div>
           )
         ))}
