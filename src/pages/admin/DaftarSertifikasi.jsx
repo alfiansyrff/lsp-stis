@@ -286,7 +286,7 @@ function DaftarSertifikasi() {
                         onChange={handleChange}
                         className="w-4 h-4 text-primary-500 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
-                      <label htmlFor="ilmuwan_data_madywa" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ilmuwan Data Madywa (Associate Data Scientist)</label>
+                      <label htmlFor="ilmuwan_data_madywa" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ilmuwan Data Madya (Associate Data Scientist)</label>
                     </div>
                   </div>
                   {errors.skema && <p className="mt-1 text-sm text-red-500">{errors.skema}</p>}
