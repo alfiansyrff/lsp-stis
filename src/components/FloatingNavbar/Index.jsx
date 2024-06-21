@@ -59,7 +59,7 @@ export default function FloatingNavbar({ breadcrumbs }) {
             <img
               src="https://ui-avatars.com/api/?name=Alfian+Syarif&background=D7EAFB&color=228be6&bold=true"
               alt=""
-              className="w-10 h-10 rounded-full hover:cursor-pointer"         
+              className="w-10 h-10 rounded-full"         
             />
 
           </div>
