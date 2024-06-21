@@ -142,6 +142,26 @@ export function SidebarItem({
   };
 
   return (
+    <>
+    {to === '/logout' ? (
+        <li
+          onClick={handleLogoutClick}
+          className={`
+            relative flex items-center py-2 px-3 my-2
+            font-medium rounded-md cursor-pointer
+            transition-colors group
+            hover:bg-secondaryBlue text-ternaryBlue
+            ${isSidebarOpen ? "ml-3" : "ml-0"}
+          `}
+        >
+          {icon}
+          <span className={`overflow-hidden transition-all duration-300 ${isSidebarOpen ? "ml-3" : "ml-1.5"}`}>
+            {text}
+          </span>
+        </li>
+      ): (
+
+   
     <div onClick={handleNavigation}>
       <li
         className={`
@@ -197,6 +217,8 @@ export function SidebarItem({
         </ul>
       )}
     </div>
+    )}
+    </>
   );
 }
 
