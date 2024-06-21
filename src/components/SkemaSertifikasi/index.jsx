@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
 import Heading from '../Heading/Index';
 import TabMenu from '../Accordion/AccordionSertif';
+import TableSkemaDataScientist from './TableSkemaDataScientist';
+import TableSkemaAssociate from './TableSkemaAssociate';
+
 
 // Lazy-loaded components
-const TableSkemaDataScientist = React.lazy(() => import('./TableSkemaDataScientist'));
-const TableSkemaAssociate = React.lazy(() => import('./TableSkemaAssociate'));
 const BookletCard = React.lazy(() => import('./Card'));
 
 function SkemaSertifikasi() {
@@ -15,14 +16,15 @@ function SkemaSertifikasi() {
     },
     {
       title: 'Ilmuwan Data Madya (Associate Data Scientist)',
-      content: <TableSkemaAssociate />,
+      content: <TableSkemaAssociate/>,
+
     },
   ];
 
   return (
     <div className='max-w-7xl px-5 mx-auto'>
       <Heading text={'Skema Sertifikasi'} />
-
+ 
       <TabMenu items={accordionItems} />
 
       <Heading text={'Panduan Pengguna'} />
