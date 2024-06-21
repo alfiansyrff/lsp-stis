@@ -15,9 +15,16 @@ function CardInformationSertif() {
   const [proofOfPaymentUrl, setProofOfPaymentUrl] = useState(null);
   const [errors, setErrors] = useState({});
   const [toast, setToast] = useState(false);
+  const [invoiceOpened, setInvoiceOpened] = useState(false); // New state to track if invoice tab has been opened
 
   const handleTabClick = (tab) => {
+    if (tab === 'konfirmasi' && !invoiceOpened) return; // Prevent opening Konfirmasi Pembayaran before Faktur Pembayaran
+
     setActiveTab(tab);
+
+    if (tab === 'faktur') {
+      setInvoiceOpened(true); // Set the invoice opened state when the Faktur Pembayaran tab is clicked
+    }
   };
 
   const handlePaymentOptionClick = (option) => {
@@ -71,7 +78,7 @@ function CardInformationSertif() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="bg-white shadow rounded-2xl">
+      <div className="bg-white w-min md:w-full shadow rounded-2xl">
         <div className="flex border-b-2 border-gray-200">
           <button
             className={`flex-1 px-4 py-2 ${activeTab === 'detail' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'}`}
@@ -80,8 +87,15 @@ function CardInformationSertif() {
             Detail Sertifikasi
           </button>
           <button
-            className={`flex-1 px-4 py-2 ${activeTab === 'konfirmasi' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'}`}
+            className={`flex-1 px-4 py-2 ${activeTab === 'faktur' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'}`}
+            onClick={() => handleTabClick('faktur')}
+          >
+            Faktur Pembayaran
+          </button>
+          <button
+            className={`flex-1 px-4 py-2 ${activeTab === 'konfirmasi' ? 'text-primaryBlue border-b-4 border-primaryBlue' : 'text-gray-700'} ${!invoiceOpened ? 'cursor-not-allowed' : ''}`}
             onClick={() => handleTabClick('konfirmasi')}
+            disabled={!invoiceOpened}
           >
             Konfirmasi Pembayaran
           </button>
@@ -92,41 +106,134 @@ function CardInformationSertif() {
             <div>
               <div className="space-y-5">
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Tanggal Ujian:</span>
-                  <span className="text-ternaryBlue">-</span>
+                  <span className="font-semibold text-ternaryBlue">Tanggal Ujian:</span>
+                  <span className="text-gray-500">-</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Skema Sertifikasi:</span>
-                  <span className="text-ternaryBlue">Ilmuwan Data</span>
+                  <span className="font-semibold text-ternaryBlue">Skema Sertifikasi:</span>
+                  <span className="text-gray-500">Ilmuwan Data</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Tempat Ujian:</span>
-                  <span className="text-ternaryBlue">Website LSP Polstat STIS</span>
+                  <span className="font-semibold text-ternaryBlue">Tempat Ujian:</span>
+                  <span className="text-gray-500">Website LSP Polstat STIS</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Nomor Pendaftaran:</span>
-                  <span className="text-ternaryBlue">LSP240004</span>
+                  <span className="font-semibold text-ternaryBlue">Nomor Pendaftaran:</span>
+                  <span className="text-gray-500">LSP240004</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Nomor Skema:</span>
-                  <span className="text-ternaryBlue">010607</span>
+                  <span className="font-semibold text-ternaryBlue">Nomor Skema:</span>
+                  <span className="text-gray-500">010607</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Asesor:</span>
-                  <span className="text-ternaryBlue">-</span>
+                  <span className="font-semibold text-ternaryBlue">Asesor:</span>
+                  <span className="text-gray-500">-</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Biaya:</span>
-                  <span className="text-ternaryBlue">Rp.1.700.000,00</span>
+                  <span className="font-semibold text-ternaryBlue">Biaya:</span>
+                  <span className="text-gray-500">Rp.1.700.000,00</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-700">Status Pembayaran:</span>
+                  <span className="font-semibold text-ternaryBlue">Status Pembayaran:</span>
                   <span className="bg-red-500 text-red-500 bg-opacity-10 p-2 rounded-full text-[12px] text-center">Belum Dibayar</span>
                 </div>
                 <div className='flex justify-center'>
                   <p className='text-md text-center text-red-500'>Harap segera melakukan pembayaran dan mengunggah buktinya melalui tab Konfirmasi Pembayaran</p>
                 </div>
               </div>
+            </div>
+          )}
+
+          {activeTab === 'faktur' && (
+            <div className=''>
+              <div id='titleFaktur' className='flex flex-col gap-1 md:gap-0'>
+                <p className='text-lg md:text-xl text-primaryBlue'>Lembaga Sertifikasi Profesi Politeknik Statistika STIS</p>
+                <p className='text-sm md:text-md text-gray-700'>Jl. Otto Iskandardinata No.64C Jakarta 13330</p>
+                <div className='border-b border-gray-400 mt-2'></div>
+              </div>
+
+              <div id='bodyFaktur' className='my-8'>
+                <h1 className='text-xl md:text-3xl text-ternaryBlue font-bold'>Faktur</h1>
+                <p className='text-red-500 text-sm'>Tenggat pembayaran: 22 Juni 2024 23.59</p>
+                <div className='my-8 grid grid-cols-3 gap-4'>
+                  <div className='flex flex-col gap-1'>
+                    <p className='font-semibold text-ternaryBlue'>Nama Calon Asesi</p>
+                    <p className='text-gray-500'>Alfian Syarif</p>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                    <p className='font-semibold text-ternaryBlue'>Email</p>
+                    <p className='text-gray-500'>222112218@stis.ac.id</p>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                    <p className='font-semibold text-ternaryBlue'>Id Faktur</p>
+                    <p className='text-gray-500'>CO12345</p>
+                  </div>
+
+                  <div className='flex flex-col gap-1 col-span-3'>
+                    <div className="relative overflow-x-auto">
+                        <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+                            <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700">
+                                <tr>
+                                    <th scope="col" className="px-6 py-3">
+                                        Skema Sertifikasi
+                                    </th>
+                                    <th scope="col" className="px-6 py-3">
+                                        Jumlah
+                                    </th>
+                                    <th scope="col" className="px-6 py-3">
+                                        Harga Satuan
+                                    </th>
+                                    <th scope="col" className="px-6 py-3">
+                                        Total Harga
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Ilmuwan Data
+                                    </th>
+                                    <td className="px-6 py-4">
+                                        1
+                                    </td>
+                                    <td className="px-6 py-4">
+                                    Rp.1.700.000,00
+                                    </td>
+                                    <td className="px-6 py-4">
+                                    Rp.1.700.000,00
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+
+                  <div className='flex justify-end col-span-3'>
+                    <p className='font-semibold text-lg text-ternaryBlue'> Rp.1.700.000,00</p>
+                   
+                  </div>
+                </div>
+
+              </div>
+
+              <div className='flex flex-col'>
+                <p className='text-ternaryBlue'>Pembayaran dapat dilakukan melalui transfer ke rekening bank berikut</p>
+
+                <div className='flex items-center justify-between my-2 gap-5'>
+                  <div className='border-2 p-5 border-gray-200 shadow rounded-lg w-full md:w-1/2 h-min md:h-48'>
+                    <img src="/image/bni.png" alt="Bank BNI" className="w-full h-36 object-contain" />
+                    <p className='text-center text-primaryOrange'>No. Rekening: 1111111111111</p>
+                  </div>
+                  
+                  <div className='border-2 p-5 border-gray-200 shadow rounded-lg w-full md:w-1/2 h-min md:h-48'>
+                    <img src="/image/bri.png" alt="Bank BNI" className="w-full h-36 object-contain" />
+                    <p className='text-center text-primaryOrange'>No. Rekening: 2222222222222</p>
+                  </div>
+
+                </div>
+              </div>
+              {/* <p>Ini adalah faktur pembayaran. Harap dibaca sebelum melanjutkan ke konfirmasi pembayaran.</p> */}
             </div>
           )}
 
@@ -220,7 +327,6 @@ function CardInformationSertif() {
                 onClick={() => setToast(false)}
               >
                 <Close />
-
               </button>
             </div>
           </motion.div>

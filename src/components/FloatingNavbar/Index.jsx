@@ -21,7 +21,7 @@ export default function FloatingNavbar({ breadcrumbs }) {
   };
 
   return (
-    <div className={`sticky top-5 hidden xl:block mx-auto mt-5 rounded-2xl shadow backdrop-filter backdrop-blur-lg max-w-7xl mx-10 shadow-md z-50 ${scrolled ? 'bg-transparent' : 'bg-white'}`}>
+    <div className={`sticky top-5 hidden xl:block mt-5 rounded-2xl shadow backdrop-filter backdrop-blur-lg mx-10 shadow-md z-50 ${scrolled ? 'bg-transparent' : 'bg-white'}`}>
       <div className="flex justify-between items-center h-16 px-4">
         <div className='relative flex -mt-24'>
           <BreadCrumbs links={breadcrumbs} />
