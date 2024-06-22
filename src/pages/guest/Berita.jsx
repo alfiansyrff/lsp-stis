@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import beritaList from '../../utils/data/berita';
 import Chart from 'react-apexcharts';
+import MultiRangeSlider from "multi-range-slider-react";
 
 function Berita() {
   const links = [
@@ -22,6 +23,11 @@ function Berita() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [loading, setLoading] = useState(true);
+  const [minValue, set_minValue] = useState(2010);
+  const [maxValue, set_maxValue] = useState(2024);
+  const [minCaption, setMinCaption] = useState(2010);
+  const [maxCaption, setMaxCaption] = useState(2024);
+
 
   useEffect(() => {
     // Simulate loading delay
@@ -76,6 +82,17 @@ function Berita() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+
+  const handleInput = (e) => {
+    set_minValue(e.minValue);
+    set_maxValue(e.maxValue);
+  };
+
+  const handleChangeSlider = (e) => {
+    setMinCaption(e.minValue);
+    setMaxCaption(e.maxValue);
+  }
 
   const totalPages = Math.ceil(filteredBeritaList.length / itemsPerPage);
 
@@ -156,6 +173,27 @@ function Berita() {
                 ))}
               </select>
             </div>
+           
+            {/* <div>
+              <label className='text-ternaryBlue' id='tahunContainer' htmlFor="tahun">Tahun</label>
+              <MultiRangeSlider min={2010}
+                max={2024}
+                step={1}
+                minValue={minValue}
+                maxValue={maxValue}
+                ruler={false}
+                barInnerColor='#228be6'
+                style={{border:'none', boxShadow:'none'}}
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+                onChange= {(e) => {
+                  handleChangeSlider(e)
+                }}
+         
+                />
+               
+            </div> */}
 
             <div>
               <label htmlFor="sort">Urutkan Berdasarkan</label>
@@ -209,7 +247,7 @@ function Berita() {
                 ))}
               </>
             ) : currentBeritaList.length === 0 ? (
-              <div className='bg-white flex flex-col space-y-5 mx-auto justify-center items-center h-[18em] mb-5'>
+              <div className='bg-white rounded-2xl flex flex-col space-y-5 mx-auto justify-center items-center h-[18em] mb-5'>
                 <img src="/image/not-found.svg" alt="Tidak Ditemukan" width={100} />
                 <h1 className='text-center text-2xl text-ternaryBlue'>Berita tidak ditemukan</h1>
               </div>

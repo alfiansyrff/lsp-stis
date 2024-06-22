@@ -90,8 +90,7 @@ const HeroSection = () => {
       ],
       typeSpeed: 80,
       backSpeed: 50,
-      loop: true,
-      loopCount: Infinity,
+      loop: false,
       backDelay: 1000,
     });
 

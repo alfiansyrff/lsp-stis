@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import TopLoader from '../../components/TopLoader';
 import KeyboardDoubleArrowUpTwoToneIcon from '@mui/icons-material/KeyboardDoubleArrowUpTwoTone';
 import { motion, useScroll } from "framer-motion";
-import { ChatBubble, SmartToy, Person, SupportAgent } from '@mui/icons-material';
+import { ChatBubble, SmartToy, Person, SupportAgent, Close } from '@mui/icons-material';
 
 function GuestLayout({ children }) {
   const [progress, setProgress] = useState(0);
@@ -62,6 +62,13 @@ function GuestLayout({ children }) {
     };
   }, []);
 
+  useEffect(() => {
+    if (showChatbot) {
+      setChatMessages([{ sender: 'bot', text: 'Halo, selamat datang di LSP Polstat STIS! sebelumnya dengan siapa disini?' }]);
+      setChatStep('start');
+    }
+  }, [showChatbot]);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -70,11 +77,7 @@ function GuestLayout({ children }) {
   };
 
   const toggleChatbot = () => {
-    setShowChatbot(!showChatbot);
-    if (!showChatbot) {
-      setChatMessages([{ sender: 'bot', text: 'Halo, selamat datang di LSP Polstat STIS! sebelumnya dengan siapa disini?' }]);
-      setChatStep('start');
-    }
+    setShowChatbot(prevShowChatbot => !prevShowChatbot);
   };
 
   const handleUserInputChange = (event) => {
@@ -130,9 +133,15 @@ function GuestLayout({ children }) {
             <div ref={chatbotRef} className="fixed right-7 bottom-40 bg-white rounded-2xl shadow shadow-lg z-50 w-72 md:w-96 h-72 overflow-y-auto overflow-x-hidden flex flex-col space-y-10">
               
               {/* Title Section */}
-              <div className='h-1/5 bg-gradient-cta rounded-t-xl p-2 text-white flex gap-2 items-center justify-center'>
-                <SupportAgent className='text-white' />
-                <p className="text-center">Chatbot LSP Polstat STIS</p>
+              <div className='h-1/5 bg-gradient-cta rounded-t-xl p-2 text-white flex gap-2 items-center justify-between'>
+                <div className='flex items-center gap-2'>
+                  <SupportAgent className='text-white' />
+                  <p className="text-center">Chatbot LSP Polstat STIS</p>
+                </div>
+
+                <div className='hover:bg-gray-700 hover:cursor-pointer rounded-full'>
+                  <Close onClick={() => setShowChatbot(false)}/>
+                </div>
               </div>
               
               {/* Body Section - Chat Messages */}
