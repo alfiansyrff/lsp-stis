@@ -21,7 +21,7 @@ const LogoutConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
           <div
             ref={modalRef}
             tabIndex="-1"
-            className="relative mx-auto max-w-lg bg-white p-8 rounded-lg shadow-lg focus:outline-none"
+            className="relative mx-auto max-w-lg bg-white p-8 rounded-2xl shadow-lg focus:outline-none"
           >
             <div className="text-center">
               <div className='mb-8 text-yellow-300 flex flex-col items-center'>

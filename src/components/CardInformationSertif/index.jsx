@@ -6,7 +6,7 @@ import LightGallery from 'lightgallery/react';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Close } from '@mui/icons-material';
+import { Close, ContentCopy } from '@mui/icons-material';
 
 function CardInformationSertif() {
   const [activeTab, setActiveTab] = useState('detail');
@@ -16,7 +16,29 @@ function CardInformationSertif() {
   const [errors, setErrors] = useState({});
   const [toast, setToast] = useState(false);
   const [invoiceOpened, setInvoiceOpened] = useState(false); 
-  
+
+  const [showFlashMessage, setShowFlashMessage] = useState(false);
+  const [showFlashMessageBri, setShowFlashMessageBri] = useState(false);
+  const [norek, setNorek] = useState('');
+
+
+  const handleShareClick = (accountNumber, bank) => {
+    setNorek(accountNumber);
+    navigator.clipboard.writeText(accountNumber);
+    if (bank === 'bri') {
+      setShowFlashMessageBri(true);
+      setTimeout(() => {
+          setShowFlashMessageBri(false);
+      }, 2000);
+      return;
+    }
+    setShowFlashMessage(true);
+    setTimeout(() => {
+      setShowFlashMessage(false);
+    }, 2000); 
+  };
+
+
   const handleTabClick = (tab) => {
     if (tab === 'konfirmasi' && !invoiceOpened) return; 
     setActiveTab(tab);
@@ -70,9 +92,6 @@ function CardInformationSertif() {
 
     // Hide toast after 3 seconds
     setTimeout(() => setToast(false), 3000);
-
-    // Submit form logic here
-    console.log('Form submitted');
   };
 
   return (
@@ -220,19 +239,43 @@ function CardInformationSertif() {
                 <p className='text-ternaryBlue'>Pembayaran dapat dilakukan melalui transfer ke rekening bank berikut</p>
 
                 <div className='flex items-center justify-between my-2 gap-5'>
-                  <div className='border-2 p-5 border-gray-200 shadow rounded-lg w-full md:w-1/2 h-min md:h-48'>
+                  <div className='border-2 p-5 border-gray-200 shadow rounded-lg w-full md:w-1/2 h-min'>
                     <img src="/image/bni.png" alt="Bank BNI" className="w-full h-36 object-contain" />
-                    <p className='text-center text-primaryOrange'>No. Rekening: 1111111111111</p>
+             
+                    <div className='relative flex justify-between'>
+                      <p className='text-center text-primaryOrange'>No. Rekening: 333333333333333</p>
+                      <ContentCopy className='text-primaryOrange hover:cursor-pointer' fontSize='small' onClick={() => handleShareClick('333333333333333', 'bni')}/>
+                      <motion.div
+                        initial={{ opacity: 0, y: '-50%' }}
+                        animate={{ opacity: showFlashMessage ? 1 : 0, y: showFlashMessage ? '-50%' : '-30%' }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute top-5 right-10 w-min transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-gray-200 shadow-2xl rounded p-3"
+                      >
+                        <p className="text-primaryOrange text-sm">Norek berhasil disalin!</p>
+                      </motion.div>
+                 
+                    </div>
                   </div>
                   
-                  <div className='border-2 p-5 border-gray-200 shadow rounded-lg w-full md:w-1/2 h-min md:h-48'>
+                  <div className='border-2 p-5 border-gray-200 shadow rounded-lg w-full md:w-1/2 h-min'>
                     <img src="/image/bri.png" alt="Bank BNI" className="w-full h-36 object-contain" />
-                    <p className='text-center text-primaryOrange'>No. Rekening: 2222222222222</p>
+                    <div className='relative flex justify-between'>
+                      <p className='text-center text-primaryOrange'>No. Rekening: 2222222222222</p>
+                      <ContentCopy className='text-primaryOrange hover:cursor-pointer' fontSize='small' onClick={() => handleShareClick('2222222222222', 'bri')} />
+                      <motion.div
+                        initial={{ opacity: 0, y: '-50%' }}
+                        animate={{ opacity: showFlashMessageBri ? 1 : 0, y: showFlashMessageBri ? '-50%' : '-30%' }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute top-5 right-10 w-min transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-gray-200 shadow-2xl rounded p-3"
+                      >
+                        <p className="text-primaryOrange text-sm">Norek berhasil disalin!</p>
+                      </motion.div>
+                    </div>
                   </div>
 
                 </div>
               </div>
-              {/* <p>Ini adalah faktur pembayaran. Harap dibaca sebelum melanjutkan ke konfirmasi pembayaran.</p> */}
+
             </div>
           )}
 
