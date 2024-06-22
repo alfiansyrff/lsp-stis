@@ -22,7 +22,7 @@ const BookletCard = ({ imageSrc, title, fileLink }) => {
         </div>
       ) : (
         <>
-          <a href={fileLink} className="flex-shrink-0">
+          <a target='_blank' href={fileLink} className="flex-shrink-0">
             <img className="w-full h-auto object-cover rounded-t-lg" src={imageSrc} alt={title} />
           </a>
           <div className="mt-5 flex flex-col flex-grow">
