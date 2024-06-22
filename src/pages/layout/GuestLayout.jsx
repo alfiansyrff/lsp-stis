@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import TopLoader from '../../components/TopLoader';
 import KeyboardDoubleArrowUpTwoToneIcon from '@mui/icons-material/KeyboardDoubleArrowUpTwoTone';
 import { motion, useScroll } from "framer-motion";
-import { ChatBubble, SmartToy, Person } from '@mui/icons-material';
+import { ChatBubble, SmartToy, Person, SupportAgent } from '@mui/icons-material';
 
 function GuestLayout({ children }) {
   const [progress, setProgress] = useState(0);
@@ -122,13 +122,21 @@ function GuestLayout({ children }) {
               <KeyboardDoubleArrowUpTwoToneIcon className='text-white' fontSize='large' />
             </motion.div>
           )}
-          <div className="fixed right-7 bottom-24 bg-primaryOrange rounded-full p-3 z-50 hover:cursor-pointer"
+          <div className="fixed right-7 bottom-24 bg-primaryOrange rounded-full p-2.5 z-50 hover:cursor-pointer"
                onClick={toggleChatbot}>
             <ChatBubble className='text-white'/>
           </div>
           {showChatbot && (
-            <div ref={chatbotRef} className="fixed right-7 bottom-40 bg-white rounded-2xl shadow px-3 py-8 shadow-lg z-50 w-96 flex flex-col space-y-10">
-              <div className="flex flex-col space-y-4">
+            <div ref={chatbotRef} className="fixed right-7 bottom-40 bg-white rounded-2xl shadow shadow-lg z-50 w-72 md:w-96 h-72 overflow-y-auto overflow-x-hidden flex flex-col space-y-10">
+              
+              {/* Title Section */}
+              <div className='h-1/5 bg-gradient-cta rounded-t-xl p-2 text-white flex gap-2 items-center justify-center'>
+                <SupportAgent className='text-white' />
+                <p className="text-center">Chatbot LSP Polstat STIS</p>
+              </div>
+              
+              {/* Body Section - Chat Messages */}
+              <div className="flex flex-col space-y-4 px-4">
                 {chatMessages.map((message, index) => (
                   <div
                     key={index}
@@ -143,11 +151,11 @@ function GuestLayout({ children }) {
                         <div className={`p-2 max-w-md bg-blue-500 text-white ml-auto rounded-br-none rounded-xl`}>
                           {message.text}
                         </div>
-                        <Person className="text-blue-500 ml-2" />
+                        <Person className="text-blue-500 ml-2 self-end" />
                       </>
                     ) : (
                       <>
-                        <SmartToy className="text-gray-400 mr-2" />
+                        <SmartToy className="text-gray-400 mr-2 self-end" />
                         <div className={`p-2 rounded-xl max-w-md bg-gray-200 text-black mr-auto rounded-bl-none`}>
                           {message.text}
                         </div>
@@ -156,7 +164,9 @@ function GuestLayout({ children }) {
                   </div>
                 ))}
               </div>
-              <form onSubmit={handleChatSubmit} className="flex">
+              
+              {/* Footer Section - Input and Submit Button */}
+              <form onSubmit={handleChatSubmit} className="flex py-2 px-4">
                 <input
                   type="text"
                   value={userInput}
@@ -166,6 +176,7 @@ function GuestLayout({ children }) {
                 />
                 <button type="submit" className="bg-primaryOrange text-white p-2 rounded-r-lg">Kirim</button>
               </form>
+              
             </div>
           )}
           <Footer />
