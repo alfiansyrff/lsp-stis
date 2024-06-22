@@ -139,7 +139,7 @@ function TableRegulasi() {
                 {currentItems.map((unit, index) => (
                   <tr key={unit.no} className={index % 2 === 0 ? "bg-white" : "bg-gray-200" + " border-b hover:bg-gray-300"}>
                     <td className="px-6 py-4 text-center">{unit.no}</td>
-                    <td className="px-6 py-4 text-center"><p className='md:bg-ternaryBlue md:bg-opacity-20 p-2 font-bold text-ternaryBlue rounded-full'>{unit.kode}</p></td>
+                    <td className="px-6 py-4 text-center"><p className='p-2 font-bold text-ternaryBlue'>{unit.kode}</p></td>
                     <td className="px-6 py-4 flex mx-auto justify-center">
                       <PrimaryButton text={'Unduh'}/>
                     </td>
