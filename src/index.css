@@ -112,6 +112,10 @@ margin: 1px;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#228be6",endColorstr="#e67e22",GradientType=1);
 }
 
+.rcb-chat-tooltip span {
+  color: #0A3357;
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

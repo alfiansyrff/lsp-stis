@@ -24,7 +24,7 @@ function SkemaSertifikasi() {
       <Heading text={'Skema Sertifikasi'} />
       <TabMenu items={accordionItems} />
       <Heading text={'Panduan Pengguna'} />
-      <div className='my-16 flex flex-wrap items-center justify-between'>
+      <div className='my-16 flex flex-wrap mx-auto items-center justify-between'>
         <Suspense fallback={<BookletCardLoader />}>
           <BookletCardLazy imageSrc={'/image/panduan_asesor.png'} title={'Buku Panduan Asesor'} fileLink={'/file/panduan_asesor.pdf'} />
           <BookletCardLazy imageSrc={'/image/panduan_admin.png'} title={'Buku Panduan Admin'} fileLink={'/file/panduan_admin.pdf'} />
