@@ -21,6 +21,7 @@ function DaftarSertifikasi() {
     kecamatan: '',
     alamat: '',
     skema: '',
+    agree: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -58,11 +59,25 @@ function DaftarSertifikasi() {
     }
   }, [formData.kabupaten]);
 
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+
+  //   if (errors[name]) {
+  //     setErrors({
+  //       ...errors,
+  //       [name]: '',
+  //     });
+  //   }
+  // };
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value,
     });
 
     if (errors[name]) {
@@ -72,6 +87,7 @@ function DaftarSertifikasi() {
       });
     }
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,6 +105,7 @@ function DaftarSertifikasi() {
         kecamatan: '',
         alamat: '',
         skema: '',
+        agree: false,
       });
       setErrors({});
       setSuccess(true); 
@@ -111,6 +128,7 @@ function DaftarSertifikasi() {
     if (!formData.kecamatan) errors.kecamatan = 'Kecamatan harus diisi';
     if (!formData.alamat) errors.alamat = 'Alamat lengkap harus diisi';
     if (!formData.skema) errors.skema = 'Skema sertifikasi harus diisi';
+    if (!formData.agree) errors.agree = 'Persetujuan mendaftar harus diisi'; 
     return errors;
   };
 
@@ -220,7 +238,7 @@ function DaftarSertifikasi() {
                     id="kabupaten"
                     value={formData.kabupaten}
                     onChange={handleChange}
-                    className={`bg-gray-50 border ${errors.kabupaten ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500`}
+                    className={`bg-gray-50 border ${errors.kabupaten ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 ${!formData.provinsi ? 'cursor-not-allowed' : ''}`}
                   >
                     <option value="" disabled>-- Pilih Kabupaten/Kota --</option>
                     {kabupaten.map(kab => (
@@ -237,7 +255,7 @@ function DaftarSertifikasi() {
                     id="kecamatan"
                     value={formData.kecamatan}
                     onChange={handleChange}
-                    className={`bg-gray-50 border ${errors.kecamatan ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500`}
+                    className={`bg-gray-50 border ${errors.kecamatan ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 ${!formData.kabupaten ? 'cursor-not-allowed' : ''}`}
                   >
                     <option value="" disabled>-- Pilih Kecamatan --</option>
                     {kecamatan.map(kec => (
@@ -291,8 +309,33 @@ function DaftarSertifikasi() {
                   </div>
                   {errors.skema && <p className="mt-1 text-sm text-red-500">{errors.skema}</p>}
                 </div>
+
+                <div className='sm:col-span-2'>
+                  
+                  <div className="flex">
+                      <div className="flex items-center h-5">
+                          <input id="helper-checkbox" aria-describedby="helper-checkbox-text" type="checkbox" name="agree"
+                          checked={formData.agree}
+                          onChange={handleChange} value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                      </div>
+                      <div className="ms-2 text-sm">
+                        <label htmlFor="helper-checkbox" className="font-medium text-gray-900 dark:text-gray-300">
+                          Saya yakin dan setuju untuk mendaftar LSP
+                        </label>
+                        <p id="helper-checkbox-text" className="text-xs font-normal text-gray-500 dark:text-gray-300">
+                          Pastikan Anda sudah memahami skema sertifikasi dan data pendaftaran telah sesuai sebelum mendaftar. 
+                        </p>
+                    </div>
+                    
+                  </div>
+                  {errors.agree && <p className="mt-1 text-sm text-red-500">{errors.agree}</p>}
+
+                </div>
+
+
               </div>
 
+             
               <button
                 type="submit"
                 className="flex mt-5 items-center text-white px-6 py-2 rounded-md transition-colors duration-300 ease-in-out transform transition-transform duration-300 ease-in-out  bg-primaryBlue hover:bg-ternaryBlue"
@@ -319,7 +362,7 @@ function DaftarSertifikasi() {
                 </svg>
                 <span className="sr-only">Check icon</span>
               </div>
-              <div className="ms-3 text-sm font-normal">Berhasil mendaftar sertifikasi.</div>
+              <div className="ms-3 text-sm font-normal">Berhasil mendaftar sertifikasi</div>
               <button
                 type="button"
                 className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"

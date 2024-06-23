@@ -7,8 +7,9 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Close, ContentCopy } from '@mui/icons-material';
+import ConfirmUpdate from '../Modal/ConfirmUpdate';
 
-function CardInformationSertif() {
+function CardInformationSertif({onSuccessUpload}) {
   const [activeTab, setActiveTab] = useState('detail');
   const [paymentOption, setPaymentOption] = useState('');
   const [proofOfPayment, setProofOfPayment] = useState(null);
@@ -20,7 +21,19 @@ function CardInformationSertif() {
   const [showFlashMessage, setShowFlashMessage] = useState(false);
   const [showFlashMessageBri, setShowFlashMessageBri] = useState(false);
   const [norek, setNorek] = useState('');
+  const [successUpload, setSuccessUpload] = useState(false);
 
+
+  const [modalConfirm, setModalConfirm] = useState(false);
+
+  const toggleUploadPembayaran = () => {
+    setModalConfirm(!modalConfirm);
+  };
+
+  const displayToast = () => {
+    toggleUploadPembayaran();
+    setToast(true);
+  };
 
   const handleShareClick = (accountNumber, bank) => {
     setNorek(accountNumber);
@@ -32,9 +45,11 @@ function CardInformationSertif() {
       }, 2000);
       return;
     }
+  
     setShowFlashMessage(true);
     setTimeout(() => {
       setShowFlashMessage(false);
+    
     }, 2000); 
   };
 
@@ -87,11 +102,22 @@ function CardInformationSertif() {
       return;
     }
 
-    // If no errors, show toast
-    setToast(true);
+    toggleUploadPembayaran();   
 
-    // Hide toast after 3 seconds
-    setTimeout(() => setToast(false), 3000);
+  
+    setTimeout(() => {
+      setToast(false);
+      onSuccessUpload(true);
+      
+    }, 3000);
+
+  };
+
+  const handleSubmitProfile = () => {
+    if (validateProfile()) {
+      toggleProfileModal(); 
+      // setToast(true);
+    }
   };
 
   return (
@@ -335,10 +361,17 @@ function CardInformationSertif() {
                 </div>
 
                 <div className='flex justify-end'>
-                  <button type="submit" className='text-white bg-primaryBlue rounded hover:bg-ternaryBlue px-4 py-2'>
-                    Konfirmasi Pembayaran
+                  <button type="submit" className='text-white bg-primaryBlue rounded hover:bg-ternaryBlue px-6 py-2'>
+                    Kirim
                   </button>
                 </div>
+
+                <ConfirmUpdate
+                    isOpen={modalConfirm}
+                    onClose={toggleUploadPembayaran}
+                    onConfirm={displayToast}
+                    text={'Unggah bukti pembayaran?'}
+                  />
               </form>
             </div>
           )}
@@ -360,7 +393,7 @@ function CardInformationSertif() {
                 </svg>
                 <span className="sr-only">Check icon</span>
               </div>
-              <div className="ms-3 text-sm font-normal">Konfirmasi pembayaran berhasil.</div>
+              <div className="ms-3 text-sm font-normal">Bukti pembayaran berhasil diunggah</div>
               <button
                 type="button"
                 className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"

@@ -285,10 +285,10 @@ function DashboardUser() {
               {/* Progress Item 1 */}
               <div className="flex justify-between mb-1">
                 <span className="text-base font-medium text-ternaryBlue dark:text-white">Pembayaran Sertifikasi</span>
-                <span className="text-sm font-medium text-ternaryBlue dark:text-white">50% <span className="text-[12px] text-gray-500">(Menunggu Konfirmasi)</span></span>
+                <span className="text-sm font-medium text-ternaryBlue dark:text-white">25% <span className="text-[12px] text-gray-500">(Menunggu pembayaran)</span></span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '50%' }}></div>
+                <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width:'25%' }}></div>
               </div>
 
               {/* Progress Item 2 */}
@@ -377,10 +377,10 @@ function DashboardUser() {
                 <div>
                   <div className="flex justify-between mb-1">
                     <span className="text-base font-medium text-ternaryBlue dark:text-white">Pembayaran Sertifikasi</span>
-                    <span className="text-sm font-medium text-ternaryBlue dark:text-white">50% <span className="text-[12px] text-gray-500">(Menunggu Konfirmasi)</span></span>
+                    <span className="text-sm font-medium text-ternaryBlue dark:text-white">25% <span className="text-[12px] text-gray-500">(Menunggu pembayaran)</span></span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width: '50%' }}></div>
+                    <div className="bg-primaryBlue h-2.5 rounded-full" style={{ width:'25%' }}></div>
                   </div>
                 </div>
 
