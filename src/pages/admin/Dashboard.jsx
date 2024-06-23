@@ -4,6 +4,7 @@ import { Person, Apartment, Email, NoteAlt, Paid, FileUpload, UploadFile, Assign
 import FloatingNavbar from '../../components/FloatingNavbar/Index';
 import Chart from 'react-apexcharts';
 import PrimaryButton from '../../components/Button/PrimaryButton';
+import { Link } from 'react-router-dom';
 
 function DashboardUser() {
   const breadcrumbs = [{ href: null, label: 'Dashboard' }];
@@ -129,15 +130,24 @@ function DashboardUser() {
             </div>
           </div>
         </div>
+        
 
-        <div className='mt-10 hidden xl:block'>
+        <div className='mt-10'>
 
           <div className="flex items-center mb-5">
             <p className="text-xl text-ternaryBlue font-bold">Prosedur Sertifikasi</p>
             <div className="flex-grow border-t border-gray-500 ml-4"></div>
           </div>
 
-          <div className='bg-white shadow p-5 rounded-2xl'>
+          <div className='xl:hidden'>
+            <p className='text-sm text-gray-700 mb-5'>
+              Prosedur sertifikasi dapat dilihat melalui <span className='text-primaryBlue hover:underline'>
+                <Link to={'/sertifikasi'}>panduan pengguna</Link>
+              </span>
+            </p>
+          </div>
+
+          <div className='bg-white shadow p-5 rounded-2xl hidden xl:block'>
             <ol className="items-center sm:flex justify-center">
               <li className="relative mb-6 sm:mb-0">
                 <div className="flex items-center">
