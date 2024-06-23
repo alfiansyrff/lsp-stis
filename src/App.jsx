@@ -22,6 +22,7 @@ import DetailSertifikasi from './pages/admin/DetailSertifikasi';
 import Ujian from './pages/admin/Ujian';
 import Profile from './pages/admin/Profile';
 import Register from './pages/guest/Register';
+import Statistik from './pages/guest/Statistik';
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/berita" element={<Berita />} />
           <Route path="/sertifikasi" element={<Sertifikasi />} />
           <Route path="/regulasi" element={<Reguilasi />} />
+          <Route path="/statistik" element={<Statistik />} />
           <Route path="/berita/detail/:title" element={<DetailBerita />} />
           <Route path='/user' element={<DashboardUser />} />
           <Route path='/user/sertifikasi' element={<SertifikasiUser />} />

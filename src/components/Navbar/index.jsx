@@ -66,14 +66,14 @@ function Navbar() {
         <Link to="/" className="flex items-center space-x-3">
           <img src={baseUrl + 'image/logo.png'} className="h-8" alt="STIS Logo" />
           <span className={`text-sm lg:text-base ${isHomePage && !scrolled ? 'text-white' : 'text-ternaryBlue'}`}>
-            <p className="mb-0">
+            <p className="mb-0 text-sm">
               Lembaga Sertifikasi Profesi <br className="lg:hidden" /> <span className="block">Politeknik Statistika STIS</span>
             </p>
           </span>
         </Link>
 
         {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-4 items-center">
+        <ul className="hidden md:flex space-x-3 items-center">
           <li>
             <Link to="/" className={getLinkClass('/')}>Beranda</Link>
           </li>
@@ -85,6 +85,9 @@ function Navbar() {
           </li>
           <li>
             <Link to="/berita" className={getLinkClass('/berita')}>Berita</Link>
+          </li>
+          <li>
+            <Link to="/statistik" className={getLinkClass('/statistik')}>Statistik</Link>
           </li>
         </ul>
 
@@ -155,6 +158,9 @@ function Navbar() {
           </li>
           <li>
             <Link to="/berita" className={getLinkClass('/berita')}>Berita</Link>
+          </li>
+          <li>
+            <Link to="/statistik" className={getLinkClass('/statistik')}>Statistik</Link>
           </li>
           {isLoggedIn ? (
             <>
