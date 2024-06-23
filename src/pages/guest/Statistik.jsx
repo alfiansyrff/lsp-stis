@@ -1,8 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
+import Chart from 'react-apexcharts';
 import GuestLayout from '../layout/GuestLayout';
 import BreadCrumbs from '../../components/Breadcrumbs';
 import TitlePage from '../../components/TitlePage';
-import Chart from 'react-apexcharts';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import HighchartsMap from 'highcharts/modules/map';
+import mapData from '@highcharts/map-collection/countries/id/id-all.geo.json';
+
+HighchartsMap(Highcharts);
 
 function Statistik() {
   const links = [
@@ -68,16 +75,13 @@ function Statistik() {
     },
   };
 
-  // Series for the line chart
   const lineChartSeries = [
     {
       name: 'Pengunjung',
       data: visitorData,
     },
   ];
-  
 
-  // Define the data and options for the donut chart
   const donutChartOptions = {
     chart: {
       type: 'donut',
@@ -98,8 +102,8 @@ function Statistik() {
 
   const donutChartSeries = [40, 26];
 
-   // Define the data and options for the donut chart
-   const donutChartOptions2 = {
+  // Define the data and options for the donut chart
+  const donutChartOptions2 = {
     chart: {
       type: 'donut',
     },
@@ -119,39 +123,81 @@ function Statistik() {
 
   const donutChartSeries2 = [10, 9];
 
-  // Define the data and options for the horizontal bar chart
-  const barChartOptions = {
+  const mapOptions = {
     chart: {
-      type: 'bar',
-      toolbar: {
-        show: false
+      map: mapData,
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    mapNavigation: {
+      enabled: true,
+      buttonOptions: {
+        verticalAlign: 'bottom'
       }
     },
-    plotOptions: {
-      bar: {
-        horizontal: true
-      }
+    colorAxis: {
+      min: 0,
+      minColor: '#E6E7E8',
+      maxColor: '#003399'
     },
-    dataLabels: {
-      enabled: false
+    tooltip: {
+      pointFormat: '{point.name}: {point.value}'
     },
-    xaxis: {
-      title: {
-        text: 'Orang'
+    series: [{
+      data: [
+        { 'hc-key': 'id-ac', value: 11, name: 'Aceh' },
+        { 'hc-key': 'id-ba', value: 17, name: 'Bali' },
+        { 'hc-key': 'id-bb', value: 16, name: 'Bangka Belitung' },
+        { 'hc-key': 'id-bt', value: 14, name: 'Banten' },
+        { 'hc-key': 'id-be', value: 13, name: 'Bengkulu' },
+        { 'hc-key': 'id-yo', value: 40, name: 'DI Yogyakarta' },
+        { 'hc-key': 'id-jk', value: 38, name: 'DKI Jakarta' },
+        { 'hc-key': 'id-go', value: 39, name: 'Gorontalo' },
+        { 'hc-key': 'id-ja', value: 43, name: 'Jambi' },
+        { 'hc-key': 'id-jr', value: 30, name: 'Jawa Barat' },
+        { 'hc-key': 'id-jt', value: 25, name: 'Jawa Tengah' },
+        { 'hc-key': 'id-ji', value: 20, name: 'Jawa Timur' },
+        { 'hc-key': 'id-kb', value: 18, name: 'Kalimantan Barat' },
+        { 'hc-key': 'id-ks', value: 19, name: 'Kalimantan Selatan' },
+        { 'hc-key': 'id-kt', value: 44, name: 'Kalimantan Tengah' },
+        { 'hc-key': 'id-ki', value: 36, name: 'Kalimantan Timur' },
+        { 'hc-key': 'id-ku', value: 12, name: 'Kalimantan Utara' },
+        { 'hc-key': 'id-kr', value: 22, name: 'Kepulauan Riau' },
+        { 'hc-key': 'id-1024', value: 28, name: 'Lampung' },
+        { 'hc-key': 'id-ma', value: 30, name: 'Maluku' },
+        { 'hc-key': 'id-la', value: 41, name: 'Maluku Utara' },
+        { 'hc-key': 'id-nb', value: 31, name: 'Nusa Tenggara Barat' },
+        { 'hc-key': 'id-nt', value: 20, name: 'Nusa Tenggara Timur' },
+        { 'hc-key': 'id-pa', value: 34, name: 'Papua' },
+        { 'hc-key': 'id-ib', value: 23, name: 'Papua Barat' },
+        { 'hc-key': 'id-pe', value: 24, name: 'Papua Pegunungan' },
+        { 'hc-key': 'id-ps', value: 26, name: 'Papua Selatan' },
+        { 'hc-key': 'id-ri', value: 29, name: 'Riau' },
+        { 'hc-key': 'id-sr', value: 25, name: 'Sulawesi Barat' },
+        { 'hc-key': 'id-se', value: 42, name: 'Sulawesi Selatan' },
+        { 'hc-key': 'id-st', value: 33, name: 'Sulawesi Tengah' },
+        { 'hc-key': 'id-sg', value: 21, name: 'Sulawesi Tenggara' },
+        { 'hc-key': 'id-sw', value: 32, name: 'Sulawesi Utara' },
+        { 'hc-key': 'id-sb', value: 24, name: 'Sumatera Barat' },
+        { 'hc-key': 'id-sl', value: 29, name: 'Sumatera Selatan' },
+        { 'hc-key': 'id-su', value: 27, name: 'Sumatera Utara' },
+      ],
+      name: 'Pendaftar',
+      states: {
+        hover: {
+          color: '#e67e22'
+        }
       },
-      categories: ['Jawa Barat', 'Jawa Timur', 'Jawa Tengah', 'Jakarta', 'Bali']
-    },
-    yaxis: {
-      title: {
-        text: 'Provinsi'
+      dataLabels: {
+        enabled: true,
+        format: '{point.name}'
       }
-    }
+    }]
   };
-
-  const barChartSeries = [{
-    name: 'Pendaftar',
-    data: [30, 25, 20, 15, 10] // Example data
-  }];
 
   const stackedBarOptions = {
     chart: {
@@ -168,9 +214,7 @@ function Statistik() {
     },
     xaxis: {
       categories: ['Ilmuwan Data', 'Ilmuwan Data Madya'],
-      
     },
-   
   };
 
   const stackedBarSeries = [
@@ -184,14 +228,12 @@ function Statistik() {
     }
   ];
 
-
   return (
     <GuestLayout>
       <BreadCrumbs links={links} />
       <TitlePage title={'Statistik dan Ringkasan'} desc={'Berisikan berbagai statistik dan ringkasan terkait website dan kegiatan sertifikasi LSP Polstat STIS'} />
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto px-4 my-10'>
-
         <div className="bg-white col-span-1 md:col-span-2 rounded-2xl p-6 shadow-md">
           <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">Jumlah Kunjungan Website</h2>
           <div className='flex flex-col md:flex-row items-center gap-2 md:gap-10 my-5'>
@@ -218,22 +260,23 @@ function Statistik() {
           <Chart options={donutChartOptions} series={donutChartSeries} type="donut" height={350} />
         </div>
         
-
         <div className="bg-white rounded-2xl p-6 shadow-md">
-          <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">5 Provinsi Pendaftar Terbanyak</h2>
-          <Chart options={barChartOptions} series={barChartSeries} type="bar" height={350} />
+          <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">Sebaran Pendaftar</h2>
+          <HighchartsReact
+            constructorType={'mapChart'}
+            highcharts={Highcharts}
+            options={mapOptions}
+          />
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-md">
           <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">Persentase Asesor Berdasarkan Skema Sertifikasi</h2>
           <Chart options={donutChartOptions2} series={donutChartSeries2} type="donut" height={350} />
-          
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-md">
           <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">Perbandingan Jumlah Asesi Lulus Ujian Berdasarkan Skema Sertifikasi</h2>
           <Chart options={stackedBarOptions} series={stackedBarSeries} type="bar" height={350} />
-
         </div>
       </div>
     </GuestLayout>
