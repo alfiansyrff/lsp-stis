@@ -28,7 +28,7 @@ function Lisensi() {
       </div>
 
       <div className='flex flex-col md:flex-row justify-center items-center mx-auto mt-16 px-4 md:px-0 space-y-8 md:space-y-0 '>
-        <div className='flex flex-col md:w-[60%] mx-auto justify-center bg-white rounded-2xl p-5 relative' data-aos="fade-right"
+        <div className='flex flex-col md:w-[60%] mx-auto justify-center bg-white rounded-2xl p-5 relative' data-aos="zoom-in-up"
           data-aos-delay="50"
           data-aos-duration="500"
           data-aos-easing="ease-in-out">
@@ -42,7 +42,7 @@ function Lisensi() {
             <PrimaryButton text={'Unduh SK Lisensi'}/>
           </div>
         </div>
-        <div className='flex hidden md:block justify-center mx-auto items-center' data-aos="fade-left"
+        <div className='flex hidden md:block justify-center mx-auto items-center' data-aos="zoom-in"
           data-aos-delay="50"
           data-aos-duration="500"
           data-aos-easing="ease-in-out">
@@ -60,6 +60,8 @@ function Lisensi() {
           </LightGallery>
         </div>
       </div>
+
+      
     </div>
   );
 }

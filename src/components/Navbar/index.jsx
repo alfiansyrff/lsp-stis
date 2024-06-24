@@ -73,7 +73,7 @@ function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-3 items-center">
+        <ul className="hidden lg:flex space-x-3 items-center">
           <li>
             <Link to="/" className={getLinkClass('/')}>Beranda</Link>
           </li>
@@ -92,7 +92,7 @@ function Navbar() {
         </ul>
 
         {/* Profile / Daftar and Masuk Buttons */}
-        <div className="hidden md:flex space-x-4 items-center">
+        <div className="hidden lg:flex space-x-4 items-center">
           {isLoggedIn ? (
             <div className="relative">
               <button
@@ -132,7 +132,7 @@ function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden space-x-3 items-center">
+        <div className="flex lg:hidden space-x-3 items-center">
           <button
             className="text-ternaryBlue hover:text-secondaryBlue focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -145,7 +145,7 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden mt-3 ${menuOpen ? 'block' : 'hidden'}`}>
+      <div className={`lg:hidden mt-3 ${menuOpen ? 'block' : 'hidden'}`}>
         <ul className="bg-white text-ternaryBlue py-2 px-4 shadow-lg rounded-lg space-y-2">
           <li>
             <Link to="/" className={getLinkClass('/')}>Beranda</Link>
