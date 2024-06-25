@@ -32,7 +32,10 @@ function SupportBy() {
         <Heading text="Diselenggarakan Oleh" />
       </div>
       
-      <div className="mt-16 max-w-md md:max-w-sm mx-auto">
+      <div className="mt-16 max-w-md md:max-w-sm mx-auto" data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out">
         <div className="flex flex-wrap justify-center items-center gap-5 m-5 p-4 bg-white shadow-xl rounded-2xl">
           {support.map((item) => (
             <SupportLogo
