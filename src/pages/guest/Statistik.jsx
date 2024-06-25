@@ -192,10 +192,10 @@ function Statistik() {
           color: '#e67e22'
         }
       },
-      dataLabels: {
-        enabled: true,
-        format: '{point.name}'
-      }
+      // dataLabels: {
+      //   enabled: true,
+      //   format: '{point.name}'
+      // }
     }]
   };
 
@@ -248,7 +248,7 @@ function Statistik() {
               </select>
             </div>
             <div className=''>
-              <label className='text-ternaryBlue' id='pengunjungContainer' htmlFor="pengunjung">Total Pengunjung</label>
+              <label className='text-ternaryBlue' id='pengunjungContainer' htmlFor="pengunjung">Jumlah Pengunjung</label>
               <input type="text" id="pengunjung" className="mt-2 border-gray-300 text-sm rounded-md block p-2.5 hover:cursor-not-allowed" value={visitorData.reduce((acc, curr) => acc + curr, 0)} disabled/>
             </div>
           </div>
@@ -275,7 +275,7 @@ function Statistik() {
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-md">
-          <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">Perbandingan Jumlah Asesi Lulus Ujian Berdasarkan Skema Sertifikasi</h2>
+          <h2 className="font-bold mb-4 text-primaryOrange text-center text-xl mb-5">Jumlah Asesi Lulus Ujian Berdasarkan Skema Sertifikasi</h2>
           <Chart options={stackedBarOptions} series={stackedBarSeries} type="bar" height={350} />
         </div>
       </div>
